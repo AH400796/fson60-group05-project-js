@@ -1,0 +1,51 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  width: 100%;
+
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 100%;
+
+  background-image: linear-gradient(to right, $color-overlay-header, $color-overlay-header), url(../images/header/background-mob-320@1x.jpg);
+
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    background-image: linear-gradient(to right, $color-overlay-header, $color-overlay-header), url(../images/header/background-mob-640@2x.jpg);
+  }
+
+  @media screen and (min-width: $tablet) {
+    background-image: linear-gradient(to right, $color-overlay-header, $color-overlay-header), url(../images/header/background-tab-767@1x.jpg);
+
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right, $color-overlay-header, $color-overlay-header), url(../images/header/background-tab-1534@2x.jpg);
+    }
+  }
+
+  @media screen and (min-width: $desktop) {
+    background-image: linear-gradient(to right, $color-overlay-header, $color-overlay-header), url(../images/header/background-desk-1280@1x.jpg);
+
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right, $color-overlay-header, $color-overlay-header), url(../images/header/background-desk-2560@2x.jpg);
+    }
+  }
+}
+
+.header__container {
+  padding-top: 40px;
+  padding-bottom: 92px;
+
+  @media screen and (min-width: ($tablet - 0.02px)) {
+    padding-bottom: 80px;
+  }
+}
+
+.header__logo {
+  @media screen and (min-width: ($tablet - 0.02px)) {
+    padding-bottom: 80px;
+  }
+  @media screen and (min-width: ($desktop - 0.02px)) {
+    padding-bottom: 80px;
+  }
+}

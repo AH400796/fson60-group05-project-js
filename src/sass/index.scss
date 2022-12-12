@@ -1,0 +1,23 @@
+// UTIL STYLES
+@import './utils/variables';
+@import './utils/placeholders';
+@import './utils/visually-hidden';
+
+// BASE STYLES
+@import './base/common';
+@import './base/reset';
+@import './base/base';
+
+// COMPONENTS STYLES
+
+@import './components/container';
+@import './components/buttons';
+@import './components/logo';
+@import './components/navigation';
+@import './components/pagination';
+
+// LAYOUTS STYLES
+@import './layouts/header';
+@import './layouts/gallery';
+@import './layouts/footer';
+@import './layouts/modal';

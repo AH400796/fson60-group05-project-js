@@ -1,0 +1,30 @@
+%link {
+  text-decoration: none;
+  color: currentColor;
+}
+
+%list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+%button {
+  display: block;
+  // padding-top: 6px;
+  // padding-right: 17px;
+  // padding-bottom: 5px;
+  // padding-left: 17px;
+
+  // font-size: 14px;
+  // font-weight: 400;
+  // line-height: calc(21 / 14);
+  // text-align: center;
+
+  // color: $color-primary-text;
+  // background-color: $color-accent;
+  
+    border: none;
+  // border-radius: 30px;
+  cursor: pointer;
+}

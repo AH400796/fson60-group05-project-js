@@ -1,0 +1,32 @@
+.nav {
+  margin-left: auto;
+}
+
+.nav__list {
+  @extend %list;
+  // margin-right: 28px;
+  // display: none;
+  // gap: 28px;
+
+  // @media screen and (min-width: $tablet) {
+  //   display: flex;
+  // }
+}
+
+.nav__link {
+  @extend %link;
+  // padding: 27px 0;
+
+  // font-weight: 400;
+  // font-size: 14px;
+  // line-height: calc(16 / 14);
+
+  // color: $color-primary-text;
+  // transition: color $timing-function-trans-duration;
+
+  //   &:hover,
+  //   &:focus {
+  //     color: $color-accent;
+  //     text-decoration: underline;
+  //   }
+}

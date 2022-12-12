@@ -1,0 +1,26 @@
+// Media-width
+$mobile: 480px;
+$tablet: 768px;
+$desktop: 1280px;
+
+//     Fonts
+$font-text: 'Roboto', sans-serif;
+
+//     Colors
+$color-primary-text: #000000;
+$color-secondary-text: #8c8c8c;
+$color-footer-text: #545454;
+$color-background: #ffffff;
+$color-footer-background: #f7f7f7;
+$color-accent: #ff6b08;
+$color-current-underline: #ff001b;
+$color-overlay-modal: rgba(0, 0, 0, 0.25);
+$color-overlay-header: rgba(0, 0, 0, 0.56);
+
+//     Shadows ???
+// $shadow-header: 0px 4px 24px rgba(105, 105, 105, 0.1);
+// $shadow-footer: 0px -4px 24px rgba(105, 105, 105, 0.1);
+
+//     Transition properties ???
+// $timing-function-trans-duration: cubic-bezier(0.4, 0, 0.2, 1) 250ms;
+// $timing-function-trans-duration-for-modal: cubic-bezier(0.4, 0, 0.2, 1) 750ms;

@@ -1,0 +1,27 @@
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  font-family: $font-text;
+  font-style: normal;
+
+  background-color: $color-background;
+  color: $color-primary-text;
+
+  // &.modal-open {
+  //   overflow: hidden;
+  // }
+}
+
+html {
+  height: 100%;
+}
+
+.above-footer {
+  flex: 1 0 auto;
+}
+
+.stiky-footer {
+  flex-shrink: 0;
+}
