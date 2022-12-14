@@ -4,7 +4,7 @@ export function addSpinner() {
     Loading.standard('Loading your movies...', {
         svgColor: '$color-accent',
         svgSize: '25px',
-        backgroundColor: 'rgba(0,0,0,0.8)',
+        backgroundColor: '$color-overlay-modal',
     });
 }
 
