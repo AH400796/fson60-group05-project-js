@@ -2,10 +2,10 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://AH400796.github.io/fson60-group08-project-js",
+  "homepage": "https://AH400796.github.io/fson60-group05-project-js",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /fson60-group08-project-js/"
+    "build": "parcel build src/*.html --public-url /fson60-group05-project-js/"
   },
   "repository": {
     "type": "git",
