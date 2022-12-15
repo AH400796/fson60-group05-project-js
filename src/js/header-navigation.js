@@ -1,5 +1,7 @@
 import { addSpinner, removeSpinner } from './spinner';
 
+import { getTrendingFilms } from './get-trending';
+
 const { header, container, wrapper, logo, home, library, watched, queue, seachSubmit, input } = {
   header: document.querySelector('.js-header'),
   container: document.querySelector('.js-container'),
@@ -42,7 +44,7 @@ function onClickHome() {
   input.classList.remove('visually-hidden');
   watched.classList.add('visually-hidden');
   queue.classList.add('visually-hidden');
-  //  + Fetch та рендеринг списку найпопулярніших фільмів на сьогодні (Home)
+  getTrendingFilms();
 }
 
 function onClickWatched() {
