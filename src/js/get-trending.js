@@ -15,7 +15,9 @@ function createMarkup(data) {
       return `<div class="gallery__item">
     <img src="https://www.themoviedb.org/t/p/original${item.poster_path}" alt="${item.original_title}">
     <h2 class="gallery__title">${item.original_title}</h2>
-    <p class="gallery__info">${item.genre_ids} | ${item.release_date} ${item.vote_average}</p></div>`;
+    <p class="gallery__info">${item.genre_ids} | ${item.release_date} ${item.vote_average}</p>
+    <div class="id" hidden> ${item.id} </div></div>`;
+    
     })
     .join('');
   const gallery = document.querySelector('.gallery');

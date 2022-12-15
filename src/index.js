@@ -1,4 +1,4 @@
-// import './js/modal-open.js';
+import './js/modal-open.js';
 // import './js/firebase';
 // import './js/fixed-header';
 // import './js/footer-modal.js';
