@@ -18,14 +18,14 @@ function onAddToWatched() {
   localStorage.setItem('KEY_WATCHED', JSON.stringify(data));
 
   addToWatched.disabled = true;
-  Notiflix.Notify.success(`Movie ${resp.data.totalHits} added to watched`);
+  Notiflix.Notify.success(`Movie ${data.original_title} added to watched`);
 }
 
 function onAddToQueue() {
   localStorage.setItem('KEY_QUEUE', JSON.stringify(data));
 
   addToQueue.disabled = true;
-  Notiflix.Notify.success(`Movie ${resp.data.totalHits} added to queue`);
+  Notiflix.Notify.success(`Movie ${data.original_title} added to queue`);
 }
 
 function onClickWatched() {
