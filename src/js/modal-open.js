@@ -1,6 +1,7 @@
 
 const API_KEY = 'fbee7941f117d258bba2ad0706e433a4';
 const BASE_URL = 'https//api.themoviedb.org/3/';
+
   const refs = {
     list: document.querySelector('.gallery'),
     body: document.body, 
@@ -8,7 +9,7 @@ const BASE_URL = 'https//api.themoviedb.org/3/';
     modal: document.querySelector('.backdrop__modal'),
     backdrop: document.querySelector('.backdrop'),
     modalCard: document.querySelector('.modal__film-card'),
-};
+  };
 
 
   refs.list.addEventListener('click', onListClick)
