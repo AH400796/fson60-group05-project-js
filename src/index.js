@@ -2,6 +2,7 @@
 // import './js/firebase';
 // import './js/fixed-header';
 import './js/header-navigation';
+import './js/get-trending';
 
 // API_KEY = fbee7941f117d258bba2ad0706e433a4
 // BASE_URL = https://api.themoviedb.org/3/
