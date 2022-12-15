@@ -1,72 +1,64 @@
+import { API_KEY, BASE_URL } from './constants';
 
-const API_KEY = 'fbee7941f117d258bba2ad0706e433a4';
-const BASE_URL = 'https//api.themoviedb.org/3/';
+const refs = {
+  list: document.querySelector('.gallery'),
+  body: document.body,
+  closeModalBtn: document.querySelector('[data-modal-close]'),
+  modal: document.querySelector('.backdrop__modal'),
+  backdrop: document.querySelector('.backdrop'),
+  modalCard: document.querySelector('.modal__film-card'),
+};
 
-  const refs = {
-    list: document.querySelector('.gallery'),
-    body: document.body, 
-    closeModalBtn: document.querySelector('[data-modal-close]'),
-    modal: document.querySelector('.backdrop__modal'),
-    backdrop: document.querySelector('.backdrop'),
-    modalCard: document.querySelector('.modal__film-card'),
-  };
+refs.list.addEventListener('click', onListClick);
+refs.closeModalBtn.addEventListener('click', onCloseModal);
+refs.backdrop.addEventListener('click', onBackdropClick);
 
+function onListClick(event) {
+  const filmCard = event.target.closest('.gallery__item');
+  if (event.target === event.currentTarget) {
+    // console.log('not film card');
+    return;
+  }
+  console.log(filmCard);
+  const filmId = filmCard.querySelector('.id').textContent;
+  // console.log(filmId);
 
-  refs.list.addEventListener('click', onListClick)
-  refs.closeModalBtn.addEventListener('click', onCloseModal);
-  refs.backdrop.addEventListener('click', onBackdropClick);
-
-
-
-
-function onListClick(event) {   
-    const filmCard = event.target.closest('.gallery__item')
-     if (event.target === event.currentTarget)     
-    {
-        console.log('not film card');
-        return
-    }
-    console.log(filmCard); 
-    const filmId = filmCard.querySelector('.id').textContent     
-    console.log(filmId);
-   
-    onFilmCardClick(filmId).then((data) => {
-        refs.body.classList.add('show-modal')
-        window.addEventListener('keydown', onEscKeyPress)
-        createFilmModalCard(data)       
-    })
-    
+  onFilmCardClick(filmId).then(data => {
+    refs.body.classList.add('show-modal');
+    window.addEventListener('keydown', onEscKeyPress);
+    createFilmModalCard(data);
+  });
 }
- async function onFilmCardClick(filmId) {
-    const response = await fetch(`https://api.themoviedb.org/3/movie/${filmId}?api_key=${API_KEY}`)
-        if (!response.ok) {
-        throw new Error
-    }
-    return await response.json(); 
+async function onFilmCardClick(filmId) {
+  const response = await fetch(`${BASE_URL}/movie/${filmId}?api_key=${API_KEY}`);
+  if (!response.ok) {
+    throw new Error();
+  }
+  return await response.json();
 }
 
 function onBackdropClick(event) {
   if (event.currentTarget === event.target) {
-    onCloseModal()
+    onCloseModal();
   }
-};
+}
 function onCloseModal() {
   refs.body.classList.remove('show-modal');
-};
+}
 
 function onEscKeyPress(event) {
-    if (event.code === 'Escape') {
-        onCloseModal()
-    }    
-};
+  if (event.code === 'Escape') {
+    onCloseModal();
+  }
+}
 function onCloseModal(event) {
   refs.body.classList.remove('show-modal');
-  refs.modalCard.innerHTML = "";
+  refs.modalCard.innerHTML = '';
   window.removeEventListener('keydown', onEscKeyPress);
 }
 
-function createFilmModalCard(data) { 
-   const markup = `<img class="modal__card-img img" src="https://image.tmdb.org/t/p/original/${data.poster_path}" alt="${data.original_title}" 
+function createFilmModalCard(data) {
+  const markup = `<img class="modal__card-img img" src="https://image.tmdb.org/t/p/original/${data.poster_path}" alt="${data.original_title}" 
         width="375" height="478"> 
       <div class="modal__card"> 
         <h3 class="modal__card-title">${data.title}</h3> 
@@ -83,12 +75,13 @@ function createFilmModalCard(data) {
           </li> 
           <li class="card__item"> 
             <h4 class="card__item-title">Original Title</h4> 
-            <p class="card__item-original">${data.original_title
-}</p> 
+            <p class="card__item-original">${data.original_title}</p> 
           </li> 
           <li class="card__item"> 
             <h4 class="card__item-title">Genre</h4> 
-            <p class="card__item-genre">${data.genres.map((item)=>{return item['name']})}</p> 
+            <p class="card__item-genre">${data.genres.map(item => {
+              return item['name'];
+            })}</p> 
           </li> 
         </ul> 
         <h4 class="card__item-about">About</h4> 
@@ -102,13 +95,10 @@ function createFilmModalCard(data) {
             <button class="card__btn">add to queue</button> 
           </li> 
         </ul> 
-      </div> `
-  refs.modalCard.insertAdjacentHTML('beforeend', markup)
+      </div> `;
+  refs.modalCard.insertAdjacentHTML('beforeend', markup);
 }
 
- 
- 
-   
 //     const markup = `<img src="https://image.tmdb.org/t/p/original/${data.poster_path}
 // " alt="${data.original_title}" width="375px" height="478px">
 //     <div class="modal__info">
@@ -122,8 +112,6 @@ function createFilmModalCard(data) {
 //     <h2 class="modal__subtitle">ABOUT</h2>
 //     <p class="modal__text">${data.overview}</p>
 //     <button class="modal__adding-button"> ADD TO WATCHED </button>
-//     <button class="modal__queue-button"> ADD TO QUEUE</button>    
-   
+//     <button class="modal__queue-button"> ADD TO QUEUE</button>
+
 //     </div> `;
-   
-    
