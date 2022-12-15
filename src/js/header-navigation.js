@@ -1,3 +1,5 @@
+import { addSpinner, removeSpinner } from './spinner';
+
 const { header, container, wrapper, logo, home, library, watched, queue, seachSubmit, input } = {
   header: document.querySelector('.js-header'),
   container: document.querySelector('.js-container'),
@@ -53,4 +55,7 @@ function onClickQueue() {
   watched.classList.remove('current');
   queue.classList.add('current');
   //  + рендеринг списку фільмів, які додані в чергу на перегляд (Queue)
+
+  addSpinner();
+  // removeSpinner();
 }
