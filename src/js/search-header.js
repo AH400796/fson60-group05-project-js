@@ -14,7 +14,7 @@ function onSubmit(e) {
   console.log(e);
   console.log(e.currentTarget);
   console.log(e.target);
-  value = e.target[0].value.trim();
+  value = e.target.elements[0].value.trim();
   console.log(value);
 
   fetchFilm(value)
