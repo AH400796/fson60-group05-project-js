@@ -7,12 +7,13 @@ formSearch.addEventListener('submit', onSubmit);
 function onSubmit(e) {
   listFilms.innerHTML = '';
   e.preventDefault();
-  console.dir(e);
   // const {
   //   elements: { searchFilm },
   // } = e.currentTarget;
   // value = searchFilm.value.trim();
-
+  console.log(e);
+  console.log(e.currentTarget);
+  console.log(e.target);
   value = e.target[0].value.trim();
   console.log(value);
 
