@@ -37,7 +37,7 @@ function onListClick(event) {
     
 }
  async function onFilmCardClick(filmId) {
-    const response = await fetch(`${BASE_URL}movie/${filmId}?api_key=${API_KEY}`)
+    const response = await fetch(`https://api.themoviedb.org/3/movie/${filmId}?api_key=${API_KEY}`)
         if (!response.ok) {
         throw new Error
     }
