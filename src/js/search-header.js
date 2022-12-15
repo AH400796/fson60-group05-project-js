@@ -15,7 +15,7 @@ function onSubmit(e) {
 
   fetchFilm(value)
     .then(data => {
-     if (!value) {
+      if (!value) {
         Notify.info('Not found!');
         return;
       } else {
@@ -23,7 +23,7 @@ function onSubmit(e) {
       }
     })
     .catch(error => {
-      Notify.failure('Оops, something went wrong!')
+      Notify.failure('Оops, something went wrong!');
       console.log(error);
     });
 }
@@ -42,3 +42,5 @@ function createMarkup(data) {
     .join('');
   listFilms.innerHTML = markup;
 }
+
+// ***
