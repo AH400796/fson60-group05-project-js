@@ -1,14 +1,14 @@
-<header class="header">
-  <div class="header__container container">
-    <div class="header__wrapper">
-      <div class="header__logo">
+<header class="header js-header">
+  <div class="header__container container js-container">
+    <div class="header__wrapper js-wrapper">
+      <div class="header__logo js-logo">
         <img class="header__logo-icon" src="./images/header/logo.svg" width="24" height="24" alt="logo" />
         <h1 class="header__title">Filmoteka</h1>
       </div>
       <nav class="header__nav">
         <ul class="header__nav-list">
           <li class="header__nav-item js-home">
-            <p class="header__nav-link current">Home</p>
+            <p class="header__nav-link">Home</p>
           </li>
           <li class="header__nav-item js-library">
             <p class="header__nav-link">My library</p>
@@ -17,13 +17,14 @@
       </nav>
     </div>
     <form class="header__form">
-      <div class="header__input-wrapper">
-        <input class="header__input" type="text" placeholder="Movie search" />
+      <div class="header__input-wrapper js-input">
+        <input class="header__input" type="text" placeholder="Movie search" name="searchFilm" autocomplete="off" />
+        <button class="search-button js-search" type="submit"></button>
       </div>
-      <button class="watched-button js-watched" type="submit">Watched</button>
-      <button class="queue-button js-queue" type="submit">Queue</button>
+      <div class="library-button">
+        <button class="watched-button js-watched visually-hidden" type="button">Watched</button>
+        <button class="queue-button js-queue visually-hidden" type="button">Queue</button>
+      </div>
     </form>
   </div>
 </header>
-
-<!-- visually-hidden -->

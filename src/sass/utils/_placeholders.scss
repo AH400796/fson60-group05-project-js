@@ -10,11 +10,13 @@
 }
 
 %button {
-  display: inline-block;
+  display: block;
   width: 130px;
   height: 44px;
   padding-top: 13px;
   padding-bottom: 12px;
+  padding-right: 0;
+  padding-left: 0;
   font-weight: 500;
   font-size: 12px;
   line-height: calc(16 / 12);
