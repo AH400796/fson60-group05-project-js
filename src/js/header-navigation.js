@@ -57,5 +57,5 @@ function onClickQueue() {
   //  + рендеринг списку фільмів, які додані в чергу на перегляд (Queue)
 
   addSpinner();
-  // removeSpinner();
+  setTimeout(removeSpinner, 3000);
 }
