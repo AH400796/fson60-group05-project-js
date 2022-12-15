@@ -16,7 +16,11 @@ function createMarkup(data) {
       return `<div class="gallery__item">
     <img src="https://www.themoviedb.org/t/p/original${item.poster_path}" alt="${item.title}" width="395">
     <h2 class="gallery__title">${item.original_title}</h2>
-    <p class="gallery__info">${getGenreName(item.genre_ids)} | ${Number.parseInt(item.release_date)} ${item.vote_average.toFixed(1)}</p></div>`;
+
+  // <p class="gallery__info">${item.genre_ids} | ${item.release_date} ${item.vote_average}</p>
+  //  <div class="id" hidden> ${item.id} </div></div>`;  
+  //  <p class="gallery__info">${getGenreName(item.genre_ids)} | ${Number.parseInt(item.release_date)} ${item.vote_average.toFixed(1)}</p></div>`;
+
     })
     .join('');
   const gallery = document.querySelector('.gallery__container');
