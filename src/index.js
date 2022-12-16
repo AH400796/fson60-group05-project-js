@@ -7,3 +7,4 @@ import './js/search-header';
 import './js/get-trending';
 import './js/add-to-watched-btn';
 import './js/spinner';
+import './js/scroll-up';
