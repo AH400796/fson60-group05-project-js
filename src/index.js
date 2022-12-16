@@ -1,4 +1,4 @@
-import './js/modal-open';
+import './js/film-card-modal';
 import './js/firebase';
 import './js/footer-modal.js';
 import './js/header-navigation';

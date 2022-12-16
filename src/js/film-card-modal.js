@@ -1,4 +1,5 @@
 import { onFilmCardClick } from './fetch';
+import { removeSpinner } from './spinner';
 
 const refs = {
   list: document.querySelector('.gallery__list'),
@@ -24,6 +25,7 @@ function onListClick(event) {
   // console.log(filmId);
 
   onFilmCardClick(filmId).then(data => {
+    removeSpinner();
     refs.body.classList.add('show-modal');
     window.addEventListener('keydown', onEscKeyPress);
     createFilmModalCard(data);
@@ -64,7 +66,7 @@ function createFilmModalCard(data) {
  
           <li class="card__item"> 
             <h4 class="card__item-title">Popularity</h4> 
-            <p class="card__item-popularity">${data.popularity?data.popularity.toFixed(1) : '' }</p> 
+            <p class="card__item-popularity">${data.popularity ? data.popularity.toFixed(1) : ''}</p> 
           </li> 
           <li class="card__item"> 
             <h4 class="card__item-title">Original Title</h4> 
@@ -73,7 +75,7 @@ function createFilmModalCard(data) {
           <li class="card__item"> 
             <h4 class="card__item-title">Genre</h4> 
             <p class="card__item-genre">${data.genres.map(item => {
-              return item['name']
+              return item['name'];
             })}</p> 
           </li> 
         </ul> 

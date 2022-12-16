@@ -1,6 +1,6 @@
 import { getTrendingFilms } from './fetch';
 import { createMarkup } from './create-markup';
-import { clearGallery, hideRating } from './utility-functions';
+import { clearGallery } from './utility-functions';
 import { removeSpinner } from './spinner';
 
 export const renderTrendingFilms = function () {
