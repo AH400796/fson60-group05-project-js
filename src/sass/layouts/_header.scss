@@ -188,6 +188,12 @@
   display: inline-block;
 }
 
+.header__input-info {
+  position: absolute;
+  right: 0;
+  bottom: -35px;
+}
+
 .library-button {
   display: flex;
   gap: 20px;

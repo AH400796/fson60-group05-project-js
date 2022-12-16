@@ -2,6 +2,7 @@
 import { addSpinner, removeSpinner } from './spinner';
 // import { getTrendingFilms } from './fetch';
 import { renderTrendingFilms } from './get-trending';
+import { resetSearch } from './utility-functions';
 
 const { header, container, wrapper, logo, home, library, watched, queue, input } = {
   header: document.querySelector('.js-header'),
@@ -20,6 +21,7 @@ home.addEventListener('click', onClickHome);
 logo.addEventListener('click', onClickHome);
 watched.addEventListener('click', onClickWatched);
 queue.addEventListener('click', onClickQueue);
+document.addEventListener('click', resetSearch);
 
 onClickHome();
 
