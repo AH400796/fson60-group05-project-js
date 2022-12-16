@@ -11,20 +11,35 @@
 
 %button {
   display: block;
-  // padding-top: 6px;
-  // padding-right: 17px;
-  // padding-bottom: 5px;
-  // padding-left: 17px;
+  width: 130px;
+  height: 44px;
+  padding-top: 13px;
+  padding-bottom: 12px;
+  padding-right: 0;
+  padding-left: 0;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: calc(16 / 12);
+  text-transform: uppercase;
+  text-align: center;
 
-  // font-size: 14px;
-  // font-weight: 400;
-  // line-height: calc(21 / 14);
-  // text-align: center;
+  color: $color-background;
+  background-color: transparent;
 
-  // color: $color-primary-text;
-  // background-color: $color-accent;
+  border: 1px solid $color-background;
+  border-radius: 5px;
 
-  border: none;
-  // border-radius: 30px;
   cursor: pointer;
+
+  @media screen and (min-width: ($tablet)) {
+    width: 152px;
+  }
+  @media screen and (min-width: ($desktop)) {
+    width: 148px;
+  }
+
+  &.current {
+    background-color: $color-accent;
+    border: 1px solid $color-accent;
+  }
 }

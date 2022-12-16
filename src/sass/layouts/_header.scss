@@ -1,10 +1,4 @@
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 50;
-  width: 100%;
-
   background-repeat: no-repeat;
   background-position: center top;
   background-size: 100%;
@@ -16,10 +10,10 @@
   }
 
   @media screen and (min-width: $tablet) {
-    background-image: linear-gradient(to right, $color-overlay-header, $color-overlay-header), url(../images/header/background-tab-767@1x.jpg);
+    background-image: linear-gradient(to right, $color-overlay-header, $color-overlay-header), url(../images/header/background-tab-768@1x.jpg);
 
     @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-      background-image: linear-gradient(to right, $color-overlay-header, $color-overlay-header), url(../images/header/background-tab-1534@2x.jpg);
+      background-image: linear-gradient(to right, $color-overlay-header, $color-overlay-header), url(../images/header/background-tab-1536@2x.jpg);
     }
   }
 
@@ -30,22 +24,210 @@
       background-image: linear-gradient(to right, $color-overlay-header, $color-overlay-header), url(../images/header/background-desk-2560@2x.jpg);
     }
   }
+
+  &.library {
+    background-image: linear-gradient(to right, $color-overlay-header, $color-overlay-header), url(../images/header/background2-mob-320@1x.jpg);
+
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right, $color-overlay-header, $color-overlay-header), url(../images/header/background2-mob-640@2x.jpg);
+    }
+
+    @media screen and (min-width: $tablet) {
+      background-image: linear-gradient(to right, $color-overlay-header, $color-overlay-header), url(../images/header/background2-tab-768@1x.jpg);
+
+      @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+        background-image: linear-gradient(to right, $color-overlay-header, $color-overlay-header), url(../images/header/background2-tab-1536@2x.jpg);
+      }
+    }
+
+    @media screen and (min-width: $desktop) {
+      background-image: linear-gradient(to right, $color-overlay-header, $color-overlay-header), url(../images/header/background2-desk-1280@1x.jpg);
+
+      @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+        background-image: linear-gradient(to right, $color-overlay-header, $color-overlay-header), url(../images/header/background2-desk-2560@2x.jpg);
+      }
+    }
+  }
 }
 
 .header__container {
-  padding-top: 40px;
+  padding-top: 30px;
   padding-bottom: 92px;
 
-  @media screen and (min-width: ($tablet - 0.02px)) {
-    padding-bottom: 80px;
+  @media screen and (min-width: ($tablet)) {
+    padding-bottom: 81px;
+  }
+
+  &.library {
+    padding-bottom: 62px;
+
+    @media screen and (min-width: ($tablet)) {
+      padding-bottom: 57px;
+    }
   }
 }
 
 .header__logo {
-  @media screen and (min-width: ($tablet - 0.02px)) {
-    padding-bottom: 80px;
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+.header__logo-icon {
+  @media screen and (min-width: ($tablet)) {
+    margin-right: 10px;
   }
-  @media screen and (min-width: ($desktop - 0.02px)) {
-    padding-bottom: 80px;
+  @media screen and (min-width: ($desktop)) {
+    margin-right: 12px;
   }
+}
+
+.header__wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 34px;
+
+  @media screen and (min-width: ($tablet)) {
+    margin-bottom: 30px;
+  }
+
+  &.library {
+    margin-bottom: 40px;
+
+    @media screen and (min-width: ($tablet)) {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.header__title {
+  font-weight: 500;
+  font-size: 30px;
+  line-height: calc(35 / 30);
+
+  color: $color-background;
+
+  @media screen and (max-width: ($tablet - 0.02px)) {
+    display: none;
+  }
+}
+
+.header__nav {
+  margin-left: auto;
+}
+
+.header__nav-item {
+  @extend %list;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  cursor: pointer;
+}
+
+.header__nav-link {
+  position: relative;
+
+  font-weight: 500;
+  font-size: 12px;
+  line-height: calc(14 / 12);
+  text-transform: uppercase;
+
+  color: $color-background;
+  cursor: pointer;
+}
+
+.header__nav-list {
+  display: flex;
+  gap: 40px;
+}
+
+.header__form {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.header__input {
+  position: relative;
+  min-width: 280px;
+
+  font-size: 14px;
+  line-height: calc(16 / 14);
+  color: $color-background;
+  background-color: transparent;
+
+  border: none;
+  outline: transparent;
+  border-bottom: 0.5px solid $color-background;
+
+  &::placeholder {
+    font-size: 14px;
+    line-height: calc(16 / 14);
+    color: $color-background;
+  }
+
+  @media screen and (min-width: ($tablet)) {
+    min-width: 336px;
+  }
+  @media screen and (min-width: ($desktop)) {
+    min-width: 394px;
+  }
+}
+
+.header__input-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.library-button {
+  display: flex;
+  gap: 20px;
+
+  @media screen and (min-width: ($tablet)) {
+    gap: 32px;
+  }
+  @media screen and (min-width: ($desktop)) {
+    gap: 16px;
+  }
+}
+
+.search-button::after {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  content: '';
+  display: block;
+  width: 12px;
+  height: 12px;
+  background-size: contain;
+  background-image: url(../images/header/search.svg);
+}
+.header__nav-item.current .header__nav-link::after {
+  position: absolute;
+  bottom: -3px;
+  right: 0;
+  content: '';
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: $color-current-underline;
+}
+
+.watched-button,
+.queue-button {
+  @extend %button;
+}
+
+.search-button {
+  position: absolute;
+  top: -8px;
+  right: -9px;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
