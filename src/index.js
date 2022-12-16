@@ -1,5 +1,5 @@
 import './js/modal-open';
-// import './js/firebase';
+import './js/firebase';
 import './js/footer-modal.js';
 import './js/header-navigation';
 import './js/search';
