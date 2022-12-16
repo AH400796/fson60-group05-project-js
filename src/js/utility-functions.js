@@ -7,8 +7,8 @@ export const clearGallery = function () {
 };
 
 export const resetSearch = function () {
-  formSearch.reset();
   if (!inputInfo.hasAttribute('hidden')) {
     inputInfo.setAttribute('hidden', 'hidden');
+    formSearch.reset();
   }
 };

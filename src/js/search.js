@@ -10,6 +10,7 @@ formSearch.addEventListener('submit', onSubmit);
 function onSubmit(e) {
   e.preventDefault();
   clearGallery();
+
   const value = e.target[0].value.trim();
 
   fetchFilm(value)
