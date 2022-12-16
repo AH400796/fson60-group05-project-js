@@ -1,5 +1,7 @@
 import { API_KEY, BASE_URL } from './constants';
 
+const gallery = document.querySelector('.gallery__list');
+
 export const getTrendingFilms = async function getTrendingFilms() {
   const response = await fetch(`${BASE_URL}trending/all/day?api_key=${API_KEY}`);
   if (!response.ok) {
@@ -12,15 +14,16 @@ export const getTrendingFilms = async function getTrendingFilms() {
 function createMarkup(data) {
   let markup = data.results
     .map(item => {
-      return `<div class="gallery__item">
+      return `<li class="gallery__item">
     <div class="id" hidden> ${item.id} </div>
     <img src="https://image.tmdb.org/t/p/w500${item.poster_path}" alt="${item.title}" width="395">
     <div class="gallery__info">
-    <h2 class="gallery__title">${(item.original_title || item.original_name).toUpperCase()}</h2>
-    <p class="gallery__info">${getGenreName(item.genre_ids)} | ${Number.parseInt(item.release_date || item.first_air_date)} ${item.vote_average.toFixed(1)}</p></div></div>`;
+    <p class="gallery__title">${(item.original_title || item.original_name).toUpperCase()}</p>
+    <p class="gallery__info">${getGenreName(item.genre_ids)} | ${Number.parseInt(
+        item.release_date || item.first_air_date
+      )} ${item.vote_average.toFixed(1)}</p></div></li>`;
     })
     .join('');
-  const gallery = document.querySelector('.gallery__container');
   gallery.insertAdjacentHTML('beforeend', markup);
 }
 
