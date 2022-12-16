@@ -3,8 +3,8 @@ import { onFilmCardClick } from './fetch';
 const refs = {
   list: document.querySelector('.gallery__list'),
   body: document.body,
-  closeModalBtn: document.querySelector('[data-modal-close]'),
-  modal: document.querySelector('.backdrop__modal'),
+  closeModalBtn: document.querySelector('.modal__close'),
+  modal: document.querySelector('.modal'),
   backdrop: document.querySelector('.backdrop'),
   modalCard: document.querySelector('.modal__film-card'),
 };
@@ -92,19 +92,4 @@ function createFilmModalCard(data) {
   refs.modalCard.insertAdjacentHTML('beforeend', markup);
 }
 
-//     const markup = `<img src="https://image.tmdb.org/t/p/original/${data.poster_path}
-// " alt="${data.original_title}" width="375px" height="478px">
-//     <div class="modal__info">
-//     <h1 class="modal__title"> ${data.title} </h1>
-//     <ul class="modal__statistic-list">
-//     <li class="modal__statistic-item"> Vote / Votes <span>${data.vote_average}/ ${data.vote_count}</span></li>
-//     <li class="modal__statistic-item"> Popularity <span>${data.popularity}</span></li>
-//     <li class="modal__statistic-item">Original Title <span>${data.original_title}</span></li>
-//     <li class="modal__statistic-item">Genre <span>${data.genres.map((item)=>{return item['name']})}</span></li>
-//     </ul>
-//     <h2 class="modal__subtitle">ABOUT</h2>
-//     <p class="modal__text">${data.overview}</p>
-//     <button class="modal__adding-button"> ADD TO WATCHED </button>
-//     <button class="modal__queue-button"> ADD TO QUEUE</button>
 
-//     </div> `;

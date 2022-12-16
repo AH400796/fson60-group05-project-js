@@ -39,6 +39,7 @@
 }
 
 .thumb {
+  border-radius: 5px;
   min-width: 280px;
   height: 398px;
   overflow: hidden;
@@ -51,6 +52,45 @@
   @media screen and (min-width: ($desktop)) {
     min-width: 394px;
     height: 574px;
+  }
+}
+
+.gallery__info-wrapper {
+  font-weight: 500;
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: calc(16 / 12);
+
+  @media screen and (min-width: ($desktop)) {
+    margin-top: 12px;
+  }
+}
+
+.gallery__title {
+  color: #000000;
+}
+
+.genres-and-year {
+  margin-right: 9px;
+  color: #ff6b08;
+
+  @media screen and (min-width: ($desktop)) {
+    margin-right: 8px;
+  }
+}
+
+.rating {
+  color: #fff;
+  background: #ff6b08;
+  border-radius: 5px;
+  padding: 1px 6px;
+
+  @media screen and (min-width: ($tablet)) {
+    padding: 1px 10px;
+  }
+
+  @media screen and (min-width: ($desktop)) {
+    padding: 3px 12px;
   }
 }
 

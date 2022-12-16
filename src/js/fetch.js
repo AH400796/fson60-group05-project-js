@@ -19,7 +19,7 @@ export const getTrendingFilms = async function () {
 export const onFilmCardClick = async function (filmId) {
   const response = await fetch(`${BASE_URL}/movie/${filmId}?api_key=${API_KEY}`);
   if (!response.ok) {
-    throw new Error();
+    throw new Error(response.status);
   }
   return await response.json();
 };

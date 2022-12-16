@@ -116,6 +116,14 @@
 
 .header__nav {
   margin-left: auto;
+  margin-right: 40px;
+}
+
+.header__authentication {
+  position: relative;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  cursor: pointer;
 }
 
 .header__nav-item {
@@ -124,7 +132,7 @@
   padding-bottom: 20px;
   cursor: pointer;
 }
-
+.header__auth-link,
 .header__nav-link {
   position: relative;
 
@@ -192,19 +200,8 @@
   }
 }
 
-.search-button::after {
-  position: absolute;
-  top: 50%;
-  right: 50%;
-  transform: translate(50%, -50%);
-  content: '';
-  display: block;
-  width: 12px;
-  height: 12px;
-  background-size: contain;
-  background-image: url(../images/header/search.svg);
-}
-.header__nav-item.current .header__nav-link::after {
+.header__nav-item.current .header__nav-link::after,
+.header__authentication.current .header__auth-link::after {
   position: absolute;
   bottom: -3px;
   right: 0;
@@ -227,10 +224,13 @@
   width: 36px;
   height: 36px;
   padding: 0;
+  padding: 12px;
   border: none;
+  color: $color-background;
   background-color: transparent;
   cursor: pointer;
 }
+
 .header__input-info {
   color: #ff001b;
   font-family: 'Roboto';
@@ -243,4 +243,39 @@
     text-align: center;
     padding-top: 20px;
   }
+
+
+.search__icon {
+  fill: currentColor;
+}
+
+.sign-in-modal {
+  position: absolute;
+  z-index: 100;
+  bottom: -390px;
+  right: 0;
+  width: 260px;
+  height: 400px;
+
+  padding: 10px;
+
+  color: $color-background;
+  background-image: url(../images/header/modal-sign-in-bg.png);
+  border: 1px solid $color-accent;
+  border-radius: 15px 0 15px 15px;
+  box-shadow: $shadow-modal-sign-in;
+  cursor: auto;
+}
+
+.sign-in__label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  color: $color-accent;
+}
+
+.sign-in__input {
+  background-color: transparent;
+
 }
