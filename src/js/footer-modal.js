@@ -41,22 +41,21 @@ const markup = `<div class="team-wrapper"><div class="team-card">
     <p class="team-role">Developer</p>
 </div></div>`;
 
-
-
 const footerEl = document.querySelector('.footer__modal-js');
 footerEl.addEventListener('click', openModal);
 
 const modalEl = basicLightbox.create(markup);
 
 function openModal(e) {
-    modalEl.show();
-  
-    window.addEventListener('keydown', closeModalHandler);
-  
-    function closeModalHandler(e) {
-      if (e.code === 'Escape') {
-        modalEl.close();
-        window.removeEventListener('keydown', closeModalHandler);
-      }
+  e.preventDefault();
+  modalEl.show();
+
+  window.addEventListener('keydown', closeModalHandler);
+
+  function closeModalHandler(e) {
+    if (e.code === 'Escape') {
+      modalEl.close();
+      window.removeEventListener('keydown', closeModalHandler);
     }
   }
+}
