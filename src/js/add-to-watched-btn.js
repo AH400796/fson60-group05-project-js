@@ -1,6 +1,6 @@
 // потрібно додати класи до кнопок "add to watch" - .js-add-watched i  "add to queue" - .js-add-queue, або замінити існуючі тут.
-const KEY_WATCHED = 'watched';
-const KEY_QUEUE = 'queue';
+import { KEY_WATCHED, KEY_QUEUE } from './constants';
+
 const watchedMovies = [];
 const queueMovies = [];
 const { watched, queue, addToWatched, addToQueue } = {
@@ -9,6 +9,7 @@ const { watched, queue, addToWatched, addToQueue } = {
   addToWatched: document.querySelector('.js-add-watched'),
   addToQueue: document.querySelector('.js-add-queue'),
 };
+
 addToWatched.addEventListener('click', onAddToWatched);
 addToQueue.addEventListener('click', onAddToQueue);
 watched.addEventListener('click', onClickWatched);
@@ -33,7 +34,7 @@ function onClickWatched() {
   watched.classList.add('current');
   //  + рендеринг списку переглянутих фільмів (Watched) -------TASK 5
   try {
-    watchedMovies = JSON.parse(localStorage.getItem('KEY_WATCHED')) || [];
+    watchedMovies = JSON.parse(localStorage.getItem(`${KEY_WATCHED}`)) || [];
     if (watchedMovies.length < 1) {
       Notiflix.Notify.info("You haven't added anything to the movies you've watched yet");
     }
@@ -48,7 +49,7 @@ function onClickQueue() {
   queue.classList.add('current');
   //  + рендеринг списку фільмів, які додані в чергу на перегляд (Queue) -------TASK 5
   try {
-    queueMovies = JSON.parse(localStorage.getItem('KEY_QUEUE')) || [];
+    queueMovies = JSON.parse(localStorage.getItem(`${KEY_QUEUE}`)) || [];
     if (queueMovies.length < 1) {
       Notiflix.Notify.info("You haven't added any movie to the queue yet.");
     }

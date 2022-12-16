@@ -1,3 +1,4 @@
+// Додавання/зняття спінер-лоадера
 import { addSpinner, removeSpinner } from './spinner';
 
 import { getTrendingFilms } from './get-trending';

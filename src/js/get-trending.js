@@ -1,5 +1,4 @@
-const API_KEY = 'fbee7941f117d258bba2ad0706e433a4';
-const BASE_URL = 'https://api.themoviedb.org/3/';
+import { API_KEY, BASE_URL } from './constants';
 
 export const getTrendingFilms = async function getTrendingFilms() {
   const response = await fetch(`${BASE_URL}trending/all/day?api_key=${API_KEY}`);
@@ -60,5 +59,3 @@ function getGenreName(genre_ids) {
       .join(', ') + ', Other'
   );
 }
-
-
