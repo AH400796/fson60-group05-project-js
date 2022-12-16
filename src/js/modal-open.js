@@ -58,13 +58,13 @@ function createFilmModalCard(data) {
         <ul class="modal__card-list list"> 
           <li class="card__item"> 
             <h4 class="card__item-title">Vote / Votes</h4> 
-            <p class="card__item-vote">${data.vote_average}</p> 
+            <p class="card__item-vote">${data.vote_average ? data.vote_average.toFixed(1) : ''}</p> 
             <span class="card__item-slash">/</span> 
             <p class="card__item-votes">${data.vote_count}</p> 
  
           <li class="card__item"> 
             <h4 class="card__item-title">Popularity</h4> 
-            <p class="card__item-popularity">${data.popularity}</p> 
+            <p class="card__item-popularity">${data.popularity?data.popularity.toFixed(1) : '' }</p> 
           </li> 
           <li class="card__item"> 
             <h4 class="card__item-title">Original Title</h4> 
@@ -73,7 +73,7 @@ function createFilmModalCard(data) {
           <li class="card__item"> 
             <h4 class="card__item-title">Genre</h4> 
             <p class="card__item-genre">${data.genres.map(item => {
-              return item['name'];
+              return item['name']
             })}</p> 
           </li> 
         </ul> 
