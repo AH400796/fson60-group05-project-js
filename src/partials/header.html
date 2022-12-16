@@ -41,15 +41,13 @@
     <form class="header__form">
       <div class="header__input-wrapper js-input">
         <input class="header__input" type="text" placeholder="Movie search" name="searchFilm" autocomplete="off" />
-
-
+        <p class="header__input-info" hidden>Search result not successful. Enter the correct movie name and</p>
         <button class="search-button js-search" type="submit">
           <svg class="search-button__icon" width="12" height="12">
             <use class="search__icon" href="./images/sprite.svg#search"></use>
           </svg>
-<p class="header__input-info" hidden>Search result not successful. Enter the correct movie name and</p>
-
       </div>
+      
       <div class="library-button">
         <button class="watched-button js-watched visually-hidden" type="button">Watched</button>
         <button class="queue-button js-queue visually-hidden" type="button">Queue</button>
@@ -57,3 +55,4 @@
     </form>
   </div>
 </header>
+
