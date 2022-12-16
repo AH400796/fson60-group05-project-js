@@ -67,12 +67,12 @@
 }
 
 .gallery__title {
-  color: #000000;
+  color: $color-primary-text;
 }
 
 .genres-and-year {
   margin-right: 9px;
-  color: #ff6b08;
+  color: $color-accent;
 
   @media screen and (min-width: ($desktop)) {
     margin-right: 8px;
@@ -80,8 +80,8 @@
 }
 
 .rating {
-  color: #fff;
-  background: #ff6b08;
+  color: $color-background;
+  background: $color-accent;
   border-radius: 5px;
   padding: 1px 6px;
 
