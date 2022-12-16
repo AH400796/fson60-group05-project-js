@@ -91,5 +91,3 @@ function createFilmModalCard(data) {
       </div> `;
   refs.modalCard.insertAdjacentHTML('beforeend', markup);
 }
-
-

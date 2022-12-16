@@ -1,6 +1,6 @@
 // Додавання/зняття спінер-лоадера
 import { addSpinner, removeSpinner } from './spinner';
-// import { getTrendingFilms } from './fetch';
+
 import { renderTrendingFilms } from './get-trending';
 import { resetSearch } from './utility-functions';
 
@@ -59,7 +59,4 @@ function onClickQueue() {
   watched.classList.remove('current');
   queue.classList.add('current');
   //  + рендеринг списку фільмів, які додані в чергу на перегляд (Queue)
-
-  addSpinner();
-  setTimeout(removeSpinner, 3000);
 }

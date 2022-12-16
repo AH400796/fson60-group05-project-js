@@ -1,6 +1,8 @@
 import { API_KEY, BASE_URL } from './constants';
+import { addSpinner } from './spinner';
 
 export const fetchFilm = async function (value) {
+  addSpinner();
   const response = await fetch(`${BASE_URL}search/movie?api_key=${API_KEY}&language=en-US&page=1&query=${value}&primary_release_year=integer`);
   if (!response.ok) {
     throw new Error(response.status);
@@ -9,6 +11,7 @@ export const fetchFilm = async function (value) {
 };
 
 export const getTrendingFilms = async function () {
+  addSpinner();
   const response = await fetch(`${BASE_URL}trending/all/day?api_key=${API_KEY}`);
   if (!response.ok) {
     throw new Error(response.status);
@@ -17,6 +20,7 @@ export const getTrendingFilms = async function () {
 };
 
 export const onFilmCardClick = async function (filmId) {
+  addSpinner();
   const response = await fetch(`${BASE_URL}/movie/${filmId}?api_key=${API_KEY}`);
   if (!response.ok) {
     throw new Error(response.status);
