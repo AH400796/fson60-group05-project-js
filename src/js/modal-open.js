@@ -1,7 +1,7 @@
-import { API_KEY, BASE_URL } from './constants';
+import { onFilmCardClick } from './fetch';
 
 const refs = {
-  list: document.querySelector('.gallery'),
+  list: document.querySelector('.gallery__list'),
   body: document.body,
   closeModalBtn: document.querySelector('[data-modal-close]'),
   modal: document.querySelector('.backdrop__modal'),
@@ -29,22 +29,15 @@ function onListClick(event) {
     createFilmModalCard(data);
   });
 }
-async function onFilmCardClick(filmId) {
-  const response = await fetch(`${BASE_URL}/movie/${filmId}?api_key=${API_KEY}`);
-  if (!response.ok) {
-    throw new Error();
-  }
-  return await response.json();
-}
 
 function onBackdropClick(event) {
   if (event.currentTarget === event.target) {
     onCloseModal();
   }
 }
-function onCloseModal() {
-  refs.body.classList.remove('show-modal');
-}
+// function onCloseModal() {
+//   refs.body.classList.remove('show-modal');
+// }
 
 function onEscKeyPress(event) {
   if (event.code === 'Escape') {

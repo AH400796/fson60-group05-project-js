@@ -1,9 +1,9 @@
 // Додавання/зняття спінер-лоадера
 import { addSpinner, removeSpinner } from './spinner';
+// import { getTrendingFilms } from './fetch';
+import { renderTrendingFilms } from './get-trending';
 
-import { getTrendingFilms } from './get-trending';
-
-const { header, container, wrapper, logo, home, library, watched, queue, seachSubmit, input } = {
+const { header, container, wrapper, logo, home, library, watched, queue, input } = {
   header: document.querySelector('.js-header'),
   container: document.querySelector('.js-container'),
   wrapper: document.querySelector('.js-wrapper'),
@@ -12,7 +12,6 @@ const { header, container, wrapper, logo, home, library, watched, queue, seachSu
   library: document.querySelector('.js-library'),
   watched: document.querySelector('.js-watched'),
   queue: document.querySelector('.js-queue'),
-  seachSubmit: document.querySelector('.js-search'),
   input: document.querySelector('.js-input'),
 };
 
@@ -45,7 +44,7 @@ function onClickHome() {
   input.classList.remove('visually-hidden');
   watched.classList.add('visually-hidden');
   queue.classList.add('visually-hidden');
-  getTrendingFilms();
+  renderTrendingFilms();
 }
 
 function onClickWatched() {
