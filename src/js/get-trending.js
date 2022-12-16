@@ -13,12 +13,11 @@ function createMarkup(data) {
   let markup = data.results
     .map(item => {
       return `<div class="gallery__item">
-    <img src="https://www.themoviedb.org/t/p/original${item.poster_path}" alt="${item.title}" width="395">
-    <h2 class="gallery__title">${item.original_title}</h2>
-
-  <p class="gallery__info">${item.genre_ids} | ${item.release_date} ${item.vote_average}</p>
-  <div class="id" hidden> ${item.id} </div><div>
-      <p class="gallery__info">${getGenreName(item.genre_ids)} | ${Number.parseInt(item.release_date)} ${item.vote_average.toFixed(1)}</p></div>`;
+    <div class="id" hidden> ${item.id} </div>
+    <img src="https://image.tmdb.org/t/p/w500${item.poster_path}" alt="${item.title}" width="395">
+    <div class="gallery__info">
+    <h2 class="gallery__title">${(item.original_title || item.original_name).toUpperCase()}</h2>
+    <p class="gallery__info">${getGenreName(item.genre_ids)} | ${Number.parseInt(item.release_date || item.first_air_date)} ${item.vote_average.toFixed(1)}</p></div></div>`;
     })
     .join('');
   const gallery = document.querySelector('.gallery__container');
@@ -46,6 +45,8 @@ function getGenreName(genre_ids) {
     53: 'Thriller',
     10752: 'War',
     37: 'Western',
+    10765: 'Sci-Fi & Fantasy',
+    10759: 'Action & Adventure',
   };
 
   if (genre_ids.length < 3) {
