@@ -38,11 +38,26 @@
   }
 }
 
+.gallery__item:hover {
+  box-shadow: $shadow-modal-sign-in;
+  transition: box-shadow 0.25s;
+}
+
+.gallery__item:hover img {
+  transform: scale(1.1);
+}
+
+.gallery__item img {
+  transition: transform 0.25s;
+}
+
 .thumb {
+  overflow: hidden;
   border-radius: 5px;
   min-width: 280px;
   height: 398px;
   overflow: hidden;
+  transform: scale(1, 1);
 
   @media screen and (min-width: ($tablet)) {
     min-width: 336px;
