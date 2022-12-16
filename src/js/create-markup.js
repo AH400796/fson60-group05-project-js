@@ -1,7 +1,8 @@
 const gallery = document.querySelector('.gallery__list');
 
-export const createMarkup = function (arr) {
+export const createMarkup = function (arr, rating) {
   gallery.innerHTML = '';
+  const ratingExistence = rating ? 'rating' : 'rating visually-hidden';
   const markup = arr.results
     .map(item => {
       return `<li class="gallery__item">
@@ -13,9 +14,7 @@ export const createMarkup = function (arr) {
     <p class="gallery__title">${(item.original_title || item.original_name).toUpperCase()}</p>
     <div class="gallery__info"><span class="genres-and-year">${getGenreName(item.genre_ids)} | ${Number.parseInt(
         item.release_date || item.first_air_date
-      )}</span><span class="rating">${item.vote_average.toFixed(1)}</span></div></div>
-      
-</li>`;
+      )}</span><span class="${ratingExistence}">${item.vote_average.toFixed(1)}</span></div></div></li>`;
     })
     .join('');
   gallery.insertAdjacentHTML('beforeend', markup);

@@ -21,7 +21,7 @@ function onSubmit(e) {
         removeSpinner();
         return;
       } else {
-        createMarkup(data);
+        createMarkup(data, true);
         removeSpinner();
       }
     })
