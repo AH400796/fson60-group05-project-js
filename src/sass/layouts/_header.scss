@@ -231,6 +231,20 @@
   cursor: pointer;
 }
 
+.header__input-info {
+  color: #ff001b;
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
+  align-items: center;
+  padding-top: 16px;
+  @media screen and (min-width: ($tablet)) {
+    text-align: center;
+    padding-top: 20px;
+  }
+
+
 .search__icon {
   fill: currentColor;
 }
@@ -263,4 +277,5 @@
 
 .sign-in__input {
   background-color: transparent;
+
 }
