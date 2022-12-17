@@ -79,9 +79,11 @@ export const createFilmModalCard = function (data) {
           </li> 
           <li class="card__item"> 
             <h4 class="card__item-title">Genre</h4> 
-            <p class="card__item-genre">${data.genres.map(item => {
-              return item['name'];
-            })}</p> 
+            <p class="card__item-genre">${data.genres
+              .map(item => {
+                return item['name'];
+              })
+              .join(', ')}</p> 
           </li> 
         </ul> 
         <h4 class="card__item-about">About</h4> 

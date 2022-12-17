@@ -35,8 +35,7 @@ body.show-modal .backdrop {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 2px 2px 9px #ffa409,
-    -2px -2px 9px #ffa409;
+  box-shadow: 2px 2px 9px #ffa409, -2px -2px 9px #ffa409;
 }
 
 .modal__film-card {
@@ -75,6 +74,9 @@ body.show-modal .backdrop {
   margin-bottom: 20px;
   width: 240px;
   height: 357px;
+
+  border-radius: 5px;
+
   @media screen and (min-width: 768px) {
     width: 374px;
     height: 264px;
@@ -266,5 +268,6 @@ body.show-modal .backdrop {
 .card__btn:hover,
 .card__btn:focus {
   background: #ff6b01;
+  border-color: #ff6b01;
   color: #ffffff;
 }

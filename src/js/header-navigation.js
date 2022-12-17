@@ -1,6 +1,3 @@
-// Додавання/зняття спінер-лоадера
-import { addSpinner, removeSpinner } from './spinner';
-
 import { renderTrendingFilms } from './get-trending';
 import { resetSearch } from './utility-functions';
 

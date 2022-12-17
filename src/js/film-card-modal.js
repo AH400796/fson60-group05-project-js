@@ -27,10 +27,9 @@ function onListClick(event) {
       body.classList.add('show-modal');
       window.addEventListener('keydown', onEscKeyPress);
       createFilmModalCard(data);
-      console.log(555);
     })
     .catch(error => {
-      Notiflix.Notify.failure('Oops, something went wrong!');
+      Notiflix.Notify.failure('Unfortunately, there is no data about this movie...');
     })
     .finally(removeSpinner());
 }
