@@ -4,12 +4,18 @@ const modalCard = document.querySelector('.modal__film-card');
 export const createMarkup = function (arr, rating) {
   gallery.innerHTML = '';
   const ratingExistence = rating ? 'rating' : 'rating visually-hidden';
+
   const markup = arr.results
     .map(item => {
+      const poster = item.poster_path
+        ? `https://image.tmdb.org/t/p/original/${item.poster_path}`
+        : 'https://www.mimimi.games/wp-content/uploads/2018/08/Mimimi_Fb.png';
+      // `./images/poster/poster.png`;
+
       return `<li class="gallery__item">
     <div class="id" hidden> ${item.id} </div>
     <div class="thumb">
-    <img src="https://image.tmdb.org/t/p/w500${item.poster_path}" alt="${item.title}" width="280">
+    <img src="${poster}" alt="${item.title}" width="280">
     </div>
     <div class="gallery__info-wrapper">
     <p class="gallery__title">${(item.original_title || item.original_name).toUpperCase()}</p>
@@ -58,20 +64,23 @@ function getGenreName(genre_ids) {
 }
 
 export const createFilmModalCard = function (data) {
-  const markup = `<img class="modal__card-img img" src="https://image.tmdb.org/t/p/original/${data.poster_path}" alt="${data.original_title}" 
+  const posterModal = data.poster_path
+    ? `https://image.tmdb.org/t/p/original/${data.poster_path}`
+    : 'https://www.mimimi.games/wp-content/uploads/2018/08/Mimimi_Fb.png';
+  // `./images/poster/poster.png`;
+  const markup = `<img class="modal__card-img img" src="${posterModal}" alt="${data.original_title}" 
         width="375" height="478"> 
       <div class="modal__card"> 
         <h3 class="modal__card-title">${data.title}</h3> 
         <ul class="modal__card-list list"> 
           <li class="card__item"> 
             <h4 class="card__item-title">Vote / Votes</h4> 
-            <p class="card__item-vote">${data.vote_average ? data.vote_average.toFixed(1) : ''}</p> 
+            <p class="card__item-vote">${data.vote_average ? data.vote_average.toFixed(1) : '0'}</p> 
             <span class="card__item-slash">/</span> 
             <p class="card__item-votes">${data.vote_count}</p> 
- 
-          <li class="card__item"> 
+           <li class="card__item"> 
             <h4 class="card__item-title">Popularity</h4> 
-            <p class="card__item-popularity">${data.popularity ? data.popularity.toFixed(1) : ''}</p> 
+            <p class="card__item-popularity">${data.popularity ? data.popularity.toFixed(1) : '0'}</p> 
           </li> 
           <li class="card__item"> 
             <h4 class="card__item-title">Original Title</h4> 
@@ -98,5 +107,6 @@ export const createFilmModalCard = function (data) {
           </li> 
         </ul> 
       </div> `;
+
   modalCard.insertAdjacentHTML('beforeend', markup);
 };
