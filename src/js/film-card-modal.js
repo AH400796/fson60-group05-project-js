@@ -3,18 +3,17 @@ import { onFilmCardClick } from './fetch';
 import { removeSpinner } from './spinner';
 import { createFilmModalCard } from './create-markup';
 
-const refs = {
+const { list, body, closeModalBtn, backdrop, modalCard } = {
   list: document.querySelector('.gallery__list'),
   body: document.body,
   closeModalBtn: document.querySelector('.modal__close'),
-  modal: document.querySelector('.modal'),
   backdrop: document.querySelector('.backdrop'),
   modalCard: document.querySelector('.modal__film-card'),
 };
 
-refs.list.addEventListener('click', onListClick);
-refs.closeModalBtn.addEventListener('click', onCloseModal);
-refs.backdrop.addEventListener('click', onBackdropClick);
+list.addEventListener('click', onListClick);
+closeModalBtn.addEventListener('click', onCloseModal);
+backdrop.addEventListener('click', onBackdropClick);
 
 function onListClick(event) {
   const filmCard = event.target.closest('.gallery__item');
@@ -25,9 +24,10 @@ function onListClick(event) {
 
   onFilmCardClick(filmId)
     .then(data => {
-      refs.body.classList.add('show-modal');
+      body.classList.add('show-modal');
       window.addEventListener('keydown', onEscKeyPress);
       createFilmModalCard(data);
+      console.log(555);
     })
     .catch(error => {
       Notiflix.Notify.failure('Oops, something went wrong!');
@@ -46,8 +46,9 @@ function onEscKeyPress(event) {
     onCloseModal();
   }
 }
-function onCloseModal(event) {
-  refs.body.classList.remove('show-modal');
-  refs.modalCard.innerHTML = '';
+
+function onCloseModal() {
+  body.classList.remove('show-modal');
+  modalCard.innerHTML = '';
   window.removeEventListener('keydown', onEscKeyPress);
 }
