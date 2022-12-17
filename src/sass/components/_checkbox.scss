@@ -1,9 +1,11 @@
-
- .checkbox__form {
+.checkbox__form {
   display: flex;
   align-items: center;
   justify-content: center;
-  }
+  gap: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
 .checkbox-icon {
   position: absolute;
   left: 15px;
@@ -38,10 +40,11 @@
 
 .checkbox__date--text,
 .checkbox__rating--text {
+  font-weight: 500;
   font-size: 12px;
   line-height: 1.17;
 
-  color: #ffffff;
+  color: $color-accent;
   user-select: none;
 
   text-underline-position: under;
@@ -51,5 +54,3 @@
     line-height: 1.71;
   }
 }
-
- 
