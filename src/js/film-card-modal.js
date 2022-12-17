@@ -29,7 +29,7 @@ function onListClick(event) {
       createFilmModalCard(data);
     })
     .catch(error => {
-      Notiflix.Notify.failure('Unfortunately, there is no data about this movie...');
+      Notiflix.Notify.failure('Unfortunately, there is no additional information about this movie...');
     })
     .finally(setTimeout(removeSpinner, 500));
 }
