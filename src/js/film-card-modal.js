@@ -1,5 +1,7 @@
+import Notiflix from 'notiflix';
 import { onFilmCardClick } from './fetch';
 import { removeSpinner } from './spinner';
+import { createFilmModalCard } from './create-markup';
 
 const refs = {
   list: document.querySelector('.gallery__list'),
@@ -17,19 +19,20 @@ refs.backdrop.addEventListener('click', onBackdropClick);
 function onListClick(event) {
   const filmCard = event.target.closest('.gallery__item');
   if (event.target === event.currentTarget) {
-    // console.log('not film card');
     return;
   }
-  console.log(filmCard);
   const filmId = filmCard.querySelector('.id').textContent;
-  // console.log(filmId);
 
-  onFilmCardClick(filmId).then(data => {
-    removeSpinner();
-    refs.body.classList.add('show-modal');
-    window.addEventListener('keydown', onEscKeyPress);
-    createFilmModalCard(data);
-  });
+  onFilmCardClick(filmId)
+    .then(data => {
+      refs.body.classList.add('show-modal');
+      window.addEventListener('keydown', onEscKeyPress);
+      createFilmModalCard(data);
+    })
+    .catch(error => {
+      Notiflix.Notify.failure('Oops, something went wrong!');
+    })
+    .finally(removeSpinner());
 }
 
 function onBackdropClick(event) {
@@ -37,9 +40,6 @@ function onBackdropClick(event) {
     onCloseModal();
   }
 }
-// function onCloseModal() {
-//   refs.body.classList.remove('show-modal');
-// }
 
 function onEscKeyPress(event) {
   if (event.code === 'Escape') {
@@ -50,46 +50,4 @@ function onCloseModal(event) {
   refs.body.classList.remove('show-modal');
   refs.modalCard.innerHTML = '';
   window.removeEventListener('keydown', onEscKeyPress);
-}
-
-function createFilmModalCard(data) {
-  const markup = `<img class="modal__card-img img" src="https://image.tmdb.org/t/p/original/${data.poster_path}" alt="${data.original_title}" 
-        width="375" height="478"> 
-      <div class="modal__card"> 
-        <h3 class="modal__card-title">${data.title}</h3> 
-        <ul class="modal__card-list list"> 
-          <li class="card__item"> 
-            <h4 class="card__item-title">Vote / Votes</h4> 
-            <p class="card__item-vote">${data.vote_average ? data.vote_average.toFixed(1) : ''}</p> 
-            <span class="card__item-slash">/</span> 
-            <p class="card__item-votes">${data.vote_count}</p> 
- 
-          <li class="card__item"> 
-            <h4 class="card__item-title">Popularity</h4> 
-            <p class="card__item-popularity">${data.popularity ? data.popularity.toFixed(1) : ''}</p> 
-          </li> 
-          <li class="card__item"> 
-            <h4 class="card__item-title">Original Title</h4> 
-            <p class="card__item-original">${data.original_title}</p> 
-          </li> 
-          <li class="card__item"> 
-            <h4 class="card__item-title">Genre</h4> 
-            <p class="card__item-genre">${data.genres.map(item => {
-              return item['name'];
-            })}</p> 
-          </li> 
-        </ul> 
-        <h4 class="card__item-about">About</h4> 
-        <p class="card__item-about__text card__item-text">${data.overview}</p> 
- 
-        <ul class="card__btn-list list"> 
-          <li class="card__btn-item"> 
-            <button class="card__btn">add to Watched</button> 
-          </li> 
-          <li class="card__btn-item"> 
-            <button class="card__btn">add to queue</button> 
-          </li> 
-        </ul> 
-      </div> `;
-  refs.modalCard.insertAdjacentHTML('beforeend', markup);
 }

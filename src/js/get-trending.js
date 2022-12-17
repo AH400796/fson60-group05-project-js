@@ -1,3 +1,4 @@
+import Notiflix from 'notiflix';
 import { getTrendingFilms } from './fetch';
 import { createMarkup } from './create-markup';
 import { clearGallery } from './utility-functions';
@@ -8,9 +9,9 @@ export const renderTrendingFilms = function () {
   getTrendingFilms()
     .then(data => {
       createMarkup(data);
-      removeSpinner();
     })
     .catch(error => {
-      Notify.failure('Oops, something went wrong!');
-    });
+      Notiflix.Notify.failure('Oops, something went wrong!');
+    })
+    .finally(removeSpinner());
 };

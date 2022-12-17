@@ -1,4 +1,4 @@
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import Notiflix from 'notiflix';
 import { fetchFilm } from './fetch';
 import { createMarkup } from './create-markup';
 import { clearGallery } from './utility-functions';
@@ -15,18 +15,15 @@ function onSubmit(e) {
 
   fetchFilm(value)
     .then(data => {
-      removeSpinner();
       if (data.results.length === 0) {
         inputInfo.removeAttribute('hidden');
-        removeSpinner();
         return;
       } else {
         createMarkup(data, true);
-        removeSpinner();
       }
     })
     .catch(error => {
-      Notify.failure('Oops, something went wrong!');
-      console.log(error);
-    });
+      Notiflix.Notify.failure('Oops, something went wrong!');
+    })
+    .finally(removeSpinner());
 }
