@@ -13,5 +13,5 @@ export const renderTrendingFilms = function () {
     .catch(error => {
       Notiflix.Notify.failure('Oops, something went wrong!');
     })
-    .finally(removeSpinner());
+    .finally(setTimeout(removeSpinner, 500));
 };

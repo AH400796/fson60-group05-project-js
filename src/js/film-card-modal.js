@@ -31,7 +31,7 @@ function onListClick(event) {
     .catch(error => {
       Notiflix.Notify.failure('Unfortunately, there is no data about this movie...');
     })
-    .finally(removeSpinner());
+    .finally(setTimeout(removeSpinner, 500));
 }
 
 function onBackdropClick(event) {
