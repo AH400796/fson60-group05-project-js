@@ -15,3 +15,4 @@ import './js/scroll-up';
 //      const currentPage = event.page;
 //      console.log(currentPage);
 // });
+import './js/btn-trailer';
