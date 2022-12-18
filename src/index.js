@@ -5,11 +5,11 @@ import './js/header-navigation';
 import './js/search';
 import './js/create-markup';
 import './js/get-trending';
-import './js/pagination';
-
+// import './js/pagination';
 // import './js/add-to-watched-btn';
 import './js/spinner';
 import './js/scroll-up';
+import './js/theme';
 
 
 
@@ -19,5 +19,5 @@ import './js/scroll-up';
 // });
 
 
-    
+
 
