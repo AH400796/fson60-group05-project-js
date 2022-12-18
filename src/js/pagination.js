@@ -71,10 +71,8 @@ function renderTrendPaginationQuery(pageNumber) {
 
 function renderSearchPaginationQuery(filmName, pageNumber) {
   clearGallery();
-  console.log(filmName, pageNumber);
   searchFilm(filmName, pageNumber)
     .then(data => {
-      console.log(data);
       createMarkup(data);
     })
     .catch(error => {
