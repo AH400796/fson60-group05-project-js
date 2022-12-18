@@ -5,14 +5,18 @@
 
   background-image: linear-gradient(to right, $color-overlay-header, $color-overlay-header), url(../images/header/background-mob-320@1x.jpg);
 
-  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  @media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
     background-image: linear-gradient(to right, $color-overlay-header, $color-overlay-header), url(../images/header/background-mob-640@2x.jpg);
   }
 
   @media screen and (min-width: $tablet) {
     background-image: linear-gradient(to right, $color-overlay-header, $color-overlay-header), url(../images/header/background-tab-768@1x.jpg);
 
-    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
       background-image: linear-gradient(to right, $color-overlay-header, $color-overlay-header), url(../images/header/background-tab-1536@2x.jpg);
     }
   }
@@ -20,7 +24,9 @@
   @media screen and (min-width: $desktop) {
     background-image: linear-gradient(to right, $color-overlay-header, $color-overlay-header), url(../images/header/background-desk-1280@1x.jpg);
 
-    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
       background-image: linear-gradient(to right, $color-overlay-header, $color-overlay-header), url(../images/header/background-desk-2560@2x.jpg);
     }
   }
@@ -28,14 +34,18 @@
   &.library {
     background-image: linear-gradient(to right, $color-overlay-header, $color-overlay-header), url(../images/header/background2-mob-320@1x.jpg);
 
-    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
       background-image: linear-gradient(to right, $color-overlay-header, $color-overlay-header), url(../images/header/background2-mob-640@2x.jpg);
     }
 
     @media screen and (min-width: $tablet) {
       background-image: linear-gradient(to right, $color-overlay-header, $color-overlay-header), url(../images/header/background2-tab-768@1x.jpg);
 
-      @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
         background-image: linear-gradient(to right, $color-overlay-header, $color-overlay-header), url(../images/header/background2-tab-1536@2x.jpg);
       }
     }
@@ -43,7 +53,9 @@
     @media screen and (min-width: $desktop) {
       background-image: linear-gradient(to right, $color-overlay-header, $color-overlay-header), url(../images/header/background2-desk-1280@1x.jpg);
 
-      @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
         background-image: linear-gradient(to right, $color-overlay-header, $color-overlay-header), url(../images/header/background2-desk-2560@2x.jpg);
       }
     }
@@ -79,6 +91,7 @@
   @media screen and (min-width: ($tablet)) {
     margin-right: 10px;
   }
+
   @media screen and (min-width: ($desktop)) {
     margin-right: 12px;
   }
@@ -93,6 +106,8 @@
     margin-bottom: 30px;
   }
 
+  color: $color-background;
+
   &.library {
     margin-bottom: 40px;
 
@@ -106,8 +121,14 @@
   font-weight: 500;
   font-size: 30px;
   line-height: calc(35 / 30);
+  transition: color 200ms ease;
 
-  color: $color-background;
+  &:hover,
+  &:focus {
+    fill: $color-current-underline;
+    color: $color-current-underline;
+    transition: color 200ms ease;
+  }
 
   @media screen and (max-width: ($tablet - 0.02px)) {
     display: none;
@@ -131,7 +152,19 @@
   padding-top: 20px;
   padding-bottom: 20px;
   cursor: pointer;
+  fill: $color-background;
+  transition: color 200ms ease;
+  transition: fill 200ms ease;
+
+  &:hover,
+  &:focus {
+    fill: $color-current-underline;
+    color: $color-current-underline;
+    transition: color 200ms ease;
+    transition: fill 200ms ease;
+  }
 }
+
 .header__auth-link,
 .header__nav-link {
   position: relative;
@@ -140,14 +173,28 @@
   font-size: 12px;
   line-height: calc(14 / 12);
   text-transform: uppercase;
-
-  color: $color-background;
   cursor: pointer;
+  transition: color 200ms ease;
+
+  &:hover,
+  &:focus {
+    color: $color-current-underline;
+    transition: color 200ms ease;
+  }
 }
 
 .header__nav-list {
   display: flex;
-  gap: 40px;
+  gap: 20px;
+
+  @media screen and (min-width: ($tablet)) {
+    gap: 40px;
+  }
+
+  @media screen and (min-width: ($desktop)) {
+    gap: 50px;
+  }
+
 }
 
 .header__form {
@@ -178,6 +225,7 @@
   @media screen and (min-width: ($tablet)) {
     min-width: 336px;
   }
+
   @media screen and (min-width: ($desktop)) {
     min-width: 394px;
   }
@@ -201,6 +249,7 @@
   @media screen and (min-width: ($tablet)) {
     gap: 32px;
   }
+
   @media screen and (min-width: ($desktop)) {
     gap: 16px;
   }
@@ -218,25 +267,6 @@
   background-color: $color-current-underline;
 }
 
-.watched-button,
-.queue-button {
-  @extend %button;
-}
-
-.search-button {
-  position: absolute;
-  top: -8px;
-  right: -9px;
-  width: 36px;
-  height: 36px;
-  padding: 0;
-  padding: 12px;
-  border: none;
-  color: $color-background;
-  background-color: transparent;
-  cursor: pointer;
-}
-
 .header__input-info {
   color: $color-current-underline;
   font-family: 'Roboto';
@@ -245,6 +275,7 @@
   line-height: 1.14;
   align-items: center;
   padding-top: 16px;
+
   @media screen and (min-width: ($tablet)) {
     text-align: center;
     padding-top: 20px;

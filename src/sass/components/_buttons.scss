@@ -1,201 +1,63 @@
-// .order__btn {
-//   @extend %button;
+.watched-button,
+.queue-button {
+  display: block;
+  width: 130px;
+  height: 44px;
+  padding-top: 13px;
+  padding-bottom: 12px;
+  padding-right: 0;
+  padding-left: 0;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: calc(16 / 12);
+  text-transform: uppercase;
+  text-align: center;
 
-//   display: none;
+  color: $color-background;
+  background-color: transparent;
 
-//   transition: background-color $timing-function-trans-duration;
+  border: 1px solid $color-background;
+  border-radius: 5px;
 
-//   @media screen and (min-width: $tablet) {
-//     display: block;
+  cursor: pointer;
+  transition: background-color $timing-function;
 
-//     &:hover,
-//     &:focus {
-//       background-color: $color-button-active;
-//     }
-//   }
-// }
+  @media screen and (min-width: ($tablet)) {
+    width: 152px;
+  }
+  @media screen and (min-width: ($desktop)) {
+    width: 148px;
+  }
 
-// .subscription__btn {
-//   @extend %button;
+  &.current {
+    background-color: $color-accent;
+    border: 1px solid $color-accent;
+  }
+}
 
-//   padding-top: 11px;
-//   padding-right: 22px;
-//   padding-bottom: 11px;
-//   padding-left: 22px;
+.search-button {
+  position: absolute;
+  top: -8px;
+  right: -9px;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  padding: 12px;
+  border: none;
+  color: $color-background;
+  background-color: transparent;
+  cursor: pointer;
 
-//   transition: background-color $timing-function-trans-duration;
+  transition: background-color $timing-function-search transform $timing-function-search;
 
-//   &:hover,
-//   &:focus {
-//     background-color: $color-button-active;
-//   }
-
-//   @media screen and (max-width: ($tablet - 0.02px)) {
-//     margin-left: auto;
-//   }
-// }
-
-// .footer-subscription__btn {
-//   @extend %button;
-
-//   padding-top: 10px;
-//   padding-right: 22px;
-//   padding-bottom: 10px;
-//   padding-left: 22px;
-
-//   font-size: 13px;
-//   line-height: calc(20 / 13);
-
-//   background: $color-input-background;
-//   border: 1px solid $color-border-btn;
-
-//   transition: background-color $timing-function-trans-duration;
-
-//   @media screen and (max-width: ($tablet - 0.02px)) {
-//     margin-left: auto;
-//   }
-
-//   &:hover,
-//   &:focus {
-//     background-color: $color-main-theme;
-//   }
-// }
-
-// .hero__btn {
-//   @extend %button;
-
-//   display: block;
-
-//   transition: background-color $timing-function-trans-duration;
-
-//   &:hover,
-//   &:focus {
-//     background-color: $color-button-active;
-//   }
-// }
-
-// .hero__slider-btn--left {
-//   @extend %slider-button;
-
-//   top: 50%;
-//   left: 0;
-//   padding-left: 9px;
-//   padding-right: 13px;
-
-//   @media screen and (min-width: $desktop) {
-//     padding-left: 13px;
-//     padding-right: 19px;
-//   }
-// }
-
-// .hero__slider-btn--right {
-//   @extend %slider-button;
-
-//   top: 50%;
-//   right: 0;
-//   padding-left: 13px;
-//   padding-right: 9px;
-
-//   @media screen and (min-width: $desktop) {
-//     padding-left: 19px;
-//     padding-right: 13px;
-//   }
-// }
-
-// .modal__close-btn {
-//   position: absolute;
-//   top: 10px;
-//   right: 10px;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   width: 50px;
-//   height: 50px;
-//   padding: 0;
-
-//   color: $color-primary-text;
-//   background-color: transparent;
-//   border-radius: 50%;
-//   border: none;
-//   cursor: pointer;
-// }
-
-// .modal__btn-icon {
-//   fill: currentColor;
-// }
-// .payment__submit-btn,
-// .order__submit-btn {
-//   @extend %button;
-
-//   margin-right: auto;
-//   margin-left: auto;
-//   padding-top: 20px;
-//   padding-right: 20px;
-//   padding-bottom: 20px;
-//   padding-left: 20px;
-//   min-width: 150px;
-//   max-width: 300px;
-
-//   font-size: 18px;
-//   font-weight: 500;
-//   line-height: calc(24 / 18);
-
-//   color: $color-primary-text;
-
-//   background: $color-accent;
-//   border: 2px solid $color-primary-text;
-
-//   // transition: background-color $timing-function-trans-duration;
-
-//   &:hover,
-//   &:focus {
-//     background-color: $color-border-btn;
-//   }
-
-//   &:disabled {
-//     background-color: $color-modal-disabled;
-//   }
-// }
-
-// .offerings__under__btn {
-//   @extend %button;
-
-//   padding-top: 8px;
-//   padding-right: 22px;
-//   padding-bottom: 8px;
-//   padding-left: 22px;
-
-//   font-size: 13px;
-//   font-weight: 500;
-//   line-height: calc(20 / 13);
-
-//   background-color: $color-input-background;
-//   border: 2px solid $color-border-btn;
-
-//   // transition: border $timing-function-trans-duration;
-
-//   &:hover,
-//   &:focus {
-//     border: 2px solid $color-border-btn-active;
-//   }
-
-//   @media screen and (min-width: $desktop) {
-//     padding: 10px 22px;
-//   }
-// }
-
-// .dropdown__btn {
-//   margin-left: auto;
-//   padding-top: 22px;
-//   padding-bottom: 22px;
-
-//   justify-content: center;
-
-//   border: none;
-//   background-color: transparent;
-//   fill: $color-border-btn;
-
-//   @media screen and (min-width: 768px) {
-//     display: none;
-//   }
-// }
+  &.ready {
+    color: $color-accent;
+  }
+  &.scale {
+    animation-name: scaleSearch;
+    animation-duration: 1500ms;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-delay: 0ms;
+  }
+}

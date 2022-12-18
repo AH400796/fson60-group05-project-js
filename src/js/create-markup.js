@@ -9,9 +9,12 @@ export const createMarkup = function (arr, rating) {
       if (item.media_type === 'person') {
         return;
       }
-      // console.log(item.poster_path);
-      const poster = item.poster_path && item.poster_path !== null ? `https://image.tmdb.org/t/p/w500${item.poster_path}` : `./images/noposter.png`;
-      // console.log(poster);
+
+      const poster =
+        item.poster_path && item.poster_path !== null
+          ? `https://image.tmdb.org/t/p/w500${item.poster_path}`
+          : `https://i.ibb.co/mbchPsg/no-poster.png`;
+
       return `<li class="gallery__item">
     <div class="id" hidden> ${item.id} </div>
     <div class="thumb">
@@ -65,8 +68,12 @@ function getGenreName(genre_ids) {
 }
 
 export const createFilmModalCard = function (data) {
-  const markup = `<img class="modal__card-img img" src="https://image.tmdb.org/t/p/original/${data.poster_path}" alt="${data.original_title}" 
-        width="375" height="478"> 
+  const poster =
+    data.poster_path && data.poster_path !== null
+      ? `https://image.tmdb.org/t/p/original/${data.poster_path}`
+      : `https://i.ibb.co/mbchPsg/no-poster.png`;
+  const markup = `<div class="thumb"><img class="modal__card-img img" src="${poster}" alt="${data.original_title}" 
+        width="375" height="478"></div>
       <div class="modal__card"> 
         <h3 class="modal__card-title">${data.title}</h3> 
         <ul class="modal__card-list list"> 

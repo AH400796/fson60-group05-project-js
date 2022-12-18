@@ -1,6 +1,10 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
+import { searchFilm } from './fetch';
 import { clearGallery } from './utility-functions';
+import { getTrendingFilms } from './fetch';
+import { createMarkup } from './create-markup';
+import { removeSpinner, addSpinner } from './spinner';
 
 export const startPagination = function (totalFilms) {
   let page = 1;
@@ -25,3 +29,53 @@ export const startPagination = function (totalFilms) {
 
   const pagination = new Pagination(container, options);
 };
+
+export const setTrendPagination = function (page) {
+  const paginationBtns = document.querySelector('.tui-pagination');
+  paginationBtns.addEventListener('click', onClick);
+  function onClick() {
+    for (const key of Object.entries(paginationBtns.children)) {
+      if (key[1].className.includes('selected')) {
+        page = Number(key[1].textContent);
+      }
+    }
+    renderTrendPaginationQuery(page);
+  }
+};
+
+export const setSearchPagination = function (value, page) {
+  const paginationBtns = document.querySelector('.tui-pagination');
+  paginationBtns.addEventListener('click', onClick);
+  function onClick() {
+    for (const key of Object.entries(paginationBtns.children)) {
+      if (key[1].className.includes('selected')) {
+        page = Number(key[1].textContent);
+      }
+    }
+    renderSearchPaginationQuery(value, page);
+  }
+};
+
+function renderTrendPaginationQuery(pageNumber) {
+  clearGallery();
+  getTrendingFilms(pageNumber)
+    .then(data => {
+      createMarkup(data);
+    })
+    .catch(error => {
+      Notiflix.Notify.failure('Oops, something went wrong!');
+    });
+  // .finally(removeSpinner);
+}
+
+function renderSearchPaginationQuery(filmName, pageNumber) {
+  clearGallery();
+  searchFilm(filmName, pageNumber)
+    .then(data => {
+      createMarkup(data);
+    })
+    .catch(error => {
+      Notiflix.Notify.failure('Oops, something went wrong!');
+    });
+  // .finally(removeSpinner);
+}
