@@ -9,9 +9,9 @@ export const createMarkup = function (arr, rating) {
       if (item.media_type === 'person') {
         return;
       }
-      console.log(item.poster_path);
+      // console.log(item.poster_path);
       const poster = item.poster_path && item.poster_path !== null ? `https://image.tmdb.org/t/p/w500${item.poster_path}` : `./images/noposter.png`;
-      console.log(poster);
+      // console.log(poster);
       return `<li class="gallery__item">
     <div class="id" hidden> ${item.id} </div>
     <div class="thumb">
@@ -98,10 +98,10 @@ export const createFilmModalCard = function (data) {
  
         <ul class="card__btn-list list"> 
           <li class="card__btn-item"> 
-            <button class="card__btn">add to Watched</button> 
+            <button class="card__btn js-add__watched">add to Watched</button> 
           </li> 
           <li class="card__btn-item"> 
-            <button class="card__btn">add to queue</button> 
+            <button class="card__btn js-add__queue">add to queue</button> 
           </li> 
         </ul> 
       </div> `;
