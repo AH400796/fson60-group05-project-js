@@ -30,7 +30,7 @@ export const startPagination = function (totalFilms) {
   const pagination = new Pagination(container, options);
 };
 
-export const setTrendPagination = function () {
+export const setTrendPagination = function (page) {
   const paginationBtns = document.querySelector('.tui-pagination');
   paginationBtns.addEventListener('click', onClick);
   function onClick() {
@@ -43,7 +43,7 @@ export const setTrendPagination = function () {
   }
 };
 
-export const setSearchPagination = function (value) {
+export const setSearchPagination = function (value, page) {
   const paginationBtns = document.querySelector('.tui-pagination');
   paginationBtns.addEventListener('click', onClick);
   function onClick() {
