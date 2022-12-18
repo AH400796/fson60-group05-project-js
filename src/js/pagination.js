@@ -7,12 +7,17 @@ import { createMarkup } from './create-markup';
 import { removeSpinner, addSpinner } from './spinner';
 
 export const startPagination = function (totalFilms) {
+  const screenWidth = window.screen.width;
+  let pagBtnNumder = 5;
+  if (screenWidth < 400) {
+    pagBtnNumder = 3;
+  }
   let page = 1;
   const container = document.getElementById('pagination');
   const options = {
     totalItems: totalFilms,
     itemsPerPage: 20,
-    visiblePages: 5,
+    visiblePages: pagBtnNumder,
     usageStatistics: false,
     page,
     centerAlign: true,

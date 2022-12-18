@@ -70,7 +70,7 @@ export const createFilmModalCard = function (data) {
     data.poster_path && data.poster_path !== null
       ? `https://image.tmdb.org/t/p/original/${data.poster_path}`
       : `https://i.ibb.co/mbchPsg/no-poster.png`;
-  const markup = `<div class="thumb"><img class="modal__card-img img" src="${poster}" alt="${data.original_title}" 
+  const markup = `<div class="thumb_modal-card"><img class="modal__card-img img" src="${poster}" alt="${data.original_title}" 
         width="375" height="478"></div>
       <div class="modal__card"> 
         <h3 class="modal__card-title">${data.title}</h3> 
