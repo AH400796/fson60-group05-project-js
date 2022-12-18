@@ -22,9 +22,9 @@ export const createMarkup = function (arr, rating) {
     </div>
     <div class="gallery__info-wrapper">
     <p class="gallery__title">${(item.original_title || item.original_name).toUpperCase()}</p>
-    <div class="gallery__info"><span class="genres-and-year">${getGenreName(item.genre_ids)} | ${Number.parseInt(
-        item.release_date || item.first_air_date
-      )}</span><span class="${ratingExistence}">${item.vote_average.toFixed(1)}</span></div></div></li>`;
+    <div class="gallery__info"><span class="genres-and-year">${getGenreName(item.genre_ids)} | ${
+        Number.parseInt(item.release_date || item.first_air_date) || '-'
+      }</span><span class="${ratingExistence}">${item.vote_average.toFixed(1)}</span></div></div></li>`;
     })
     .join('');
 
@@ -87,7 +87,7 @@ export const createFilmModalCard = function (data) {
             <p class="card__item-popularity">${data.popularity ? data.popularity.toFixed(1) : '0'}</p> 
           </li> 
           <li class="card__item"> 
-            <h4 class="card__item-title">Original Title</h4> 
+            <h4 class="card__item-title">Original&nbsp;Title</h4> 
             <p class="card__item-original">${data.original_title}</p> 
           </li> 
           <li class="card__item"> 

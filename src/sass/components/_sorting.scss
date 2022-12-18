@@ -9,7 +9,7 @@
 .sorting__btn--by-date,
 .sorting__btn--by-rating {
   display: block;
-  width: 150px;
+  max-width: 150px;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-right: 20px;
@@ -28,7 +28,7 @@
 
   cursor: pointer;
 
-  transition: background-color $timing-function, color  $timing-function;
+  transition: background-color $timing-function, color $timing-function;
 }
 
 .sorting__btn--by-date:hover,
