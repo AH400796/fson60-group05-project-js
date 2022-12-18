@@ -27,53 +27,15 @@
   border-radius: 30px;
 
   cursor: pointer;
+
+  transition: background-color $timing-function, color  $timing-function;
 }
 
-// .checkbox-icon {
-//   position: absolute;
-//   left: 15px;
-//   bottom: 10px;
-
-//   fill: #ffffff;
-//   transition: fill 250ms $timing-function;
-// }
-
-// .checkbox__date--input:checked + .checkbox-icon .checkbox__icon--uncheck {
-//   opacity: 0;
-//   transition: opacity 250ms $timing-function;
-// }
-
-// .checkbox__rating--input:checked + .checkbox-icon .checkbox__icon--uncheck {
-//   opacity: 0;
-//   transition: opacity 250ms $timing-function;
-// }
-
-// .checkbox__icon--check {
-//   opacity: 0;
-//   transition: opacity 250ms $timing-function;
-
-//   .checkbox__date--input:checked + .checkbox__icon & {
-//     opacity: 1;
-//   }
-
-//   .checkbox__rating--input:checked + .checkbox__icon & {
-//     opacity: 1;
-//   }
-// }
-
-// .checkbox__date--text,
-// .checkbox__rating--text {
-//   font-weight: 500;
-//   font-size: 12px;
-//   line-height: 1.17;
-
-//   color: $color-accent;
-//   user-select: none;
-
-//   text-underline-position: under;
-
-//   @media screen and (min-width: 1200px) {
-//     font-size: 14px;
-//     line-height: 1.71;
-//   }
-// }
+.sorting__btn--by-date:hover,
+.sorting__btn--by-date:focus,
+.sorting__btn--by-rating:hover,
+.sorting__btn--by-rating:focus {
+  background: #ff6b01;
+  border-color: #ff6b01;
+  color: #ffffff;
+}
