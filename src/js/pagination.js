@@ -47,7 +47,6 @@ export const setSearchPagination = function (value, page) {
   const paginationBtns = document.querySelector('.tui-pagination');
   paginationBtns.addEventListener('click', onClick);
   function onClick() {
-    console.log(value);
     for (const key of Object.entries(paginationBtns.children)) {
       if (key[1].className.includes('selected')) {
         page = Number(key[1].textContent);
