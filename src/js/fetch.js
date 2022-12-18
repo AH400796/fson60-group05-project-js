@@ -1,5 +1,4 @@
 import { API_KEY, BASE_URL } from './constants';
-import { addSpinner } from './spinner';
 
 export const searchFilm = async function (value, page) {
   const response = await fetch(
@@ -20,7 +19,6 @@ export const getTrendingFilms = async function (page) {
 };
 
 export const onFilmCardClick = async function (filmId) {
-  addSpinner();
   const response = await fetch(`${BASE_URL}/movie/${filmId}?api_key=${API_KEY}`);
   if (!response.ok) {
     throw new Error(response.status);
