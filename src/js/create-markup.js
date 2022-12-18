@@ -82,8 +82,7 @@ export const createFilmModalCard = function (data) {
             <p class="card__item-vote">${data.vote_average ? data.vote_average.toFixed(1) : '0'}</p> 
             <span class="card__item-slash">/</span> 
             <p class="card__item-votes">${data.vote_count}</p> 
- 
-          <li class="card__item"> 
+           <li class="card__item"> 
             <h4 class="card__item-title">Popularity</h4> 
             <p class="card__item-popularity">${data.popularity ? data.popularity.toFixed(1) : '0'}</p> 
           </li> 
@@ -102,8 +101,7 @@ export const createFilmModalCard = function (data) {
         </ul> 
         <h4 class="card__item-about">About</h4> 
         <p class="card__item-about__text card__item-text">${data.overview}</p> 
- 
-        <ul class="card__btn-list list"> 
+         <ul class="card__btn-list list"> 
           <li class="card__btn-item"> 
             <button class="card__btn js-add__watched">add to Watched</button> 
           </li> 
