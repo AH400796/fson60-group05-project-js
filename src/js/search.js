@@ -7,7 +7,19 @@ import { startPagination, setSearchPagination } from './pagination';
 
 const formSearch = document.querySelector('.header__form');
 const inputInfo = document.querySelector('.header__input-info');
+const input = document.querySelector('.header__input');
+const searchBtn = document.querySelector('.js-search');
+
 formSearch.addEventListener('submit', onSubmit);
+input.addEventListener('input', e => {
+  if (e.currentTarget.value) {
+    searchBtn.classList.add('scale');
+    searchBtn.classList.add('ready');
+  } else {
+    searchBtn.classList.remove('scale');
+    searchBtn.classList.remove('ready');
+  }
+});
 
 let page = 1;
 

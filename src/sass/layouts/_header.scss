@@ -218,25 +218,6 @@
   background-color: $color-current-underline;
 }
 
-.watched-button,
-.queue-button {
-  @extend %button;
-}
-
-.search-button {
-  position: absolute;
-  top: -8px;
-  right: -9px;
-  width: 36px;
-  height: 36px;
-  padding: 0;
-  padding: 12px;
-  border: none;
-  color: $color-background;
-  background-color: transparent;
-  cursor: pointer;
-}
-
 .header__input-info {
   color: $color-current-underline;
   font-family: 'Roboto';
