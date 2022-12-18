@@ -18,14 +18,12 @@ function onSubmit(e) {
   addSpinner();
   searchFilm(value, page)
     .then(data => {
-      console.log(data);
       if (data.results.length === 0) {
         inputInfo.removeAttribute('hidden');
         return;
       } else {
         createMarkup(data, true);
         startPagination(Number(data.total_results));
-        console.log(value);
         setSearchPagination(value);
       }
     })
