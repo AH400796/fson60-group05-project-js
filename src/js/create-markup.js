@@ -9,9 +9,8 @@ export const createMarkup = function (arr, rating) {
       if (item.media_type === 'person') {
         return;
       }
-      console.log(item.poster_path);
-      const poster = item.poster_path && item.poster_path !== null ? `https://image.tmdb.org/t/p/w500${item.poster_path}` : `./images/noposter.png`;
-      console.log(poster);
+      const poster =
+        item.poster_path && item.poster_path !== null ? `https://image.tmdb.org/t/p/w500${item.poster_path}` : `/src/images/noposter.jpg`;
       return `<li class="gallery__item">
     <div class="id" hidden> ${item.id} </div>
     <div class="thumb">
