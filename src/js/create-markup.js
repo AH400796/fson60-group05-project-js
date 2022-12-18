@@ -10,7 +10,9 @@ export const createMarkup = function (arr, rating) {
         return;
       }
       const poster =
-        item.poster_path && item.poster_path !== null ? `https://image.tmdb.org/t/p/w500${item.poster_path}` : `/src/images/noposter.jpg`;
+        item.poster_path && item.poster_path !== null
+          ? `https://image.tmdb.org/t/p/w500${item.poster_path}`
+          : `https://i.ibb.co/mbchPsg/no-poster.png`;
       return `<li class="gallery__item">
     <div class="id" hidden> ${item.id} </div>
     <div class="thumb">
