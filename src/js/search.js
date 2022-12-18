@@ -3,6 +3,7 @@ import { fetchFilm } from './fetch';
 import { createMarkup } from './create-markup';
 import { clearGallery } from './utility-functions';
 import { removeSpinner } from './spinner';
+import { startPagination } from './pagination';
 
 const formSearch = document.querySelector('.header__form');
 const inputInfo = document.querySelector('.header__input-info');
@@ -19,6 +20,7 @@ function onSubmit(e) {
         inputInfo.removeAttribute('hidden');
         return;
       } else {
+        startPagination(Number(data.total_results));
         createMarkup(data, true);
       }
     })

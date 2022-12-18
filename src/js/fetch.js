@@ -10,9 +10,9 @@ export const fetchFilm = async function (value) {
   return await response.json();
 };
 
-export const getTrendingFilms = async function () {
-  addSpinner();
-  const response = await fetch(`${BASE_URL}trending/all/day?api_key=${API_KEY}`);
+export const getTrendingFilms = async function (page) {
+  // addSpinner();
+  const response = await fetch(`${BASE_URL}trending/all/day?api_key=${API_KEY}&page=${page}`);
   if (!response.ok) {
     throw new Error(response.status);
   }
