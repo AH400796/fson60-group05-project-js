@@ -78,17 +78,6 @@ function addInfoAboutFilm(data) {
   });
 }
 
-// function addInfoAboutFilm(data) {
-//   selectedFilms.push({
-//     id: data.id,
-//     poster_path: data.poster_path,
-//     original_title: data.original_title || data.original_name,
-//     genre_ids: data.genres.map(el => el.id),
-//     release_date: data.release_date || data.first_air_date,
-//     vote_average: data.vote_average,
-//   });
-// }
-
 function onBackdropClick(event) {
   if (event.currentTarget === event.target) {
     onCloseModal();
@@ -168,7 +157,7 @@ function onClickQueue() {
   renderQueue();
 }
 
-function renderWatched() {
+export const renderWatched = function (objectWatchedFilms, selectedFilms, watchedMovies) {
   clearGallery();
   objectWatchedFilms.results = [];
   for (let i = 0; i < watchedMovies.length; i += 1) {
@@ -176,7 +165,7 @@ function renderWatched() {
     objectWatchedFilms.results.push(selectedFilm);
   }
   createMarkup(objectWatchedFilms, true);
-}
+};
 
 function renderQueue() {
   clearGallery();
