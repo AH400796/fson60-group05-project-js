@@ -48,7 +48,7 @@ function onSubmit(e) {
     .catch(error => {
       Notiflix.Notify.failure('Oops, something went wrong!');
     })
-    .finally(setTimeout(removeSpinner, 500));
+    .finally(setTimeout(removeSpinner, 2000));
 }
 
 function searchIsNotFound() {

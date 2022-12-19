@@ -193,7 +193,7 @@
 
 .header__input {
   position: relative;
-  max-width: 280px;
+  min-width: 280px;
 
   font-size: 14px;
   line-height: calc(16 / 14);
