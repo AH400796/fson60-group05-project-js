@@ -13,24 +13,27 @@ function switcher() {
   sunBtn.classList.add('visually-hidden');
   moonBtn.classList.remove('visually-hidden');
   document.getElementsByTagName('body')[0].style.backgroundColor = '#111417';
-  document.getElementsByClassName('modal__film-card')[0].style.background = '#B04700';
-  document.getElementsByClassName('footer')[0].style.backgroundColor = 'black';
+  document.getElementsByTagName('body')[0].style.color = 'white';
+  document.getElementsByClassName('footer')[0].style.backgroundColor = '#070707';
   const collection = document.getElementsByClassName('gallery__title');
   for (let index = 0; index < collection.length; index++) {
     const element = collection[index];
     element.style.color = 'white';
   }
+  document.getElementsByClassName('modal__film-card')[0].classList.add('modal__film-card-dark');
 }
 
 function switcherBack() {
   localStorage.removeItem('theme', 'dark');
   moonBtn.classList.add('visually-hidden');
   sunBtn.classList.remove('visually-hidden');
-  document.getElementsByTagName('body')[0].style.backgroundColor = '#FFF';
+  document.getElementsByTagName('body')[0].style.backgroundColor = 'white';
+  document.getElementsByTagName('body')[0].style.color = 'black';
   document.getElementsByClassName('footer')[0].style.backgroundColor = '#f7f7f7';
   const collection = document.getElementsByClassName('gallery__title');
   for (let index = 0; index < collection.length; index++) {
     const element = collection[index];
     element.style.color = 'black';
   }
+  document.getElementsByClassName('modal__film-card')[0].classList.remove('modal__film-card-dark');
 }

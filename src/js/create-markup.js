@@ -22,9 +22,8 @@ export const createMarkup = function (data, rating) {
     </div>
     <div class="gallery__info-wrapper">
     <p class="gallery__title">${(item.original_title || item.original_name).toUpperCase()}</p>
-    <div class="gallery__info"><span class="genres-and-year">${getGenreName(item.genre_ids)} | ${
-        Number.parseInt(item.release_date || item.first_air_date) || '-'
-      }</span><span class="${ratingExistence}">${item.vote_average.toFixed(1)}</span></div></div></li>`;
+    <div class="gallery__info"><span class="genres-and-year">${getGenreName(item.genre_ids)} | ${Number.parseInt(item.release_date || item.first_air_date) || '-'
+        }</span><span class="${ratingExistence}">${item.vote_average.toFixed(1)}</span></div></div></li>`;
     })
     .join('');
 
@@ -93,14 +92,14 @@ export const createFilmModalCard = function (data, watchedBtnContext, queueBtnCo
           <li class="card__item"> 
             <h4 class="card__item-title">Genre</h4> 
             <p class="card__item-genre">${data.genres
-              .map(item => {
-                return item['name'];
-              })
-              .join(', ')}</p> 
+      .map(item => {
+        return item['name'];
+      })
+      .join(', ')}</p> 
           </li> 
         </ul> 
         <h4 class="card__item-about">About</h4> 
-        <p class="card__item-about__text card__item-text">${data.overview}</p> 
+        <p id="card__item-about__text" class="card__item-about__text card__item-text">${data.overview}</p> 
          <ul class="card__btn-list list"> 
           <li class="card__btn-item"> 
             <button class="${isSelectedWatched}">${watchedBtnContext}</button> 
