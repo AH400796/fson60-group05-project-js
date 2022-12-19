@@ -1,9 +1,7 @@
 import Notiflix from 'notiflix';
-import { onFilmCardClick } from './fetch';
-import { removeSpinner } from './spinner';
+import { onFilmCardClick, getTrailerKey } from './fetch';
 import { createFilmModalCard } from './create-markup';
-import { startPagination, setTrendPagination } from './pagination';
-import { addSpinner, removeSpinner } from './spinner';
+import { startPagination } from './pagination';
 import { KEY_WATCHED, KEY_QUEUE } from './constants';
 import { createMarkup } from './create-markup';
 import { clearGallery } from './utility-functions';
@@ -47,7 +45,14 @@ function onListClick(event) {
   }
   filmId = filmCard.querySelector('.id').textContent;
 
-  console.dir(event.target.parentNode.parentNode);
+  getTrailerKey(filmId)
+    .then(data => {
+      console.log(data);
+    })
+    .catch(error => {
+      Notiflix.Notify.failure('Unfortunately, there is no additional information about this movie...');
+    })
+    .finally();
 
   onFilmCardClick(filmId)
     .then(data => {
@@ -64,7 +69,7 @@ function onListClick(event) {
     .catch(error => {
       Notiflix.Notify.failure('Unfortunately, there is no additional information about this movie...');
     })
-    .finally(setTimeout(removeSpinner, 500));
+    .finally();
 }
 
 function addInfoAboutFilm(data) {

@@ -25,3 +25,11 @@ export const onFilmCardClick = async function (filmId) {
   }
   return await response.json();
 };
+
+export const getTrailerKey = async function (filmId) {
+  const response = await fetch(`${BASE_URL}/movie/${filmId}/videos?api_key=${API_KEY}`);
+  if (!response.ok) {
+    throw new Error(response.status);
+  }
+  return await response.json();
+};
