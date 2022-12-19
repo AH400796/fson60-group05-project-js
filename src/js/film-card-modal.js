@@ -2,7 +2,7 @@ import Notiflix from 'notiflix';
 import { onFilmCardClick } from './fetch';
 import { removeSpinner } from './spinner';
 import { createFilmModalCard } from './create-markup';
-import { getTrendingFilms } from './fetch';
+import { startPagination, setTrendPagination } from './pagination';
 import { addSpinner, removeSpinner } from './spinner';
 import { KEY_WATCHED, KEY_QUEUE } from './constants';
 import { createMarkup } from './create-markup';
@@ -165,6 +165,8 @@ export const renderWatched = function () {
     objectWatchedFilms.results.push(selectedFilm);
   }
   createMarkup(objectWatchedFilms, true);
+  startPagination(watchedMovies.length);
+  // setTrendPagination();
 };
 
 function renderQueue() {
@@ -175,4 +177,6 @@ function renderQueue() {
     objectQueueFilms.results.push(selectedFilm);
   }
   createMarkup(objectQueueFilms, true);
+  startPagination(queueMovies.length);
+  // setTrendPagination();
 }
