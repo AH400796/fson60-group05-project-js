@@ -1,12 +1,12 @@
 const gallery = document.querySelector('.gallery__list');
 const modalCard = document.querySelector('.modal__film-card');
 
-export const createMarkup = function (arr, rating) {
+export const createMarkup = function (data, rating) {
   gallery.innerHTML = '';
   const ratingExistence = rating ? 'rating' : 'rating visually-hidden';
-  const markup = arr.results
+  const markup = data.results
     .map(item => {
-      if (item.media_type === 'person') {
+      if (item.media_type && item.media_type === 'person') {
         return;
       }
 
@@ -67,7 +67,7 @@ function getGenreName(genre_ids) {
   );
 }
 
-export const createFilmModalCard = function (data) {
+export const createFilmModalCard = function (data, watchedBtnContext, queueBtnContext, isSelectedWatched, isSelectedQueue) {
   const poster =
     data.poster_path && data.poster_path !== null
       ? `https://image.tmdb.org/t/p/original/${data.poster_path}`
@@ -103,10 +103,10 @@ export const createFilmModalCard = function (data) {
         <p class="card__item-about__text card__item-text">${data.overview}</p> 
          <ul class="card__btn-list list"> 
           <li class="card__btn-item"> 
-            <button class="card__btn js-add__watched">add to Watched</button> 
+            <button class="${isSelectedWatched}">${watchedBtnContext}</button> 
           </li> 
           <li class="card__btn-item"> 
-            <button class="card__btn js-add__queue">add to queue</button> 
+            <button class="${isSelectedQueue}">${queueBtnContext}</button> 
           </li> 
         </ul> 
       </div> `;
