@@ -1,5 +1,6 @@
 import { renderTrendingFilms } from './get-trending';
 import { resetSearch } from './utility-functions';
+import { renderWatched } from './film-card-modal';
 
 const { header, container, wrapper, logo, home, library, watched, queue, input } = {
   header: document.querySelector('.js-header'),
@@ -32,6 +33,7 @@ function onClickMyLibrary() {
   input.classList.add('visually-hidden');
   queue.classList.remove('current');
   watched.classList.add('current');
+  renderWatched();
 }
 
 function onClickHome() {
