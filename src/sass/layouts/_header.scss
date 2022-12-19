@@ -109,13 +109,13 @@
   font-weight: 500;
   font-size: 30px;
   line-height: calc(35 / 30);
-  transition: color 200ms ease;
+  transition: color $timing-function;
 
   &:hover,
   &:focus {
     fill: $color-current-underline;
     color: $color-current-underline;
-    transition: color 200ms ease;
+    transition: color $timing-function;
   }
 
   @media screen and (max-width: ($tablet - 0.02px)) {
@@ -141,15 +141,15 @@
   padding-bottom: 20px;
   cursor: pointer;
   fill: $color-background;
-  transition: color 200ms ease;
-  transition: fill 200ms ease;
+  transition: color $timing-function;
+  transition: fill $timing-function;
 
   &:hover,
   &:focus {
     fill: $color-current-underline;
     color: $color-current-underline;
-    transition: color 200ms ease;
-    transition: fill 200ms ease;
+    transition: color $timing-function;
+    transition: fill $timing-function;
   }
 }
 
@@ -162,12 +162,14 @@
   line-height: calc(14 / 12);
   text-transform: uppercase;
   cursor: pointer;
-  transition: color 200ms ease;
+  transition: color $timing-function;
 
   &:hover,
   &:focus {
     color: $color-current-underline;
-    transition: $timing-function;
+
+    transition: color $timing-function;
+
   }
 }
 

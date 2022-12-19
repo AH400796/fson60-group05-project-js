@@ -23,19 +23,22 @@
 //   color: $color-primary-text;
 //   background-color: transparent;
 
-//   border: 1px solid $color-primary-text;
-//   border-radius: 30px;
+
+  border: 1px solid $color-border;
+  border-radius: 30px;
+
 
 //   cursor: pointer;
 
 //   transition: background-color $timing-function, color $timing-function;
 // }
 
-// .sorting__btn--by-date:hover,
-// .sorting__btn--by-date:focus,
-// .sorting__btn--by-rating:hover,
-// .sorting__btn--by-rating:focus {
-//   background: #ff6b01;
-//   border-color: #ff6b01;
-//   color: #ffffff;
-// }
+.sorting__btn--by-date:hover,
+.sorting__btn--by-date:focus,
+.sorting__btn--by-rating:hover,
+.sorting__btn--by-rating:focus {
+  background: $color-accent;
+  border-color: $color-accent;
+  color: $color-background;
+}
+
