@@ -10,6 +10,8 @@ const inputInfo = document.querySelector('.header__input-info');
 const input = document.querySelector('.header__input');
 const searchBtn = document.querySelector('.js-search');
 const gallery = document.querySelector('.gallery__list');
+const pagination = document.querySelector('.tui-pagination');
+console.log(pagination);
 
 formSearch.addEventListener('submit', onSubmit);
 input.addEventListener('input', e => {
@@ -32,10 +34,12 @@ function onSubmit(e) {
   searchFilm(value, page)
     .then(data => {
       if (data.results.length === 0) {
+        pagination.classList.add('visually-hidden');
         inputInfo.removeAttribute('hidden');
         searchIsNotFound();
         return;
       } else {
+        pagination.classList.remove('visually-hidden');
         createMarkup(data);
         startPagination(Number(data.total_results));
         setSearchPagination(value);
