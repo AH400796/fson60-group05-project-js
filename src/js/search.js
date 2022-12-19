@@ -48,6 +48,6 @@ function onSubmit(e) {
 }
 
 function searchIsNotFound() {
-  const markup = '<div class="thumb404"><img src="https://i.ibb.co/p476zH4/page-not-found-1-1.jpg" alt="404" width="300" height="300"></img></div>';
+  const markup = '<div class="thumb404"><img src="https://i.ibb.co/KwMK1jc/page-not-found-1.png" alt="404" width="300" height="300"></img></div>';
   gallery.insertAdjacentHTML('beforeend', markup);
 }
