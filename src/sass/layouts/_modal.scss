@@ -20,6 +20,9 @@ body.show-modal .backdrop {
 }
 
 .modal {
+  @media screen and (max-width: ($tablet - 0.02px)) {
+    top: 80%;
+  }
   position: absolute;
   left: 50%;
   top: 50%;
