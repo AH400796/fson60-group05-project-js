@@ -157,7 +157,7 @@ function onClickQueue() {
   renderQueue();
 }
 
-export const renderWatched = function (objectWatchedFilms, selectedFilms, watchedMovies) {
+export const renderWatched = function () {
   clearGallery();
   objectWatchedFilms.results = [];
   for (let i = 0; i < watchedMovies.length; i += 1) {
