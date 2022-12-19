@@ -13,14 +13,25 @@
           <li class="header__nav-item js-library">
             <p class="header__nav-link">My library</p>
           </li>
+          <!-- Перемикач темної теми -->
+          <li id="sun" class="header__nav-item">
+            <svg class="header__nav-link" width="16" height="16">
+              <use href="./images/sprite.svg#sun"></use>
+            </svg>
+          </li>
+          <li id="moon" class="visually-hidden header__nav-item">
+            <svg class="header__nav-link" width="16" height="16">
+              <use href="./images/sprite.svg#moon"></use>
+            </svg>
+          </li>
         </ul>
       </nav>
-      <div class="header__authentication js-sign-in">
+      <!-- <div class="header__authentication js-sign-in">
         <p class="header__auth-link">Sign in</p>
         <div class="sign-in-modal visually-hidden" data-modal>
-          <!-- Форма входу -->
-          <form class="sign-in__form" name="sign-in-form" autocomplete="off">
-               <label class="sign-in__label">
+          Форма входу -->
+          <!-- <form class="sign-in__form" name="sign-in-form" autocomplete="off">
+            <label class="sign-in__label">
               Email
               <span class="sign-in__field">
                 <input class="sign-in__input" type="email" name="email" />
@@ -36,7 +47,7 @@
             <button class="sign-in__btn" type="submit">Sign in</button>
           </form>
         </div>
-      </div>
+      </div> -->
     </div>
     <form class="header__form">
       <div class="header__input-wrapper js-input">
@@ -47,7 +58,7 @@
             <use class="search__icon" href="./images/sprite.svg#search"></use>
           </svg>
       </div>
-      
+
       <div class="library-button">
         <button class="watched-button js-watched visually-hidden" type="button">Watched</button>
         <button class="queue-button js-queue visually-hidden" type="button">Queue</button>
@@ -55,4 +66,3 @@
     </form>
   </div>
 </header>
-

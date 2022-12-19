@@ -9,6 +9,7 @@ const formSearch = document.querySelector('.header__form');
 const inputInfo = document.querySelector('.header__input-info');
 const input = document.querySelector('.header__input');
 const searchBtn = document.querySelector('.js-search');
+const gallery = document.querySelector('.gallery__list');
 
 formSearch.addEventListener('submit', onSubmit);
 input.addEventListener('input', e => {
@@ -32,9 +33,10 @@ function onSubmit(e) {
     .then(data => {
       if (data.results.length === 0) {
         inputInfo.removeAttribute('hidden');
+        searchIsNotFound();
         return;
       } else {
-        createMarkup(data, true);
+        createMarkup(data);
         startPagination(Number(data.total_results));
         setSearchPagination(value);
       }
@@ -43,4 +45,9 @@ function onSubmit(e) {
       Notiflix.Notify.failure('Oops, something went wrong!');
     })
     .finally(setTimeout(removeSpinner, 500));
+}
+
+function searchIsNotFound() {
+  const markup = '<div class="thumb404"><img src="https://i.ibb.co/jhj29VR/not-found.jpg" alt="404" width="600" height="400"></img></div>';
+  gallery.insertAdjacentHTML('beforeend', markup);
 }

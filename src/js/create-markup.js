@@ -1,18 +1,20 @@
 const gallery = document.querySelector('.gallery__list');
 const modalCard = document.querySelector('.modal__film-card');
 
-export const createMarkup = function (arr, rating) {
+export const createMarkup = function (data, rating) {
   gallery.innerHTML = '';
   const ratingExistence = rating ? 'rating' : 'rating visually-hidden';
-  const markup = arr.results
+  const markup = data.results
     .map(item => {
-      if (item.media_type === 'person') {
+      if (item.media_type && item.media_type === 'person') {
         return;
       }
+
       const poster =
         item.poster_path && item.poster_path !== null
           ? `https://image.tmdb.org/t/p/w500${item.poster_path}`
           : `https://i.ibb.co/mbchPsg/no-poster.png`;
+
       return `<li class="gallery__item">
     <div class="id" hidden> ${item.id} </div>
     <div class="thumb">
@@ -20,9 +22,8 @@ export const createMarkup = function (arr, rating) {
     </div>
     <div class="gallery__info-wrapper">
     <p class="gallery__title">${(item.original_title || item.original_name).toUpperCase()}</p>
-    <div class="gallery__info"><span class="genres-and-year">${getGenreName(item.genre_ids)} | ${Number.parseInt(
-        item.release_date || item.first_air_date
-      )}</span><span class="${ratingExistence}">${item.vote_average.toFixed(1)}</span></div></div></li>`;
+    <div class="gallery__info"><span class="genres-and-year">${getGenreName(item.genre_ids)} | ${Number.parseInt(item.release_date || item.first_air_date) || '-'
+        }</span><span class="${ratingExistence}">${item.vote_average.toFixed(1)}</span></div></div></li>`;
     })
     .join('');
 
@@ -65,12 +66,12 @@ function getGenreName(genre_ids) {
   );
 }
 
-export const createFilmModalCard = function (data) {
+export const createFilmModalCard = function (data, watchedBtnContext, queueBtnContext, isSelectedWatched, isSelectedQueue) {
   const poster =
     data.poster_path && data.poster_path !== null
       ? `https://image.tmdb.org/t/p/original/${data.poster_path}`
       : `https://i.ibb.co/mbchPsg/no-poster.png`;
-  const markup = `<div class="thumb"><img class="modal__card-img img" src="${poster}" alt="${data.original_title}" 
+  const markup = `<div class="thumb_modal-card"><img class="modal__card-img img" src="${poster}" alt="${data.original_title}" 
         width="375" height="478"></div>
       <div class="modal__card"> 
         <h3 class="modal__card-title">${data.title}</h3> 
@@ -80,33 +81,31 @@ export const createFilmModalCard = function (data) {
             <p class="card__item-vote">${data.vote_average ? data.vote_average.toFixed(1) : '0'}</p> 
             <span class="card__item-slash">/</span> 
             <p class="card__item-votes">${data.vote_count}</p> 
- 
-          <li class="card__item"> 
+           <li class="card__item"> 
             <h4 class="card__item-title">Popularity</h4> 
             <p class="card__item-popularity">${data.popularity ? data.popularity.toFixed(1) : '0'}</p> 
           </li> 
           <li class="card__item"> 
-            <h4 class="card__item-title">Original Title</h4> 
+            <h4 class="card__item-title">Original&nbsp;Title</h4> 
             <p class="card__item-original">${data.original_title}</p> 
           </li> 
           <li class="card__item"> 
             <h4 class="card__item-title">Genre</h4> 
             <p class="card__item-genre">${data.genres
-              .map(item => {
-                return item['name'];
-              })
-              .join(', ')}</p> 
+      .map(item => {
+        return item['name'];
+      })
+      .join(', ')}</p> 
           </li> 
         </ul> 
         <h4 class="card__item-about">About</h4> 
-        <p class="card__item-about__text card__item-text">${data.overview}</p> 
- 
-        <ul class="card__btn-list list"> 
+        <p id="card__item-about__text" class="card__item-about__text card__item-text">${data.overview}</p> 
+         <ul class="card__btn-list list"> 
           <li class="card__btn-item"> 
-            <button class="card__btn">add to Watched</button> 
+            <button class="${isSelectedWatched}">${watchedBtnContext}</button> 
           </li> 
           <li class="card__btn-item"> 
-            <button class="card__btn">add to queue</button> 
+            <button class="${isSelectedQueue}">${queueBtnContext}</button> 
           </li> 
         </ul> 
       </div> `;

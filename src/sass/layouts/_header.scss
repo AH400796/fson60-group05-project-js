@@ -79,6 +79,7 @@
   @media screen and (min-width: ($tablet)) {
     margin-right: 10px;
   }
+
   @media screen and (min-width: ($desktop)) {
     margin-right: 12px;
   }
@@ -93,6 +94,8 @@
     margin-bottom: 30px;
   }
 
+  color: $color-background;
+
   &.library {
     margin-bottom: 40px;
 
@@ -106,8 +109,14 @@
   font-weight: 500;
   font-size: 30px;
   line-height: calc(35 / 30);
+  transition: color $timing-function;
 
-  color: $color-background;
+  &:hover,
+  &:focus {
+    fill: $color-current-underline;
+    color: $color-current-underline;
+    transition: color $timing-function;
+  }
 
   @media screen and (max-width: ($tablet - 0.02px)) {
     display: none;
@@ -131,7 +140,19 @@
   padding-top: 20px;
   padding-bottom: 20px;
   cursor: pointer;
+  fill: $color-background;
+  transition: color $timing-function;
+  transition: fill $timing-function;
+
+  &:hover,
+  &:focus {
+    fill: $color-current-underline;
+    color: $color-current-underline;
+    transition: color $timing-function;
+    transition: fill $timing-function;
+  }
 }
+
 .header__auth-link,
 .header__nav-link {
   position: relative;
@@ -140,14 +161,29 @@
   font-size: 12px;
   line-height: calc(14 / 12);
   text-transform: uppercase;
-
-  color: $color-background;
   cursor: pointer;
+  transition: color $timing-function;
+
+  &:hover,
+  &:focus {
+    color: $color-current-underline;
+
+    transition: color $timing-function;
+
+  }
 }
 
 .header__nav-list {
   display: flex;
-  gap: 40px;
+  gap: 20px;
+
+  @media screen and (min-width: ($tablet)) {
+    gap: 40px;
+  }
+
+  @media screen and (min-width: ($desktop)) {
+    gap: 50px;
+  }
 }
 
 .header__form {
@@ -158,7 +194,7 @@
 
 .header__input {
   position: relative;
-  min-width: 280px;
+  max-width: 280px;
 
   font-size: 14px;
   line-height: calc(16 / 14);
@@ -178,6 +214,7 @@
   @media screen and (min-width: ($tablet)) {
     min-width: 336px;
   }
+
   @media screen and (min-width: ($desktop)) {
     min-width: 394px;
   }
@@ -191,7 +228,15 @@
 .header__input-info {
   position: absolute;
   right: 0;
-  bottom: -35px;
+  bottom: -55px;
+
+  @media screen and (min-width: ($tablet)) {
+    bottom: -45px;
+  }
+
+  @media screen and (min-width: ($desktop)) {
+    bottom: -35px;
+  }
 }
 
 .library-button {
@@ -201,6 +246,7 @@
   @media screen and (min-width: ($tablet)) {
     gap: 32px;
   }
+
   @media screen and (min-width: ($desktop)) {
     gap: 16px;
   }
@@ -226,6 +272,7 @@
   line-height: 1.14;
   align-items: center;
   padding-top: 16px;
+
   @media screen and (min-width: ($tablet)) {
     text-align: center;
     padding-top: 20px;

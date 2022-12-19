@@ -71,6 +71,44 @@
     height: 574px;
   }
 }
+.thumb404 {
+  overflow: hidden;
+
+  min-width: 240px;
+  height: 160px;
+
+  @media screen and (min-width: ($tablet)) {
+    min-width: 600px;
+    height: 400px;
+  }
+
+  // @media screen and (min-width: ($desktop)) {
+  //   min-width: 375px;
+  //   height: 473px;
+
+  // }
+}
+
+.thumb_modal-card {
+  overflow: hidden;
+  border-radius: 5px;
+  min-width: 240px;
+  height: 357px;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: ($tablet)) {
+    min-width: 264px;
+    height: 373px;
+    margin-right: 68px;
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width: ($desktop)) {
+    min-width: 375px;
+    height: 473px;
+    margin-right: 16px;
+  }
+}
 
 .gallery__info-wrapper {
   font-weight: 500;
@@ -84,9 +122,7 @@
   }
 }
 
-.gallery__title {
-  color: $color-primary-text;
-}
+.gallery__title {}
 
 .genres-and-year {
   margin-right: 9px;

@@ -1,79 +1,58 @@
 import { fetchFilm } from './fetch';
 import { createMarkup } from './create-markup';
 import { clearGallery } from './utility-functions';
+import { addSpinner, removeSpinner } from './spinner';
+import { startPagination, setSearchPagination } from './pagination';
 
-// ПОТРІБНО імпортувати з search.js   ???
+// ПОТРІБНО імпортувати з MY LIBRARY  
 
-// Поява чекбоксів має бути реалізована при фільтрації (search)? (відфільтрував і з"явились чек бокси???)
-// Додати в markup ?????
-
-/**
-  |============================
-  | HTML  знаходиться в файлі sorting.html
-  |============================
-*/
-
-/**
-  |============================
-  | SCSS  стилі  в файлі _checkbox.scss  Потрібно підключити
-  |============================
-*/
 
 // Потрібен експорт
 
-const listDate = document.querySelector('#check__date');
-const listRating = document.querySelector('#check__rating');
+const listDate = document.querySelector('.sorting__btn--by-date');
+const listRating = document.querySelector('sorting__btn--by-rating');
 
-listDate.addEventListener('click', onCheckedDate);
-listRating.addEventListener('click', onCheckedRating);
+listDate.addEventListener('click', onClickDate);
+listRating.addEventListener('click', onClickRating);
 
-function onCheckedDate() {
-  if (listDate.checked) {
-    clearGallery();
-    fetchFilm(value).then(data => {
-      data.sort((a, b) => b.item.release_date - a.item.release_date);
-      createMarkup(data);
-      return;
-    });
-  } else {
-    onSubmit();
-  }
+function onClickDate() {
+  clearGallery();
+  listRating.disabled = true;
+  addSpinner();
+  sortWatchedMoviesByDate()
+    // sortQueueMoviesByDate();
 }
-// sort - змінює вихідний масив, щоб сортувати копію, потрібно зробити поверхневу копію до виклику sort()
-// const sorted = [...data].sort((a, b) => b - a);
+  
 
-// fetchFilm(value).sort(function(a, b){
-// const dateA=new Date(a.release_date), dateB=new Date(b.release_date)
-// return dateA-dateB //сортування за зростаючою датою!
-// })
-
-function onCheckedRating() {
-  if (listRating.checked) {
-    clearGallery();
-    fetchFilm(value).then(data => {
-      data.sort((a, b) => b.item.vote_average - a.item.vote_average);
-      createMarkup(data);
-      return;
-    });
-  } else {
-    onSubmit();
-  }
+function onClickRating() {
+  clearGallery(); 
+  listDate.disabled = true;
+  addSpinner();
+  sortWatchedMoviesByRating()
+  // sortQueueMoviesByRating();
 }
 
-// сортування по двом параметрам
-// потрібно взяти результат search і відсортувати двічі.... тут проблема
 
-function checkedAll() {
-  if (listDate.checked && listRating.checked) {
-    clearGallery();
-    fetchFilm(value).then(data => {
-      data.sort((a, b) => b.item.release_date - a.item.release_date);
-      // другий sort ?????
+function sortWatchedMoviesByDate() {
+  let sortedWatchedMoviesByDate = watchedMovies.sort((a, b) => b.item.release_date - a.item.release_date);
+  createMarkup(sortedWatchedMoviesByDate);
+  return;
+}
 
-      createMarkup(data);
-      return;
-    });
-  } else {
-    onSubmit();
-  }
+function sortWatchedMoviesByRating() {
+  let sortedWatchedMoviesByRating = watchedMovies.sort((a, b) => b.item.vote_average - a.item.vote_average);
+  createMarkup(sortedWatchedMoviesByRating);
+  return;
+}
+
+function sortQueueMoviesByDate() {
+  let sortedQueueMoviesByDate = queueMovies.sort((a, b) => b.item.release_date - a.item.release_date);
+  createMarkup(sortedQueueMoviesByDate);
+  return;
+}
+
+function sortQueueMoviesByRating() {
+  let sortedQueueMoviesByRating = queueMovies.sort((a, b) => b.item.vote_average - a.item.vote_average);
+  createMarkup(sortedQueueMoviesByRating);
+  return;
 }
