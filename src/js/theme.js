@@ -20,9 +20,8 @@ function switcher() {
     const element = collection[index];
     element.style.color = 'white';
   }
-  document.getElementsByClassName('modal__film-card')[0].classList.add('modal__film-card-dark');
-  document.getElementsByClassName("modal__film-card-wrapper")[0].style.backgroundColor = '#070707';
-
+  document.getElementsByClassName('modal__film-card-wrapper')[0].classList.add('modal__film-card-wrapper-dark');
+  document.getElementsByClassName('modal__film-card-wrapper')[0].style.backgroundColor = '#070707';
 }
 
 function switcherBack() {
@@ -37,6 +36,6 @@ function switcherBack() {
     const element = collection[index];
     element.style.color = 'black';
   }
-  document.getElementsByClassName('modal__film-card')[0].classList.remove('modal__film-card-dark');
-  document.getElementsByClassName("modal__film-card-wrapper")[0].style.backgroundColor = 'white';
+  document.getElementsByClassName('modal__film-card-wrapper')[0].classList.remove('modal__film-card-wrapper-dark');
+  document.getElementsByClassName('modal__film-card-wrapper')[0].style.backgroundColor = 'white';
 }
