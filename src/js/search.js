@@ -11,7 +11,6 @@ const input = document.querySelector('.header__input');
 const searchBtn = document.querySelector('.js-search');
 const gallery = document.querySelector('.gallery__list');
 const pagination = document.querySelector('.tui-pagination');
-console.log(pagination);
 
 formSearch.addEventListener('submit', onSubmit);
 input.addEventListener('input', e => {
