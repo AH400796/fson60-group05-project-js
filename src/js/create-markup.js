@@ -1,5 +1,5 @@
 const gallery = document.querySelector('.gallery__list');
-const modalCard = document.querySelector('.modal__film-card');
+const modalCard = document.querySelector('.modal__film-card-wrapper');
 
 export const createMarkup = function (data, rating) {
   gallery.innerHTML = '';
@@ -22,8 +22,9 @@ export const createMarkup = function (data, rating) {
     </div>
     <div class="gallery__info-wrapper">
     <p class="gallery__title">${(item.original_title || item.original_name).toUpperCase()}</p>
-    <div class="gallery__info"><span class="genres-and-year">${getGenreName(item.genre_ids)} | ${Number.parseInt(item.release_date || item.first_air_date) || '-'
-        }</span><span class="${ratingExistence}">${item.vote_average.toFixed(1)}</span></div></div></li>`;
+    <div class="gallery__info"><span class="genres-and-year">${getGenreName(item.genre_ids)} | ${
+        Number.parseInt(item.release_date || item.first_air_date) || '-'
+      }</span><span class="${ratingExistence}">${item.vote_average.toFixed(1)}</span></div></div></li>`;
     })
     .join('');
 
@@ -72,7 +73,7 @@ export const createFilmModalCard = function (data, watchedBtnContext, queueBtnCo
       ? `https://image.tmdb.org/t/p/original/${data.poster_path}`
       : `https://i.ibb.co/mbchPsg/no-poster.png`;
   const markup = `<div class="thumb_modal-card"><img class="modal__card-img img" src="${poster}" alt="${data.original_title}" 
-        width="375" height="478"></div>
+        ></div>      
       <div class="modal__card"> 
         <h3 class="modal__card-title">${data.title}</h3> 
         <ul class="modal__card-list list"> 
@@ -92,10 +93,10 @@ export const createFilmModalCard = function (data, watchedBtnContext, queueBtnCo
           <li class="card__item"> 
             <h4 class="card__item-title">Genre</h4> 
             <p class="card__item-genre">${data.genres
-      .map(item => {
-        return item['name'];
-      })
-      .join(', ')}</p> 
+              .map(item => {
+                return item['name'];
+              })
+              .join(', ')}</p> 
           </li> 
         </ul> 
         <h4 class="card__item-about">About</h4> 

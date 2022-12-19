@@ -5,12 +5,12 @@
 // `)
 // instance.show()
 
-const gallery = document.querySelector('.gallery__list');
-gallery.addEventListener('click',makeBtnForTrailer)
+// const gallery = document.querySelector('.gallery__list');
+// gallery.addEventListener('click',makeBtnForTrailer)
 
-const modalCard = document.querySelector('.modal__film-card');
+// const modalCard = document.querySelector('.modal__film-card');
 
-function makeBtnForTrailer() {
-    const markup = `<button class="btn_trailer"> Watch the trailer </button>`
-    modalCard.insertAdjacentHTML('beforeend', markup)
-}
+// function makeBtnForTrailer() {
+//     const markup = `<button class="btn_trailer"> Watch the trailer </button>`
+//     modalCard.insertAdjacentHTML('beforeend', markup)
+// }

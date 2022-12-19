@@ -13,7 +13,7 @@ const { list, body, closeModalBtn, backdrop, modalCard, watched, queue } = {
   body: document.body,
   closeModalBtn: document.querySelector('.modal__close'),
   backdrop: document.querySelector('.backdrop'),
-  modalCard: document.querySelector('.modal__film-card'),
+  modalCard: document.querySelector('.modal__film-card-wrapper'),
   watched: document.querySelector('.js-watched'),
   queue: document.querySelector('.js-queue'),
 };

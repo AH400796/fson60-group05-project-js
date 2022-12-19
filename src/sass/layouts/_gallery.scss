@@ -83,27 +83,6 @@
   }
 }
 
-.thumb_modal-card {
-  overflow: hidden;
-  border-radius: 5px;
-  min-width: 240px;
-  height: 357px;
-  margin-bottom: 20px;
-
-  @media screen and (min-width: ($tablet)) {
-    min-width: 264px;
-    height: 373px;
-    margin-right: 68px;
-    margin-bottom: 0;
-  }
-
-  @media screen and (min-width: ($desktop)) {
-    min-width: 375px;
-    height: 473px;
-    margin-right: 16px;
-  }
-}
-
 .gallery__info-wrapper {
   font-weight: 500;
   margin-top: 8px;
@@ -114,9 +93,6 @@
   @media screen and (min-width: ($desktop)) {
     margin-top: 12px;
   }
-}
-
-.gallery__title {
 }
 
 .genres-and-year {

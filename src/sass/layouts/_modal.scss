@@ -27,7 +27,8 @@ body.show-modal .backdrop {
   box-shadow: $shadow-modal-sign-in;
 }
 
-.modal__film-card {
+.modal__film-card-wrapper {
+  position: relative;
   width: 280px;
   padding: 48px 20px;
   background: $color-background;
@@ -81,24 +82,41 @@ body.show-modal .backdrop {
   cursor: pointer;
 }
 
+.thumb_modal-card {
+  overflow: hidden;
+  border-radius: 5px;
+  min-width: 240px;
+  height: 357px;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: ($tablet)) {
+    min-width: 264px;
+    height: 373px;
+    margin-right: 68px;
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width: ($desktop)) {
+    min-width: 375px;
+    height: 478px;
+    margin-right: 16px;
+  }
+}
+
 .modal__card-img {
   margin-bottom: 20px;
-  width: 240px;
-  height: 357px;
 
   border-radius: 5px;
 
+  object-fit: cover;
+
   @media screen and (min-width: 768px) {
-    width: 374px;
-    height: 264px;
     margin-right: 68px;
     margin-bottom: 0;
   }
 
   @media screen and (min-width: 1280px) {
     margin-right: 16px;
-    width: 375px;
-    height: 478px;
   }
 }
 
@@ -266,7 +284,6 @@ body.show-modal .backdrop {
   padding: 0 10px;
 
   text-transform: uppercase;
-
 
   transition: background-color $timing-function, color $timing-function;
 
