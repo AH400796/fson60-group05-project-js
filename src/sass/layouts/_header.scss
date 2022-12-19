@@ -167,7 +167,7 @@
   &:hover,
   &:focus {
     color: $color-current-underline;
-    transition: color 200ms ease;
+    transition: $timing-function;
   }
 }
 
@@ -226,7 +226,15 @@
 .header__input-info {
   position: absolute;
   right: 0;
-  bottom: -35px;
+  bottom: -55px;
+
+  @media screen and (min-width: ($tablet)) {
+    bottom: -45px;
+  }
+
+  @media screen and (min-width: ($desktop)) {
+    bottom: -35px;
+  }
 }
 
 .library-button {

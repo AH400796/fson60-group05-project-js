@@ -71,6 +71,23 @@
     height: 574px;
   }
 }
+.thumb404 {
+  overflow: hidden;
+
+  min-width: 240px;
+  height: 160px;
+
+  @media screen and (min-width: ($tablet)) {
+    min-width: 600px;
+    height: 400px;
+  }
+
+  // @media screen and (min-width: ($desktop)) {
+  //   min-width: 375px;
+  //   height: 473px;
+
+  // }
+}
 
 .thumb_modal-card {
   overflow: hidden;
