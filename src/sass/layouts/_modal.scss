@@ -13,17 +13,6 @@
   pointer-events: all;
 }
 
-// .backdrop--is-hidden {
-//   visibility: hidden;
-//   opacity: 0;
-//   pointer-events: none;
-//   transition: cubic-bezier(0.4, 0, 0.2, 1) 250ms;
-//   &:hover {
-//     opacity: 1;
-//     transition: cubic-bezier(0.4, 0, 0.2, 1) 250ms;
-//   }
-// }
-
 body.show-modal .backdrop {
   opacity: 1;
   visibility: visible;
@@ -250,7 +239,7 @@ body.show-modal .backdrop {
   background: $color-background;
   border: 1px solid #000000;
   border-radius: 5px;
-  padding: 0;
+  padding: 0 10px;
 
   text-transform: uppercase;
 
@@ -264,10 +253,12 @@ body.show-modal .backdrop {
     margin-left: 5px;
     margin-right: 10px;
   }
-}
-.card__btn:hover,
-.card__btn:focus {
-  background: #ff6b01;
-  border-color: #ff6b01;
-  color: #ffffff;
+
+  &:hover,
+  &:focus,
+  &.selected {
+    background: #ff6b01;
+    border-color: #ff6b01;
+    color: #ffffff;
+  }
 }

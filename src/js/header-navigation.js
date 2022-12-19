@@ -16,8 +16,7 @@ const { header, container, wrapper, logo, home, library, watched, queue, input }
 library.addEventListener('click', onClickMyLibrary);
 home.addEventListener('click', onClickHome);
 logo.addEventListener('click', onClickHome);
-watched.addEventListener('click', onClickWatched);
-queue.addEventListener('click', onClickQueue);
+
 document.addEventListener('click', resetSearch);
 
 onClickHome();
@@ -31,7 +30,8 @@ function onClickMyLibrary() {
   watched.classList.remove('visually-hidden');
   queue.classList.remove('visually-hidden');
   input.classList.add('visually-hidden');
-  onClickWatched();
+  queue.classList.remove('current');
+  watched.classList.add('current');
 }
 
 function onClickHome() {
@@ -44,16 +44,4 @@ function onClickHome() {
   watched.classList.add('visually-hidden');
   queue.classList.add('visually-hidden');
   renderTrendingFilms();
-}
-
-function onClickWatched() {
-  queue.classList.remove('current');
-  watched.classList.add('current');
-  //  + рендеринг списку переглянутих фільмів (Watched)
-}
-
-function onClickQueue() {
-  watched.classList.remove('current');
-  queue.classList.add('current');
-  //  + рендеринг списку фільмів, які додані в чергу на перегляд (Queue)
 }
