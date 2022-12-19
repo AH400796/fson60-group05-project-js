@@ -1,7 +1,7 @@
 import './js/create-markup';
 import './js/pagination';
 import './js/film-card-modal';
-import './js/firebase';
+// import './js/firebase';
 import './js/footer-modal.js';
 import './js/get-trending';
 import './js/header-navigation';

@@ -4,16 +4,16 @@
 // const app = initializeApp(firebaseConfig);
 // const auth = getAuth(app);
 
-const { signIn, modal } = {
-  signIn: document.querySelector('.js-sign-in'),
-  modal: document.querySelector('.sign-in-modal'),
-};
+// const { signIn, modal } = {
+//   signIn: document.querySelector('.js-sign-in'),
+//   modal: document.querySelector('.sign-in-modal'),
+// };
 
-signIn.addEventListener('click', onClickSignIn);
+// signIn.addEventListener('click', onClickSignIn);
 
-function onClickSignIn(e) {
-  if (e.target !== modal) {
-    modal.classList.toggle('visually-hidden');
-    signIn.classList.toggle('current');
-  }
-}
+// function onClickSignIn(e) {
+//   if (e.target !== modal) {
+//     modal.classList.toggle('visually-hidden');
+//     signIn.classList.toggle('current');
+//   }
+// }

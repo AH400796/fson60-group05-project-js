@@ -7,7 +7,6 @@ import { addSpinner, removeSpinner } from './spinner';
 import { KEY_WATCHED, KEY_QUEUE } from './constants';
 import { createMarkup } from './create-markup';
 import { clearGallery } from './utility-functions';
-import { isArray } from 'lodash';
 
 const { list, body, closeModalBtn, backdrop, modalCard, watched, queue } = {
   list: document.querySelector('.gallery__list'),
@@ -48,6 +47,8 @@ function onListClick(event) {
   }
   filmId = filmCard.querySelector('.id').textContent;
 
+  console.dir(event.target.parentNode.parentNode);
+
   onFilmCardClick(filmId)
     .then(data => {
       addInfoAboutFilm(data);
@@ -59,7 +60,6 @@ function onListClick(event) {
       isSelectedQueue = btnQueueContext[filmId + 'sel'] || 'card__btn js-add__queue';
       createFilmModalCard(data, watchedBtnContext, queueBtnContext, isSelectedWatched, isSelectedQueue);
       setAddButtons(filmId);
-      // console.dir(arrayOfSelectedFilms);
     })
     .catch(error => {
       Notiflix.Notify.failure('Unfortunately, there is no additional information about this movie...');
@@ -166,7 +166,6 @@ export const renderWatched = function () {
   }
   createMarkup(objectWatchedFilms, true);
   startPagination(watchedMovies.length);
-  // setTrendPagination();
 };
 
 function renderQueue() {
@@ -178,5 +177,4 @@ function renderQueue() {
   }
   createMarkup(objectQueueFilms, true);
   startPagination(queueMovies.length);
-  // setTrendPagination();
 }

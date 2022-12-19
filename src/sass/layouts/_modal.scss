@@ -40,6 +40,28 @@ body.show-modal .backdrop {
     padding-right: 72px;
     padding-top: 40px;
   }
+
+  @media screen and (min-width: 1280px) {
+    width: 806px;
+    padding: 40px 12px;
+  }
+}
+
+.modal__film-card-dark {
+  width: 280px;
+  padding: 48px 20px;
+  background: #070707;
+  color: cornsilk;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    width: 704px;
+    padding-left: 36px;
+    padding-top: 40px;
+    padding-right: 72px;
+    padding-top: 40px;
+  }
+
   @media screen and (min-width: 1280px) {
     width: 806px;
     padding: 40px 12px;
@@ -72,6 +94,7 @@ body.show-modal .backdrop {
     margin-right: 68px;
     margin-bottom: 0;
   }
+
   @media screen and (min-width: 1280px) {
     margin-right: 16px;
     width: 375px;
@@ -88,8 +111,6 @@ body.show-modal .backdrop {
   font-weight: 500;
   font-size: 20px;
   line-height: calc(23 / 20);
-
-  color: $color-primary-text;
 
   @media screen and (min-width: 1280px) {
     font-size: 30px;
@@ -158,9 +179,11 @@ body.show-modal .backdrop {
 
 .card__item-popularity {
   margin-left: 53px;
+
   @media screen and (min-width: 1280px) {
     margin-left: 97px;
   }
+
   // margin-bottom: 9px;
 }
 
@@ -172,6 +195,7 @@ body.show-modal .backdrop {
   @media screen and (min-width: 1280px) {
     margin-left: 83px;
   }
+
   //  margin-bottom: 8px;
 }
 
@@ -182,6 +206,7 @@ body.show-modal .backdrop {
   @media screen and (min-width: 1280px) {
     margin-left: 120px;
   }
+
   //margin-bottom: 20px;
 }
 
@@ -206,8 +231,6 @@ body.show-modal .backdrop {
   font-size: 12px;
   line-height: 1.67;
 
-  color: $color-primary-text;
-
   margin-bottom: 20px;
 }
 
@@ -216,6 +239,7 @@ body.show-modal .backdrop {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   // margin-left: auto;
   // margin-right: auto;
   @media screen and (min-width: 1280px) {
@@ -243,10 +267,13 @@ body.show-modal .backdrop {
 
   text-transform: uppercase;
 
+
   transition: background-color $timing-function, color $timing-function;
+
   @media screen and (min-width: 1280px) {
     width: 126px;
   }
+
   @media screen and (min-width: 1280px) {
     width: 136px;
 
