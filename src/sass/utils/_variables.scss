@@ -8,6 +8,7 @@ $font-text: 'Roboto', sans-serif;
 
 //     Colors
 $color-primary-text: #000000;
+$color-border: #000000;
 $color-secondary-text: #8c8c8c;
 $color-footer-text: #545454;
 $color-background: #ffffff;
@@ -17,10 +18,12 @@ $color-accent: #ff6b08;
 $color-current-underline: #ff001b;
 $color-overlay-modal: rgba(0, 0, 0, 0.25);
 $color-overlay-header: rgba(0, 0, 0, 0.56);
+$color-tui-border: #ddd;
+$color-tui-border-selected: #4b96e6;
 
 //     Shadows
 $shadow-modal-sign-in: 5px 5px 20px #450c15, -5px -5px 20px #450c15;
 
 //     Transition properties
-$timing-function: cubic-bezier(0.4, 0, 0.2, 1) 250ms;
-$timing-function-search: cubic-bezier(0.4, 0, 0.2, 1) 1000ms;
+$timing-function: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+$timing-function-search: 1000ms cubic-bezier(0.4, 0, 0.2, 1);
