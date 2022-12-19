@@ -1,0 +1,68 @@
+.tui-pagination > .tui-page-btn {
+  border-radius: 5px;
+  max-width: 40px !important;
+  max-height: 40px;
+  // padding: 13px 11px !important;
+  padding-top: 13px !important;
+  border: 0 !important;
+  font-family: 'Roboto';
+  font-style: normal !important;
+  font-weight: 500 !important;
+  font-size: 12px;
+  line-height: 16px !important;
+  color: $color-primary-text !important;
+}
+
+.tui-pagination .tui-is-selected,
+.tui-pagination strong {
+  background: $color-accent !important;
+  border-color: $color-accent !important;
+  color: $color-background !important;
+}
+
+.tui-pagination {
+  height: 40px !important;
+  margin: 60px 0 !important;
+}
+
+.tui-pagination .tui-first-child,
+.tui-pagination .tui-prev-is-ellip {
+  border-left: 1px solid $color-tui-border;
+}
+
+.tui-pagination .tui-last-child,
+.tui-pagination .tui-next-is-ellip {
+  border-right: 1px solid $color-tui-border;
+}
+
+.tui-pagination .tui-first-child.tui-is-selected {
+  border-left: 1px solid $color-tui-border-selected;
+}
+
+.tui-pagination .tui-last-child.tui-is-selected {
+  border-right: 1px solid $color-tui-border-selected;
+}
+
+.tui-pagination .tui-first,
+.tui-pagination .tui-prev,
+.tui-pagination .tui-next,
+.tui-pagination .tui-last,
+.tui-pagination .tui-prev-is-ellip,
+.tui-pagination .tui-next-is-ellip {
+  height: 40px !important;
+  padding: 12px 12px !important;
+  border: 0 !important;
+}
+
+.tui-pagination .tui-ico-ellip {
+  margin-top: 8px !important;
+}
+
+.tui-prev,
+.tui-next {
+  background-color: $color-footer-background !important;
+}
+
+.pagination-lib {
+  display: none;
+}

@@ -1,0 +1,44 @@
+// .sorting__container {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   gap: 40px;
+//   padding-top: 20px;
+// }
+
+// .sorting__btn--by-date,
+// .sorting__btn--by-rating {
+//   display: block;
+//   max-width: 150px;
+//   padding-top: 5px;
+//   padding-bottom: 5px;
+//   padding-right: 20px;
+//   padding-left: 20px;
+//   font-weight: 500;
+//   font-size: 12px;
+//   line-height: calc(14 / 12);
+//   text-transform: uppercase;
+//   text-align: center;
+
+//   color: $color-primary-text;
+//   background-color: transparent;
+
+
+  border: 1px solid $color-border;
+  border-radius: 30px;
+
+
+//   cursor: pointer;
+
+//   transition: background-color $timing-function, color $timing-function;
+// }
+
+.sorting__btn--by-date:hover,
+.sorting__btn--by-date:focus,
+.sorting__btn--by-rating:hover,
+.sorting__btn--by-rating:focus {
+  background: $color-accent;
+  border-color: $color-accent;
+  color: $color-background;
+}
+

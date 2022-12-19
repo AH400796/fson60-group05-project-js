@@ -16,7 +16,19 @@ $orange:#ff9800;
     align-items: center;
     justify-content: center;
 
+
   
+
+  margin: -20px;
+
+  @media screen and (max-width: 768px) {
+    margin-top: 70px;
+  }
+
+  width: 240px;
+
+  background-color: $color-background;
+
   border-radius: 15px;
   @media screen and (max-width: (768px - 1)) {
     margin-top: 200%;

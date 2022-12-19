@@ -26,6 +26,8 @@
 }
 
 .gallery__item {
+  border-radius: 5px;
+
   cursor: pointer;
 
   @media screen and (min-width: ($tablet)) {
@@ -38,10 +40,26 @@
   }
 }
 
+.gallery__item:hover {
+  box-shadow: $shadow-modal-sign-in;
+  transition: box-shadow 0.25s;
+}
+
+.gallery__item:hover img {
+  transform: scale(1.1);
+}
+
+.gallery__item img {
+  transition: transform 0.25s;
+}
+
 .thumb {
+  overflow: hidden;
+  border-radius: 5px;
   min-width: 280px;
   height: 398px;
   overflow: hidden;
+  transform: scale(1, 1);
 
   @media screen and (min-width: ($tablet)) {
     min-width: 336px;
@@ -53,174 +71,50 @@
     height: 574px;
   }
 }
+.thumb404 {
+  overflow: hidden;
 
-// .gallery__container {
-//   flex: 1 0 auto;
-// }
+  min-width: 150px;
+  height: 150px;
 
-// .gallery {
-//   margin: 20px 0;
+  @media screen and (min-width: ($tablet)) {
+    min-width: 300px;
+    height: 300px;
+  }
+}
 
-//   @include tablet {
-//     display: flex;
-//     justify-content: flex-start;
-//     flex-wrap: wrap;
-//     margin: 44px -16px;
-//   }
+.gallery__info-wrapper {
+  font-weight: 500;
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: calc(16 / 12);
+  padding: 5px;
 
-//   @include desktop {
-//     margin-left: -8px;
-//     margin-right: -8px;
-//   }
-// }
+  @media screen and (min-width: ($desktop)) {
+    margin-top: 12px;
+  }
+}
 
-// .search-query {
-//   width: 100%;
-//   margin-bottom: 15px;
-//   padding-left: 15px;
-// }
+.genres-and-year {
+  margin-right: 9px;
+  color: $color-accent;
 
-// .filmCard {
-//   display: block;
-//   position: relative;
-//   margin-bottom: 20px;
-//   font-size: 12px;
-//   line-height: 16px;
+  @media screen and (min-width: ($desktop)) {
+    margin-right: 8px;
+  }
+}
 
-//   @include tablet {
-//     flex-basis: 336px;
-//     margin: 16px;
-//   }
+.rating {
+  color: $color-background;
+  background: $color-accent;
+  border-radius: 5px;
+  padding: 1px 6px;
 
-//   @include desktop {
-//     flex-basis: 394px;
-//     margin-left: 8px;
-//     margin-right: 8px;
-//     font-size: 20px;
-//     line-height: 24px;
-//   }
-// }
+  @media screen and (min-width: ($tablet)) {
+    padding: 1px 10px;
+  }
 
-// .filmCard__img {
-//   display: block;
-//   width: 100%;
-//   height: auto;
-//   border-radius: 5px;
-//   object-fit: cover;
-//   cursor: pointer;
-//   transition: box-shadow $animation, transform $animation;
-//   background-color: #f0eeee;
-
-//   @include tablet {
-//     height: 504px;
-//   }
-
-//   @include desktop {
-//     height: 591px;
-//   }
-
-//   &:hover,
-//   &:focus,
-//   &.hover {
-//     border-radius: 5px;
-//     transform: scale(1.03);
-//     box-shadow: 5px 6px 5px 0px #c6c6c6;
-//   }
-// }
-
-// .filmCard__label {
-//   position: absolute;
-//   top: 0;
-//   right: 10px;
-//   color: $color--accent-text;
-//   letter-spacing: 0.6;
-//   text-align: center;
-//   font-weight: 400;
-//   transition: transform $animation, font-size $animation;
-//   cursor: pointer;
-
-//   & span {
-//     display: block;
-//     background-color: $color--accent-orange-text;
-//     padding: 0 10px;
-//     border-radius: 5px;
-//     margin-top: 10px;
-//   }
-// }
-
-// .filmCard__img:hover ~ .filmCard__label,
-// .filmCard__img:focus ~ .filmCard__label,
-// .filmCard__label:hover,
-// .filmCard__label:focus {
-//   font-size: 16px;
-//   transform: scale(1.03);
-
-//   @include desktop {
-//     font-size: 21px;
-//   }
-// }
-
-// .filmCard-title {
-//   font-size: 12px;
-//   line-height: 1.33;
-//   font-weight: 500;
-//   margin-top: 10px;
-//   text-transform: uppercase;
-//   color: $color--default-text;
-
-//   @include desktop {
-//     font-size: 20px;
-//     line-height: 1.2;
-//   }
-// }
-
-// .filmCard-description {
-//   display: flex;
-//   flex-wrap: wrap;
-//   margin-top: 3px;
-//   color: $color--accent-orange-text;
-//   align-items: center;
-// }
-
-// .filmCard-genres,
-// .filmCard-release {
-//   margin-right: 5px;
-// }
-
-// .filmCard-release {
-//   &::before {
-//     display: inline-block;
-//     content: '|';
-//     margin-right: 5px;
-//   }
-// }
-
-// .filmCard-rating {
-//   padding: 0px 6px;
-//   background-color: $color--accent-orange;
-//   color: $color--accent-text;
-//   border-radius: 5px;
-
-//   @include desktop {
-//     padding: 3px 11px;
-//   }
-// }
-
-// .test__btn {
-//   display: flex;
-//   justify-content: space-around;
-// }
-
-// .filmCard-rate {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   height: 20px;
-//   width: 30px;
-//   background-color: #ff6b01;
-//   color: white;
-//   font-weight: 500;
-//   font-size: 12px;
-//   line-height: 14px;
-//   border-radius: 5px;
-// }
+  @media screen and (min-width: ($desktop)) {
+    padding: 3px 12px;
+  }
+}

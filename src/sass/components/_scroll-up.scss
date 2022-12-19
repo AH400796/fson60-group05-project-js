@@ -1,0 +1,30 @@
+.scroll-up {
+    position: fixed;
+    bottom: 30px;
+    right: 10px;
+
+    @media screen and (min-width: $tablet) {
+        bottom: 40px;
+        right: 25px;
+    }
+
+    @media screen and (min-width: $desktop) {
+        bottom: 50px;
+        right: 50px;
+    }
+}
+
+.scroll-up-svg {
+    width: 30px;
+    height: 30px;
+
+    @media screen and (min-width: $tablet) {
+        width: 40px;
+        height: 40px;
+    }
+
+    @media screen and (min-width: $desktop) {
+        width: 50px;
+        height: 50px;
+    }
+}

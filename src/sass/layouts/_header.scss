@@ -79,6 +79,7 @@
   @media screen and (min-width: ($tablet)) {
     margin-right: 10px;
   }
+
   @media screen and (min-width: ($desktop)) {
     margin-right: 12px;
   }
@@ -93,6 +94,8 @@
     margin-bottom: 30px;
   }
 
+  color: $color-background;
+
   &.library {
     margin-bottom: 40px;
 
@@ -106,8 +109,14 @@
   font-weight: 500;
   font-size: 30px;
   line-height: calc(35 / 30);
+  transition: color $timing-function;
 
-  color: $color-background;
+  &:hover,
+  &:focus {
+    fill: $color-current-underline;
+    color: $color-current-underline;
+    transition: color $timing-function;
+  }
 
   @media screen and (max-width: ($tablet - 0.02px)) {
     display: none;
@@ -116,6 +125,14 @@
 
 .header__nav {
   margin-left: auto;
+  margin-right: 40px;
+}
+
+.header__authentication {
+  position: relative;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  cursor: pointer;
 }
 
 .header__nav-item {
@@ -123,8 +140,20 @@
   padding-top: 20px;
   padding-bottom: 20px;
   cursor: pointer;
+  fill: $color-background;
+  transition: color $timing-function;
+  transition: fill $timing-function;
+
+  &:hover,
+  &:focus {
+    fill: $color-current-underline;
+    color: $color-current-underline;
+    transition: color $timing-function;
+    transition: fill $timing-function;
+  }
 }
 
+.header__auth-link,
 .header__nav-link {
   position: relative;
 
@@ -132,14 +161,28 @@
   font-size: 12px;
   line-height: calc(14 / 12);
   text-transform: uppercase;
-
-  color: $color-background;
   cursor: pointer;
+  transition: color $timing-function;
+
+  &:hover,
+  &:focus {
+    color: $color-current-underline;
+
+    transition: color $timing-function;
+  }
 }
 
 .header__nav-list {
   display: flex;
-  gap: 40px;
+  gap: 20px;
+
+  @media screen and (min-width: ($tablet)) {
+    gap: 40px;
+  }
+
+  @media screen and (min-width: ($desktop)) {
+    gap: 50px;
+  }
 }
 
 .header__form {
@@ -170,6 +213,7 @@
   @media screen and (min-width: ($tablet)) {
     min-width: 336px;
   }
+
   @media screen and (min-width: ($desktop)) {
     min-width: 394px;
   }
@@ -180,6 +224,20 @@
   display: inline-block;
 }
 
+.header__input-info {
+  position: absolute;
+  right: 0;
+  bottom: -55px;
+
+  @media screen and (min-width: ($tablet)) {
+    bottom: -45px;
+  }
+
+  @media screen and (min-width: ($desktop)) {
+    bottom: -35px;
+  }
+}
+
 .library-button {
   display: flex;
   gap: 20px;
@@ -187,24 +245,14 @@
   @media screen and (min-width: ($tablet)) {
     gap: 32px;
   }
+
   @media screen and (min-width: ($desktop)) {
     gap: 16px;
   }
 }
 
-.search-button::after {
-  position: absolute;
-  top: 50%;
-  right: 50%;
-  transform: translate(50%, -50%);
-  content: '';
-  display: block;
-  width: 12px;
-  height: 12px;
-  background-size: contain;
-  background-image: url(../images/header/search.svg);
-}
-.header__nav-item.current .header__nav-link::after {
+.header__nav-item.current .header__nav-link::after,
+.header__authentication.current .header__auth-link::after {
   position: absolute;
   bottom: -3px;
   right: 0;
@@ -215,19 +263,51 @@
   background-color: $color-current-underline;
 }
 
-.watched-button,
-.queue-button {
-  @extend %button;
+.header__input-info {
+  color: $color-current-underline;
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
+  align-items: center;
+  padding-top: 16px;
+
+  @media screen and (min-width: ($tablet)) {
+    text-align: center;
+    padding-top: 20px;
+  }
 }
 
-.search-button {
+.search__icon {
+  fill: currentColor;
+}
+
+.sign-in-modal {
   position: absolute;
-  top: -8px;
-  right: -9px;
-  width: 36px;
-  height: 36px;
-  padding: 0;
-  border: none;
+  z-index: 100;
+  bottom: -390px;
+  right: 0;
+  width: 260px;
+  height: 400px;
+
+  padding: 10px;
+
+  color: $color-background;
+  background-image: url(../images/header/modal-sign-in-bg.png);
+  border: 1px solid $color-accent;
+  border-radius: 15px 0 15px 15px;
+  box-shadow: $shadow-modal-sign-in;
+  cursor: auto;
+}
+
+.sign-in__label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  color: $color-accent;
+}
+
+.sign-in__input {
   background-color: transparent;
-  cursor: pointer;
 }

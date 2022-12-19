@@ -13,13 +13,51 @@
           <li class="header__nav-item js-library">
             <p class="header__nav-link">My library</p>
           </li>
+          <!-- Перемикач темної теми -->
+          <li id="sun" class="header__nav-item">
+            <svg class="header__nav-link" width="16" height="16">
+              <use href="./images/sprite.svg#sun"></use>
+            </svg>
+          </li>
+          <li id="moon" class="visually-hidden header__nav-item">
+            <svg class="header__nav-link" width="16" height="16">
+              <use href="./images/sprite.svg#moon"></use>
+            </svg>
+          </li>
         </ul>
       </nav>
+      <!-- <div class="header__authentication js-sign-in">
+        <p class="header__auth-link">Sign in</p>
+        <div class="sign-in-modal visually-hidden" data-modal>
+          Форма входу -->
+      <!-- <form class="sign-in__form" name="sign-in-form" autocomplete="off">
+            <label class="sign-in__label">
+              Email
+              <span class="sign-in__field">
+                <input class="sign-in__input" type="email" name="email" />
+              </span>
+            </label>
+            <label class="sign-in__label">
+              Password
+              <span class="sign-in__field">
+                <input class="sign-in__input" type="text" name="password" />
+              </span>
+            </label>
+
+            <button class="sign-in__btn" type="submit">Sign in</button>
+          </form>
+        </div>
+      </div> -->
     </div>
     <form class="header__form">
       <div class="header__input-wrapper js-input">
         <input class="header__input" type="text" placeholder="Movie search" name="searchFilm" autocomplete="off" />
-        <button class="search-button" type="submit"></button>
+        <p class="header__input-info" hidden>Search result not successful. Enter the correct movie name.</p>
+        <button class="search-button js-search" type="submit">
+          <svg class="search-button__icon" width="12" height="12">
+            <use class="search__icon" href="./images/sprite.svg#search"></use>
+          </svg>
+        </button>
       </div>
       <div class="library-button">
         <button class="watched-button js-watched visually-hidden" type="button">Watched</button>

@@ -1,10 +1,17 @@
-<
 <div class="backdrop">
   <div class="modal">
-    <div class="modal__film-card"></div>
+    <div id="modal__film-card" class="modal__film-card">
+      <button class="btn_trailer" type="button">
+        <span class="btn_text">Watch the trailer</span>
+        <svg class="btn_trailer__icon" width="36" height="36">
+          <use class="youtube__icon" href="./images/sprite.svg#youtube"></use>
+        </svg>
+      </button>
+      <div class="modal__film-card-wrapper"></div>
+    </div>
     <button class="modal__close" type="button" data-modal-close>
       <svg class="modal__svg" width="30" height="30">
-        <use href="./images/icons/icons.svg#close"></use>
+        <use href="./images/sprite.svg#close"></use>
       </svg>
     </button>
   </div>
