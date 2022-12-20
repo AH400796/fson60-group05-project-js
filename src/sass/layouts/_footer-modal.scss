@@ -111,7 +111,7 @@
 }
 
 .basicLightbox__placeholder {
-  position: absolute;
+  position: relative;
   top: -40%;
 
   @media screen and (min-width: 768px) {
