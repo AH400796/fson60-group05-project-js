@@ -110,19 +110,21 @@ const markup = `<div class="team-wrapper">
 const footerEl = document.querySelector('.footer__modal-js');
 footerEl.addEventListener('click', openModal);
 
-const modalEl = basicLightbox.create(markup);
+const modalEl = basicLightbox.create(markup, {
+  onClose: () => {
+    document.body.classList.remove('show-modal1');
+  },
+});
 
 function openModal(e) {
   e.preventDefault();
   modalEl.show();
   document.body.classList.add('show-modal1');
-
   window.addEventListener('keydown', closeModalHandler);
 
   function closeModalHandler(e) {
     if (e.code === 'Escape') {
       modalEl.close();
-      document.body.classList.remove('show-modal1');
       window.removeEventListener('keydown', closeModalHandler);
     }
   }
