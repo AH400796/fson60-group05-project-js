@@ -222,6 +222,9 @@
 .header__input-wrapper {
   position: relative;
   display: inline-block;
+  &.hidden {
+    display: none;
+  }
 }
 
 .header__input-info {

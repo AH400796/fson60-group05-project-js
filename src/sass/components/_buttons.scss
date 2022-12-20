@@ -34,6 +34,10 @@
     background-color: $color-accent;
     border: 1px solid $color-accent;
   }
+
+  &.hidden {
+    display: none;
+  }
 }
 
 .search-button {
