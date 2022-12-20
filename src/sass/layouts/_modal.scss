@@ -1,6 +1,6 @@
 .backdrop {
   z-index: 1000;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -8,8 +8,7 @@
   background-color: $color-overlay-modal;
   opacity: 0;
   visibility: hidden;
-  pointer-events: none;
-
+  pointer-events: none;  
   pointer-events: all;
 }
 
