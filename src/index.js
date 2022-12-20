@@ -8,6 +8,5 @@ import './js/header-navigation';
 import './js/search';
 import './js/spinner';
 import './js/scroll-up';
-import './js/btn-trailer';
+import './js/trailer';
 import './js/theme';
-

@@ -1,4 +1,4 @@
-import * as basicLightbox from 'basiclightbox'
+import * as basicLightbox from 'basiclightbox';
 import andrUrl from '../images/footer/Gohman.jpg';
 import uraaUrl from '../images/footer/Kuruchenko.jpg';
 import antoniaUrl from '../images/footer/Koshevoi.jpg';
@@ -15,8 +15,9 @@ import ihorUrl from '../images/footer/Yakumchuk.jpg';
 import irunUrl from '../images/footer/Krukyn.jpg';
 
 const markup = `<div class="team-wrapper">
-<h2 class="team-title">“14 друзів Промісу”</h2>
-<p class="team-text">DEVELOPER TEAM</p>
+<p class="team-text">DEVELOPER TEAM&nbsp</p>
+<h2 class="team-title">&nbsp"14 друзів промісу"</h2>
+
 <ul class="team__list">
 <li class="team-card">
 <div class="image-bg">
@@ -107,7 +108,7 @@ const markup = `<div class="team-wrapper">
 </div>`;
 
 const footerEl = document.querySelector('.footer__modal-js');
-console.log(footerEl)
+console.log(footerEl);
 footerEl.addEventListener('click', openModal);
 
 const modalEl = basicLightbox.create(markup);
@@ -115,12 +116,14 @@ const modalEl = basicLightbox.create(markup);
 function openModal(e) {
   e.preventDefault();
   modalEl.show();
+  document.body.classList.add('show-modal1');
 
   window.addEventListener('keydown', closeModalHandler);
 
   function closeModalHandler(e) {
     if (e.code === 'Escape') {
       modalEl.close();
+      document.body.classList.remove('show-modal1');
       window.removeEventListener('keydown', closeModalHandler);
     }
   }

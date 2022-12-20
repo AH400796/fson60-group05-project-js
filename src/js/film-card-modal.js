@@ -5,7 +5,7 @@ import { startPagination } from './pagination';
 import { KEY_WATCHED, KEY_QUEUE } from './constants';
 import { createMarkup } from './create-markup';
 import { clearGallery } from './utility-functions';
-import { srartPlayTrailer } from './btn-trailer';
+import { startPlayTrailer } from './trailer';
 
 const { list, body, closeModalBtn, backdrop, modalCard, watched, queue, btrForTrailer } = {
   list: document.querySelector('.gallery__list'),
@@ -31,35 +31,23 @@ const queueSet = new Set();
 let watchedMovies = JSON.parse(localStorage.getItem(`${KEY_WATCHED}`)) || [];
 let queueMovies = JSON.parse(localStorage.getItem(`${KEY_QUEUE}`)) || [];
 let filmId;
-let watchedBtnContext;
-let queueBtnContext;
-let isSelectedWatched;
-let isSelectedQueue;
+let watchedBtnContext,
+  queueBtnContext,
+  isSelectedWatched,
+  isSelectedQueue,
+  trailerKey = null;
 
 list.addEventListener('click', onListClick);
 closeModalBtn.addEventListener('click', onCloseModal);
 backdrop.addEventListener('click', onBackdropClick);
 
 function onListClick(event) {
+  trailerKey = null;
   const filmCard = event.target.closest('.gallery__item');
   if (event.target === event.currentTarget) {
     return;
   }
   filmId = filmCard.querySelector('.id').textContent;
-
-  getTrailerKey(filmId)
-    .then(data => {
-      if (data.results.length === 0) {
-        btrForTrailer.classList.add('visually-hidden');
-      }
-      const trailerKeyObj = data.results.find(el => el.name.toLowerCase().includes('trailer'));
-      const trailerKey = trailerKeyObj.key;
-      srartPlayTrailer(trailerKey);
-    })
-    .catch(error => {
-      Notiflix.Notify.info('This movie has no trailer available for viewing');
-    })
-    .finally();
 
   onFilmCardClick(filmId)
     .then(data => {
@@ -75,6 +63,20 @@ function onListClick(event) {
     })
     .catch(error => {
       Notiflix.Notify.failure('Unfortunately, there is no additional information about this movie...');
+    })
+    .finally();
+
+  getTrailerKey(filmId)
+    .then(data => {
+      console.log(data.results.length);
+      if (data.results.length !== 0) {
+        btrForTrailer.classList.remove('visually-hidden');
+        trailerKey = data.results.find(el => el.name.toLowerCase().includes('trailer')).key;
+        btrForTrailer.addEventListener('click', () => startPlayTrailer(trailerKey));
+      }
+    })
+    .catch(error => {
+      Notiflix.Notify.info('This movie has no trailer available for viewing');
     })
     .finally();
 }
@@ -106,6 +108,7 @@ function onCloseModal() {
   body.classList.remove('show-modal');
   modalCard.innerHTML = '';
   window.removeEventListener('keydown', onEscKeyPress);
+  btrForTrailer.classList.add('visually-hidden');
 }
 
 function setAddButtons(filmId) {
