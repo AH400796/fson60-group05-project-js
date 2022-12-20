@@ -12,6 +12,5 @@ function hide() {
 hide()
 
 function unHide() {
-    buttonsToHide.style.display = "block";
+    buttonsToHide.style.display = "flex";
 }
-
