@@ -108,7 +108,6 @@ const markup = `<div class="team-wrapper">
 </div>`;
 
 const footerEl = document.querySelector('.footer__modal-js');
-console.log(footerEl);
 footerEl.addEventListener('click', openModal);
 
 const modalEl = basicLightbox.create(markup);

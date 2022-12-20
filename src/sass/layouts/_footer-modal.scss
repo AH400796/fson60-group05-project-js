@@ -1,5 +1,7 @@
 .basicLightbox {
   overflow: scroll;
+  position: relative;
+  height: 100vh;
 }
 
 .team-wrapper {
@@ -103,4 +105,17 @@
 
 .team-role {
   position: relative;
+}
+
+.basicLightbox__placeholder {
+  position: absolute;
+  top: -40%;
+
+  @media screen and (min-width: 768px) {
+    top: -20%;
+  }
+
+  @media screen and (min-width: 1280px) {
+    top: 20%;
+  }
 }

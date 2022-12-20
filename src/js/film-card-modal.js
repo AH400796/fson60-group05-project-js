@@ -5,7 +5,7 @@ import { startPagination } from './pagination';
 import { KEY_WATCHED, KEY_QUEUE } from './constants';
 import { createMarkup } from './create-markup';
 import { clearGallery } from './utility-functions';
-import { startPlayTrailer } from './trailer';
+import * as basicLightbox from 'basiclightbox';
 
 const { list, body, closeModalBtn, backdrop, modalCard, watched, queue, btrForTrailer } = {
   list: document.querySelector('.gallery__list'),
@@ -68,18 +68,49 @@ function onListClick(event) {
 
   getTrailerKey(filmId)
     .then(data => {
-      console.log(data.results.length);
+      // console.log(data.results.length);
       if (data.results.length !== 0) {
         btrForTrailer.classList.remove('visually-hidden');
         trailerKey = data.results.find(el => el.name.toLowerCase().includes('trailer')).key;
-        btrForTrailer.addEventListener('click', () => startPlayTrailer(trailerKey));
+        console.log(trailerKey);
+        btrForTrailer.addEventListener('click', () => {
+          console.log(trailerKey);
+          startPlayTrailer(trailerKey);
+        });
+      } else {
+        Notiflix.Notify.info('This movie has no trailer available for viewing');
       }
     })
-    .catch(error => {
-      Notiflix.Notify.info('This movie has no trailer available for viewing');
-    })
+    .catch(error => {})
     .finally();
 }
+
+const startPlayTrailer = function (key) {
+  const { instanceTrailer, btrForTrailer } = {
+    instanceTrailer: basicLightbox.create(`<div class="backdrop_trailer">
+        <div class="modal_trailer">
+            <iframe src="https://www.youtube.com/embed/${key}" width="560" height="315" frameborder="0"></iframe>
+        </div>`),
+    btrForTrailer: document.querySelector('.btn_trailer'),
+  };
+
+  btrForTrailer.addEventListener('click', openModalTrailer);
+
+  function openModalTrailer() {
+    document.body.classList.add('show-modal_trailer');
+    instanceTrailer.show();
+    backdropEl = document.querySelector('.backdrop_trailer');
+    backdropEl.addEventListener('click', onCloseTrailerModal);
+  }
+
+  function onCloseTrailerModal() {
+    instanceTrailer.close();
+    backdropEl.removeEventListener('click', onCloseTrailerModal);
+    btrForTrailer.removeEventListener('click', () => startPlayTrailer(trailerKey));
+    trailerKey = null;
+    console.log(trailerKey);
+  }
+};
 
 function addInfoAboutFilm(data) {
   selectedFilms.push({
@@ -109,6 +140,8 @@ function onCloseModal() {
   modalCard.innerHTML = '';
   window.removeEventListener('keydown', onEscKeyPress);
   btrForTrailer.classList.add('visually-hidden');
+  trailerKey = null;
+  console.log(trailerKey);
 }
 
 function setAddButtons(filmId) {
@@ -179,8 +212,14 @@ export const renderWatched = function () {
     const selectedFilm = selectedFilms.find(el => Number(watchedMovies[i]) === el.id);
     objectWatchedFilms.results.push(selectedFilm);
   }
-  createMarkup(objectWatchedFilms, true);
-  startPagination(watchedMovies.length);
+  if (objectWatchedFilms.results.length === 0) {
+    pagination.classList.add('visually-hidden');
+    setLibraryAsEmpty();
+  } else {
+    pagination.classList.remove('visually-hidden');
+    createMarkup(objectWatchedFilms, true);
+    startPagination(watchedMovies.length);
+  }
 };
 
 function renderQueue() {
@@ -190,6 +229,17 @@ function renderQueue() {
     const selectedFilm = selectedFilms.find(el => Number(queueMovies[i]) === el.id);
     objectQueueFilms.results.push(selectedFilm);
   }
-  createMarkup(objectQueueFilms, true);
-  startPagination(queueMovies.length);
+  if (objectQueueFilms.results.length === 0) {
+    pagination.classList.add('visually-hidden');
+    setLibraryAsEmpty();
+  } else {
+    pagination.classList.remove('visually-hidden');
+    createMarkup(objectQueueFilms, true);
+    startPagination(queueMovies.length);
+  }
+}
+
+function setLibraryAsEmpty() {
+  const markup = '<div class="thumb204"><img src="https://i.ibb.co/KwM7qqH/lib30.png" alt="204" width="300" height="300"></img></div>';
+  list.insertAdjacentHTML('beforeend', markup);
 }

@@ -10,14 +10,12 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-
-  pointer-events: all;
 }
 
 body.show-modal_trailer .backdrop_trailer {
   opacity: 1;
   visibility: visible;
-  pointer-events: initial;
+  pointer-events: auto;
 }
 
 .modal_trailer {
