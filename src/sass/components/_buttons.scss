@@ -1,6 +1,6 @@
 .watched-button,
 .queue-button {
-  display: block;
+  display: flexbox;
   width: 130px;
   height: 44px;
   padding-top: 13px;
@@ -25,6 +25,7 @@
   @media screen and (min-width: ($tablet)) {
     width: 152px;
   }
+
   @media screen and (min-width: ($desktop)) {
     width: 148px;
   }
@@ -53,6 +54,7 @@
   &.ready {
     color: $color-current-underline;
   }
+
   &.scale {
     animation-name: scaleSearch;
     animation-duration: 1500ms;
