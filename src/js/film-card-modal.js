@@ -214,7 +214,7 @@ export const renderWatched = function () {
   }
   if (objectWatchedFilms.results.length === 0) {
     pagination.classList.add('visually-hidden');
-    setLibraryAsEmpty();
+    setWatchedAsEmpty();
   } else {
     pagination.classList.remove('visually-hidden');
     createMarkup(objectWatchedFilms, true);
@@ -231,7 +231,7 @@ function renderQueue() {
   }
   if (objectQueueFilms.results.length === 0) {
     pagination.classList.add('visually-hidden');
-    setLibraryAsEmpty();
+    setQueueAsEmpty();
   } else {
     pagination.classList.remove('visually-hidden');
     createMarkup(objectQueueFilms, true);
@@ -239,7 +239,12 @@ function renderQueue() {
   }
 }
 
-function setLibraryAsEmpty() {
+function setWatchedAsEmpty() {
   const markup = '<div class="thumb204"><img src="https://i.ibb.co/KwM7qqH/lib30.png" alt="204" width="300" height="300"></img></div>';
+  list.insertAdjacentHTML('beforeend', markup);
+}
+
+function setQueueAsEmpty() {
+  const markup = '<div class="thumb204"><img src="https://i.ibb.co/xLnG6Cw/queue.png" alt="204" width="300" height="300"></img></div>';
   list.insertAdjacentHTML('beforeend', markup);
 }

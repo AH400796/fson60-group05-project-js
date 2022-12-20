@@ -9,6 +9,7 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  overflow-y: scroll;
 }
 
 body.show-modal .backdrop {
@@ -18,21 +19,23 @@ body.show-modal .backdrop {
 }
 
 .modal {
-  @media screen and (max-width: ($tablet - 0.02px)) {
-    top: 80%;
-  }
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   box-shadow: $shadow-modal-sign-in;
-}
+  border-radius: 5px;
 
+  @media screen and (max-width: ($tablet - 0.02px)) {
+    top: 70%;
+  }
+}
 .modal__film-card-wrapper {
   position: relative;
   width: 280px;
   padding: 48px 20px;
   background: $color-background;
+  border-radius: 5px;
 
   @media screen and (min-width: 768px) {
     display: flex;
