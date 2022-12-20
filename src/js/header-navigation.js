@@ -1,7 +1,6 @@
 import { renderTrendingFilms } from './get-trending';
 import { resetSearch } from './utility-functions';
 import { renderWatched, onClickWatched, onClickQueue } from './film-card-modal';
-import { KEY_CURRENT } from './constants';
 
 const { inputBtns, currentPage, header, container, wrapper, logo, home, library, watched, queue, input } = {
   header: document.querySelector('.js-header'),
@@ -24,7 +23,6 @@ logo.addEventListener('click', onClickHome);
 document.addEventListener('click', resetSearch);
 
 setCurrentPage();
-console.log(currentPage);
 
 function setCurrentPage() {
   switch (currentPage) {
@@ -48,6 +46,7 @@ function setCurrentPage() {
 }
 
 function onClickMyLibrary() {
+  inputBtns.classList.add('hidden');
   localStorage.setItem(`KEY_CURRENT`, 'Library');
   container.classList.add('library');
   wrapper.classList.add('library');
@@ -56,7 +55,6 @@ function onClickMyLibrary() {
   library.classList.add('current');
   watched.classList.remove('hidden');
   queue.classList.remove('hidden');
-  inputBtns.classList.add('hidden');
   queue.classList.remove('current');
   watched.classList.add('current');
   renderWatched();

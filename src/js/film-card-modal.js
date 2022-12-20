@@ -91,7 +91,7 @@ function onListClick(event) {
       isSelectedQueue = btnQueueContext[filmId + 'sel'] || 'card__btn js-add__queue';
       createFilmModalCard(data, watchedBtnContext, queueBtnContext, isSelectedWatched, isSelectedQueue);
       btnForTrailer = document.querySelector('.btn_trailer');
-      btnForTrailer.classList.remove('visually-hidden');
+      // btnForTrailer.classList.remove('visually-hidden');
       setAddButtons(filmId);
     })
     .catch(error => {
@@ -104,9 +104,7 @@ function onListClick(event) {
       console.log(data.results.length);
       if (data.results.length !== 0) {
         trailerKey = data.results.find(el => el.name.toLowerCase().includes('trailer')).key;
-        console.log(trailerKey);
         btnForTrailer.addEventListener('click', startPlayTrailer);
-        console.log(btnForTrailer);
       } else {
         Notiflix.Notify.info('This movie has no trailer available for viewing');
       }
