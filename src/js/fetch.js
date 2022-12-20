@@ -19,7 +19,7 @@ export const getTrendingFilms = async function (page) {
 };
 
 export const onFilmCardClick = async function (filmId) {
-  const response = await fetch(`${BASE_URL}/movie/${filmId}?api_key=${API_KEY}`);
+  const response = await fetch(`${BASE_URL}movie/${filmId}?api_key=${API_KEY}`);
   if (!response.ok) {
     throw new Error(response.status);
   }
@@ -27,7 +27,7 @@ export const onFilmCardClick = async function (filmId) {
 };
 
 export const getTrailerKey = async function (filmId) {
-  const response = await fetch(`${BASE_URL}/movie/${filmId}/videos?api_key=${API_KEY}`);
+  const response = await fetch(`${BASE_URL}movie/${filmId}/videos?api_key=${API_KEY}`);
   if (!response.ok) {
     throw new Error(response.status);
   }
