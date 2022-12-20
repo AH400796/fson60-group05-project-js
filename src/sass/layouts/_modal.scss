@@ -27,9 +27,10 @@ body.show-modal .backdrop {
   border-radius: 5px;
 
   @media screen and (max-width: ($tablet - 0.02px)) {
-    top: 70%;
+    top: 80%;
   }
 }
+
 .modal__film-card-wrapper {
   position: relative;
   width: 280px;
