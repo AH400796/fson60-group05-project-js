@@ -27,6 +27,7 @@
   @media screen and (max-width: (768px - 1)) {
     margin-top: 200%;
   }
+
   @media screen and (min-width: 768px) {
     margin-top: 40%;
     width: 600px;
@@ -60,6 +61,7 @@
   width: 105px;
   height: auto;
   border-radius: 50%;
+  border: 5px solid darkgray;
 }
 
 .image-bg {
@@ -71,6 +73,7 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+
 .team-title {
   color: $color-primary-text;
   text-align: center;
