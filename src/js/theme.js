@@ -22,9 +22,9 @@ function switcher() {
   }
   document.getElementsByClassName('modal__film-card-wrapper')[0].classList.add('modal__film-card-wrapper-dark');
   document.getElementsByClassName('modal__film-card-wrapper')[0].style.backgroundColor = '#070707';
-  document.getElementsByClassName('modal__svg')[0].style.backgroundColor = '#ff6b08';
+  document.getElementsByClassName('modal__svg')[0].style.backgroundColor = 'darkorange';
   document.getElementsByClassName('modal__svg')[0].style.fill = 'white';
-  document.getElementsByClassName('card__btn')[0, 1].style.backgroundColor = '#fff8dc';
+  document.getElementsByClassName('card__btn')[0, 1].style.background = 'darkorange';
   document.getElementsByClassName('card__btn')[0, 1].style.color = 'black';
 }
 
@@ -46,5 +46,4 @@ function switcherBack() {
   document.getElementsByClassName('modal__svg')[0].style.fill = 'black';
   document.getElementsByClassName('card__btn')[0, 1].style.background = 'white';
   document.getElementsByClassName('card__btn')[0, 1].style.color = 'black';
-
 }
