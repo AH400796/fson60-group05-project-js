@@ -13,7 +13,7 @@ const { inputBtns, currentPage, header, container, wrapper, logo, home, library,
   watched: document.querySelector('.js-watched'),
   queue: document.querySelector('.js-queue'),
   input: document.querySelector('.js-input'),
-  currentPage: localStorage.getItem(`${KEY_CURRENT}`),
+  currentPage: localStorage.getItem(`KEY_CURRENT`),
   inputBtns: document.querySelector('.header__input-wrapper'),
 };
 
@@ -24,6 +24,7 @@ logo.addEventListener('click', onClickHome);
 document.addEventListener('click', resetSearch);
 
 setCurrentPage();
+console.log(currentPage);
 
 function setCurrentPage() {
   switch (currentPage) {
@@ -34,9 +35,11 @@ function setCurrentPage() {
       onClickHome();
       break;
     case 'Watched':
+      onClickMyLibrary();
       onClickWatched();
       break;
     case 'Queue':
+      onClickMyLibrary();
       onClickQueue();
       break;
     default:
@@ -44,10 +47,8 @@ function setCurrentPage() {
   }
 }
 
-// onClickHome();
-
 function onClickMyLibrary() {
-  localStorage.setItem(`${KEY_CURRENT}`, 'Library');
+  localStorage.setItem(`KEY_CURRENT`, 'Library');
   container.classList.add('library');
   wrapper.classList.add('library');
   header.classList.add('library');
@@ -62,7 +63,7 @@ function onClickMyLibrary() {
 }
 
 function onClickHome() {
-  localStorage.setItem(`${KEY_CURRENT}`, 'Home');
+  localStorage.setItem(`KEY_CURRENT`, 'Home');
   container.classList.remove('library');
   wrapper.classList.remove('library');
   header.classList.remove('library');

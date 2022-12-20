@@ -18,14 +18,14 @@ const { list, body, closeModalBtn, backdrop, modalCard, watched, queue } = {
 };
 
 export const onClickWatched = function () {
-  localStorage.setItem(`${KEY_CURRENT}`, 'Watched');
+  localStorage.setItem(`KEY_CURRENT`, 'Watched');
   queue.classList.remove('current');
   watched.classList.add('current');
   renderWatched();
 };
 
 export const onClickQueue = function () {
-  localStorage.setItem(`${KEY_CURRENT}`, 'Queue');
+  localStorage.setItem(`KEY_CURRENT`, 'Queue');
   watched.classList.remove('current');
   queue.classList.add('current');
   renderQueue();
