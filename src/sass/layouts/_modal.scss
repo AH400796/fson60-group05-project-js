@@ -10,6 +10,8 @@
   visibility: hidden;
   pointer-events: none;
   overflow-y: scroll;
+
+  transition: opacity $timing-function, visibility $timing-function;
 }
 
 body.show-modal .backdrop {
