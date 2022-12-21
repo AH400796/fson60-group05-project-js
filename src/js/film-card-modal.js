@@ -1,5 +1,5 @@
 import Notiflix from 'notiflix';
-import { onFilmCardClick, getTrailerKey } from './fetch';
+import { onFilmCardClick } from './fetch';
 import { createFilmModalCard } from './create-markup';
 import { startPagination } from './pagination';
 import { KEY_WATCHED, KEY_QUEUE } from './constants';
@@ -67,7 +67,6 @@ closeModalBtn.addEventListener('click', onCloseModal);
 backdrop.addEventListener('click', onBackdropClick);
 
 function onListClick(event) {
-  trailerKey = null;
   const filmCard = event.target.closest('.gallery__item');
   if (event.target === event.currentTarget) {
     return;
