@@ -4,7 +4,6 @@ import { searchFilm } from './fetch';
 import { clearGallery } from './utility-functions';
 import { getTrendingFilms } from './fetch';
 import { createMarkup } from './create-markup';
-import { removeSpinner, addSpinner } from './spinner';
 
 export const startPagination = function (totalFilms) {
   const screenWidth = window.screen.width;
