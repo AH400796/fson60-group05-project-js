@@ -28,8 +28,9 @@ let page = 1;
 function onSubmit(e) {
   e.preventDefault();
   clearGallery();
-  const value = e.target[0].value.trim();
   addSpinner();
+  const value = e.target[0].value.trim();
+
   searchFilm(value, page)
     .then(data => {
       if (data.results.length === 0) {

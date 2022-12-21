@@ -2,6 +2,7 @@ import Notiflix from 'notiflix';
 import { onFilmCardClick } from './fetch';
 import { createFilmModalCard } from './create-markup';
 import { startPagination } from './pagination';
+import { addSpinner, removeSpinner } from './spinner';
 import { KEY_WATCHED, KEY_QUEUE } from './constants';
 import { createMarkup } from './create-markup';
 import { clearGallery } from './utility-functions';
@@ -75,6 +76,7 @@ function onListClick(event) {
 
   onFilmCardClick(filmId)
     .then(data => {
+      addSpinner();
       addInfoAboutFilm(data);
       body.classList.add('show-modal');
       window.addEventListener('keydown', onEscKeyPress);
@@ -89,7 +91,7 @@ function onListClick(event) {
     .catch(error => {
       Notiflix.Notify.failure('Unfortunately, there is no additional information about this movie...');
     })
-    .finally();
+    .finally(setTimeout(removeSpinner, 500));
 }
 
 function addInfoAboutFilm(data) {
