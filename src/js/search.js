@@ -1,7 +1,7 @@
 import Notiflix from 'notiflix';
 import { searchFilm } from './fetch';
 import { createMarkup } from './create-markup';
-import { clearGallery } from './utility-functions';
+import { clearGallery, resetSearch } from './utility-functions';
 import { addSpinner, removeSpinner } from './spinner';
 import { startPagination, setSearchPagination } from './pagination';
 
@@ -48,6 +48,8 @@ function onSubmit(e) {
       Notiflix.Notify.failure('Oops, something went wrong!');
     })
     .finally(setTimeout(removeSpinner, 2000));
+
+  setTimeout(resetSearch, 1500);
 }
 
 function searchIsNotFound() {

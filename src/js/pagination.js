@@ -69,8 +69,8 @@ function renderTrendPaginationQuery(pageNumber) {
     })
     .catch(error => {
       Notiflix.Notify.failure('Oops, something went wrong!');
-    });
-  // .finally(removeSpinner);
+    })
+    .finally();
 }
 
 function renderSearchPaginationQuery(filmName, pageNumber) {
@@ -81,6 +81,6 @@ function renderSearchPaginationQuery(filmName, pageNumber) {
     })
     .catch(error => {
       Notiflix.Notify.failure('Oops, something went wrong!');
-    });
-  // .finally(removeSpinner);
+    })
+    .finally();
 }

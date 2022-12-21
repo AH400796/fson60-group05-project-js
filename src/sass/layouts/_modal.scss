@@ -189,7 +189,7 @@ body.show-modal .backdrop {
   color: $color-background;
 
   padding: 1px 10px;
-  //margin-bottom: 10px;
+
   margin-left: 41px;
   margin-right: 2px;
   border-radius: 5px;
@@ -218,8 +218,6 @@ body.show-modal .backdrop {
   @media screen and (min-width: 1280px) {
     margin-left: 97px;
   }
-
-  // margin-bottom: 9px;
 }
 
 .card__item-original {
@@ -230,8 +228,6 @@ body.show-modal .backdrop {
   @media screen and (min-width: 1280px) {
     margin-left: 83px;
   }
-
-  //  margin-bottom: 8px;
 }
 
 .card__item-genre {
@@ -241,8 +237,6 @@ body.show-modal .backdrop {
   @media screen and (min-width: 1280px) {
     margin-left: 120px;
   }
-
-  //margin-bottom: 20px;
 }
 
 .card__item-about {
@@ -275,13 +269,9 @@ body.show-modal .backdrop {
   justify-content: space-between;
   align-items: center;
 
-  // margin-left: auto;
-  // margin-right: auto;
   @media screen and (min-width: 1280px) {
     justify-content: start;
     align-items: start;
-    // margin-left: 5px;
-    // margin-right: 15px;
   }
 }
 

@@ -1,5 +1,4 @@
 import { renderTrendingFilms } from './get-trending';
-import { resetSearch } from './utility-functions';
 import { renderWatched, onClickWatched, onClickQueue } from './film-card-modal';
 
 const { inputBtns, currentPage, header, container, wrapper, logo, home, library, watched, queue, input } = {
@@ -19,8 +18,6 @@ const { inputBtns, currentPage, header, container, wrapper, logo, home, library,
 library.addEventListener('click', onClickMyLibrary);
 home.addEventListener('click', onClickHome);
 logo.addEventListener('click', onClickHome);
-
-document.addEventListener('click', resetSearch);
 
 setCurrentPage();
 

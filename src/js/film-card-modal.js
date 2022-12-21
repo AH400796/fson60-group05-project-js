@@ -2,10 +2,9 @@ import Notiflix from 'notiflix';
 import { onFilmCardClick, getTrailerKey } from './fetch';
 import { createFilmModalCard } from './create-markup';
 import { startPagination } from './pagination';
-import { KEY_WATCHED, KEY_QUEUE, KEY_CURRENT } from './constants';
+import { KEY_WATCHED, KEY_QUEUE } from './constants';
 import { createMarkup } from './create-markup';
 import { clearGallery } from './utility-functions';
-import * as basicLightbox from 'basiclightbox';
 
 const { list, body, closeModalBtn, backdrop, modalCard, watched, queue } = {
   list: document.querySelector('.gallery__list'),
@@ -61,12 +60,7 @@ const queueSet = new Set();
 let watchedMovies = JSON.parse(localStorage.getItem(`${KEY_WATCHED}`)) || [];
 let queueMovies = JSON.parse(localStorage.getItem(`${KEY_QUEUE}`)) || [];
 let filmId;
-let btnForTrailer;
-let watchedBtnContext,
-  queueBtnContext,
-  isSelectedWatched,
-  isSelectedQueue,
-  trailerKey = null;
+let watchedBtnContext, queueBtnContext, isSelectedWatched, isSelectedQueue;
 
 list.addEventListener('click', onListClick);
 closeModalBtn.addEventListener('click', onCloseModal);
@@ -90,55 +84,14 @@ function onListClick(event) {
       queueBtnContext = btnQueueContext[filmId] || 'Add to queue';
       isSelectedQueue = btnQueueContext[filmId + 'sel'] || 'card__btn js-add__queue';
       createFilmModalCard(data, watchedBtnContext, queueBtnContext, isSelectedWatched, isSelectedQueue);
-      btnForTrailer = document.querySelector('.btn_trailer');
-      // btnForTrailer.classList.remove('visually-hidden');
+
       setAddButtons(filmId);
     })
     .catch(error => {
       Notiflix.Notify.failure('Unfortunately, there is no additional information about this movie...');
     })
     .finally();
-
-  getTrailerKey(filmId)
-    .then(data => {
-      console.log(data.results.length);
-      if (data.results.length !== 0) {
-        trailerKey = data.results.find(el => el.name.toLowerCase().includes('trailer')).key;
-        btnForTrailer.addEventListener('click', startPlayTrailer);
-      } else {
-        Notiflix.Notify.info('This movie has no trailer available for viewing');
-      }
-    })
-    .catch(error => {})
-    .finally();
 }
-
-const startPlayTrailer = function (trailerKey) {
-  const instanceTrailer = basicLightbox.create(`<div class="backdrop_trailer">
-        <div class="modal_trailer">
-            <iframe src="https://www.youtube.com/embed/${trailerKey}" width="560" height="315" frameborder="0"></iframe>
-        </div>
-        </div>`);
-
-  btnForTrailer.addEventListener('click', openModalTrailer);
-  const backdropEl = document.querySelector('.backdrop_trailer');
-
-  function openModalTrailer() {
-    document.body.classList.add('show-modal_trailer');
-    instanceTrailer.show();
-    console.log(backdropEl);
-    backdropEl.addEventListener('click', onCloseTrailerModal);
-  }
-
-  function onCloseTrailerModal() {
-    instanceTrailer.close();
-    console.log(backdropEl);
-    backdropEl.removeEventListener('click', onCloseTrailerModal);
-    btnForTrailer.removeEventListener('click', () => startPlayTrailer(trailerKey));
-    trailerKey = null;
-    console.log(trailerKey);
-  }
-};
 
 function addInfoAboutFilm(data) {
   selectedFilms.push({
@@ -167,9 +120,6 @@ function onCloseModal() {
   body.classList.remove('show-modal');
   modalCard.innerHTML = '';
   window.removeEventListener('keydown', onEscKeyPress);
-  btnForTrailer.classList.add('visually-hidden');
-  trailerKey = null;
-  console.log(trailerKey);
 }
 
 function setAddButtons(filmId) {

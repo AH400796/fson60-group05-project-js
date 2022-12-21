@@ -8,9 +8,14 @@ export const clearGallery = function () {
 };
 
 export const resetSearch = function () {
-  if (!inputInfo.hasAttribute('hidden')) {
-    inputInfo.setAttribute('hidden', 'hidden');
-    searchBtn.classList.remove('ready', 'scale');
-    formSearch.reset();
+  formSearch.addEventListener('click', onFocus);
+  function onFocus() {
+    if (!inputInfo.hasAttribute('hidden')) {
+      inputInfo.setAttribute('hidden', 'hidden');
+      formSearch.removeEventListener('focus', onFocus);
+    }
   }
+
+  searchBtn.classList.remove('ready', 'scale');
+  formSearch.reset();
 };
