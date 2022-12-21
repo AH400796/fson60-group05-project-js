@@ -76,7 +76,6 @@ function onListClick(event) {
 
   onFilmCardClick(filmId)
     .then(data => {
-      addSpinner();
       addInfoAboutFilm(data);
       body.classList.add('show-modal');
       window.addEventListener('keydown', onEscKeyPress);
@@ -91,7 +90,7 @@ function onListClick(event) {
     .catch(error => {
       Notiflix.Notify.failure('Unfortunately, there is no additional information about this movie...');
     })
-    .finally(setTimeout(removeSpinner, 500));
+    .finally();
 }
 
 function addInfoAboutFilm(data) {
