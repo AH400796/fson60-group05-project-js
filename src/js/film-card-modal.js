@@ -118,6 +118,15 @@ function onEscKeyPress(event) {
 function onCloseModal() {
   body.classList.remove('show-modal');
   modalCard.innerHTML = '';
+
+  if (localStorage.getItem(`KEY_CURRENT`) !== 'Home') {
+    if (localStorage.getItem(`KEY_CURRENT`) === 'Queue') {
+      renderQueue();
+    } else if (localStorage.getItem(`KEY_CURRENT`) === 'Watched' || 'Library') {
+      renderWatched();
+    }
+  }
+
   window.removeEventListener('keydown', onEscKeyPress);
 }
 
