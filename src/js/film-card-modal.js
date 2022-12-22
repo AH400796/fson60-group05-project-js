@@ -2,7 +2,6 @@ import Notiflix from 'notiflix';
 import { onFilmCardClick } from './fetch';
 import { createFilmModalCard } from './create-markup';
 import { startPagination } from './pagination';
-import { addSpinner, removeSpinner } from './spinner';
 import { KEY_WATCHED, KEY_QUEUE } from './constants';
 import { createMarkup } from './create-markup';
 import { clearGallery } from './utility-functions';
