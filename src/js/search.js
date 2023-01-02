@@ -28,8 +28,8 @@ let page = 1;
 function onSubmit(e) {
   e.preventDefault();
   clearGallery();
-  addSpinner();
   const value = e.target[0].value.trim();
+  addSpinner();
 
   searchFilm(value, page)
     .then(data => {

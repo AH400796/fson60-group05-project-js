@@ -1,5 +1,5 @@
-import './js/header-navigation';
 import './js/create-markup';
+import './js/firebase';
 import './js/film-card-modal';
 import './js/pagination';
 import './js/footer-modal.js';

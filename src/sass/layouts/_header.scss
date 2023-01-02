@@ -125,7 +125,11 @@
 
 .header__nav {
   margin-left: auto;
-  margin-right: 40px;
+  margin-right: 20px;
+
+  @media screen and (min-width: ($tablet)) {
+    margin-right: 40px;
+  }
 }
 
 .header__authentication {
@@ -153,7 +157,8 @@
   }
 }
 
-.header__auth-link,
+.header__auth-signIn,
+.header__auth-signOut,
 .header__nav-link {
   position: relative;
 
@@ -169,6 +174,10 @@
     color: $color-current-underline;
 
     transition: color $timing-function;
+  }
+
+  &.hidden {
+    display: none;
   }
 }
 
@@ -222,6 +231,7 @@
 .header__input-wrapper {
   position: relative;
   display: inline-block;
+
   &.hidden {
     display: none;
   }
@@ -241,6 +251,10 @@
   }
 }
 
+.js-library.hidden {
+  display: none;
+}
+
 .library-button {
   display: flex;
   gap: 20px;
@@ -255,7 +269,7 @@
 }
 
 .header__nav-item.current .header__nav-link::after,
-.header__authentication.current .header__auth-link::after {
+.header__auth-signIn.current::after {
   position: absolute;
   bottom: -3px;
   right: 0;
@@ -285,32 +299,133 @@
   fill: currentColor;
 }
 
-.sign-in-modal {
-  position: absolute;
-  z-index: 100;
-  bottom: -390px;
-  right: 0;
-  width: 260px;
-  height: 400px;
+.auth__modal-backdrop {
+  z-index: 1500;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $color-overlay-sign;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
 
-  padding: 10px;
+body.show-auth-modal .auth__modal-backdrop {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  cursor: auto;
+}
+
+.auth__modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  height: 350px;
+  padding: 0px 10px;
 
   color: $color-background;
+  background-size: cover;
+  background-repeat: no-repeat;
   background-image: url(../images/header/modal-sign-in-bg.png);
   border: 1px solid $color-accent;
-  border-radius: 15px 0 15px 15px;
+  border-radius: 15px;
   box-shadow: $shadow-modal-sign-in;
   cursor: auto;
 }
 
-.sign-in__label {
+.sign-in__form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
-  color: $color-accent;
+  padding: 10px;
+  text-align: center;
 }
 
-.sign-in__input {
-  background-color: transparent;
+.sign-in__label {
+  color: $color-accent;
+  margin-top: 30px;
+}
+
+.sign-in__input-email,
+.sign-in__input-password {
+  border: 1px solid transparent;
+  background-color: $color-background;
+
+  border-radius: 20px;
+  padding: 3px 0 3px 10px;
+
+  font-size: 16px;
+  font-weight: 400;
+  outline: transparent;
+
+  &:hover,
+  &:focus {
+    border: 1px solid $color-accent;
+  }
+
+  &::placeholder {
+    font-size: 14px;
+  }
+}
+
+.sign__btn {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.sign-in__btn,
+.sign-up__btn {
+  width: 90px;
+  padding: 5px 15px;
+  border-radius: 10px;
+  margin-top: 30px;
+  font-size: 14px;
+  text-transform: uppercase;
+  border: none;
+  outline: transparent;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: $color-accent;
+    color: $color-background;
+  }
+}
+
+.sign-in-with-google__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 200px;
+  padding: 10px;
+  border-radius: 20px;
+  margin-top: 30px;
+  font-size: 14px;
+  text-transform: uppercase;
+  border: none;
+  outline: transparent;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: $color-accent;
+    color: $color-background;
+  }
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
 }

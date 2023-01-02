@@ -33,3 +33,4 @@ export const getTrailerKey = async function (filmId) {
   }
   return await response.json();
 };
+

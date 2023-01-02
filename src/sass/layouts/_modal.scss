@@ -27,7 +27,7 @@ body.show-modal .backdrop {
   border-radius: 5px;
 
   @media screen and (max-width: ($tablet - 0.02px)) {
-    top: 80%;
+    top: 90%;
   }
 }
 
@@ -189,7 +189,6 @@ body.show-modal .backdrop {
   color: $color-background;
 
   padding: 1px 10px;
-
   margin-left: 41px;
   margin-right: 2px;
   border-radius: 5px;
@@ -268,7 +267,6 @@ body.show-modal .backdrop {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   @media screen and (min-width: 1280px) {
     justify-content: start;
     align-items: start;
@@ -291,6 +289,7 @@ body.show-modal .backdrop {
   padding: 0 10px;
 
   text-transform: uppercase;
+  cursor: pointer;
 
   transition: background-color $timing-function, color $timing-function;
 
@@ -311,5 +310,9 @@ body.show-modal .backdrop {
     background: $color-accent;
     border-color: $color-accent;
     color: $color-background;
+  }
+
+  &.hidden {
+    display: none;
   }
 }

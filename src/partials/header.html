@@ -10,7 +10,7 @@
           <li class="header__nav-item js-home">
             <p id="home" class="header__nav-link">Home</p>
           </li>
-          <li class="header__nav-item js-library">
+          <li class="header__nav-item js-library hidden">
             <p id="mylib" class="header__nav-link">My library</p>
           </li>
           <!-- Перемикач темної теми -->
@@ -25,10 +25,14 @@
             </svg>
           </li>
         </ul>
-      </nav>      
+      </nav>
+      <div class="header__authentication js-sign-in">
+        <p class="header__auth-signIn">Sign in</p>
+        <p class="header__auth-signOut hidden">Sign out</p>
+      </div>
     </div>
     <form class="header__form">
-      <div class="header__input-wrapper js-input">
+      <div class="header__input-wrapper js-input hidden">
         <input class="header__input" type="text" placeholder="Movie search" name="searchFilm" autocomplete="off" />
         <p class="header__input-info" hidden>Search result not successful. Enter the correct movie name.</p>
         <button class="search-button js-search" type="submit">
@@ -42,5 +46,10 @@
         <button class="queue-button js-queue hidden" type="button">Queue</button>
       </div>
     </form>
+  </div>
+  <div class="auth__modal-backdrop">
+    <div id="auth__modal" class="auth__modal" data-modal>
+      <!-- Форма входу -->
+    </div>
   </div>
 </header>

@@ -4,6 +4,7 @@ import { searchFilm } from './fetch';
 import { clearGallery } from './utility-functions';
 import { getTrendingFilms } from './fetch';
 import { createMarkup } from './create-markup';
+import { removeSpinner, addSpinner } from './spinner';
 
 export const startPagination = function (totalFilms) {
   const screenWidth = window.screen.width;
@@ -68,8 +69,8 @@ function renderTrendPaginationQuery(pageNumber) {
     })
     .catch(error => {
       Notiflix.Notify.failure('Oops, something went wrong!');
-    })
-    .finally();
+    });
+  // .finally(removeSpinner);
 }
 
 function renderSearchPaginationQuery(filmName, pageNumber) {
@@ -80,6 +81,6 @@ function renderSearchPaginationQuery(filmName, pageNumber) {
     })
     .catch(error => {
       Notiflix.Notify.failure('Oops, something went wrong!');
-    })
-    .finally();
+    });
+  // .finally(removeSpinner);
 }

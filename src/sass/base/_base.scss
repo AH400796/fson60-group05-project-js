@@ -10,7 +10,8 @@ body {
   color: $color-primary-text;
 
   &.show-modal,
-  &.show-modal1 {
+  &.show-modal1,
+  &.show-auth-modal {
     overflow: hidden;
   }
 }

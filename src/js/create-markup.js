@@ -1,5 +1,6 @@
 const gallery = document.querySelector('.gallery__list');
 const modalCard = document.querySelector('.modal__film-card-wrapper');
+const modal = document.getElementById('auth__modal');
 
 export const createMarkup = function (data, rating) {
   gallery.innerHTML = '';
@@ -18,7 +19,7 @@ export const createMarkup = function (data, rating) {
       return `<li class="gallery__item">
     <div class="id" hidden> ${item.id} </div>
     <div class="thumb">
-    <img src="${poster}" alt="${item.title}" loading="lazy" width="280">
+    <img src="${poster}" alt="${item.title}" width="280">
     </div>
     <div class="gallery__info-wrapper">
     <p class="gallery__title">${(item.original_title || item.original_name).toUpperCase()}</p>
@@ -72,7 +73,7 @@ export const createFilmModalCard = function (data, watchedBtnContext, queueBtnCo
     data.poster_path && data.poster_path !== null
       ? `https://image.tmdb.org/t/p/original/${data.poster_path}`
       : `https://i.ibb.co/mbchPsg/no-poster.png`;
-  const markup = `<div class="thumb_modal-card"><img class="modal__card-img img" src="${poster}" loading="lazy" alt="${data.original_title}" 
+  const markup = `<div class="thumb_modal-card"><img class="modal__card-img img" src="${poster}" alt="${data.original_title}" 
         ></div>      
       <div class="modal__card"> 
         <h3 class="modal__card-title">${data.title}</h3> 
@@ -103,12 +104,40 @@ export const createFilmModalCard = function (data, watchedBtnContext, queueBtnCo
         <p id="card__item-about__text" class="card__item-about__text card__item-text">${data.overview}</p> 
          <ul class="card__btn-list list"> 
           <li class="card__btn-item"> 
-            <button class="${isSelectedWatched}">${watchedBtnContext}</button> 
+            <button class="${isSelectedWatched} hidden">${watchedBtnContext}</button> 
           </li> 
           <li class="card__btn-item"> 
-            <button class="${isSelectedQueue}">${queueBtnContext}</button> 
+            <button class="${isSelectedQueue} hidden">${queueBtnContext}</button> 
           </li> 
         </ul> 
       </div> `;
   modalCard.insertAdjacentHTML('beforeend', markup);
+};
+
+export const createModalAuthForm = function () {
+  const markupForm = `<form class="sign-in__form" name="sign-in-form">
+  <label class="sign-in__label">
+    <span class="sign-in__field">
+      <input class="sign-in__input-email" type="email" name="email" placeholder="Email" required minlength="4" />
+    </span>
+  </label>
+  <label class="sign-in__label">
+    <span class="sign-in__field">
+      <input class="sign-in__input-password" type="text" name="password" placeholder="Password" required minlength="6" maxlength="12" />
+    </span>
+  </label>
+  <div class="sign__btn">
+    <button class="sign-in__btn" type="submit">
+      Sign in
+    </button>
+    <button class="sign-up__btn" type="submit">
+      Sign up
+    </button>    
+  </div>  
+</form>
+<button class="sign-in-with-google__btn" type="submit">
+  <img class="google-icon" src="https://i.ibb.co/7tV3M1B/Frame-3-1.png" alt="google" width="20" height="20">    
+      Sign in with Google
+    </button> `;
+  modal.innerHTML = markupForm;
 };

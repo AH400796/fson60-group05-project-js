@@ -4,40 +4,36 @@
   overflow-y: scroll;
 }
 
+.basicLightbox__placeholder {
+  position: relative;
+}
+
 .team-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -7%);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 
-  width: 320px;
+  width: 240px;
   height: auto;
   padding: 20px 10px;
-  margin: -20px;
+  border-radius: 15px;
 
   background-color: $orange;
 
-  @media screen and (max-width: 768px) {
-    margin-top: 70px;
-    width: 240px;
-
-    border-radius: 15px;
-  }
-
-  @media screen and (max-width: (768px - 1)) {
-    margin-top: 200%;
-  }
-
   @media screen and (min-width: 768px) {
-    margin-top: 40%;
     width: 600px;
-
+    transform: translate(-50%, -20%);
     border-radius: 25px;
   }
 
   @media screen and (min-width: 1280px) {
-    margin: -30px;
     width: 1280px;
+    transform: translate(-50%, -50%);
   }
 }
 
@@ -108,17 +104,4 @@
 
 .team-role {
   position: relative;
-}
-
-.basicLightbox__placeholder {
-  position: relative;
-  top: -40%;
-
-  @media screen and (min-width: 768px) {
-    top: -20%;
-  }
-
-  @media screen and (min-width: 1280px) {
-    top: 20%;
-  }
 }

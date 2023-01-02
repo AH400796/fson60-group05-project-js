@@ -8,7 +8,7 @@ $font-text: 'Roboto', sans-serif;
 
 //     Colors
 $color-primary-text: #000000;
-$color-border: #000000;
+$color-border: rgb(0, 0, 0);
 $color-secondary-text: #8c8c8c;
 $color-footer-text: #545454;
 $color-background: #ffffff;
@@ -19,6 +19,7 @@ $color-current-underline: #ff001b;
 $color-overlay-modal: rgba(0, 0, 0, 0.25);
 $color-btn-trailer: rgba(255, 255, 255, 0.3);
 $color-overlay-header: rgba(0, 0, 0, 0.56);
+$color-overlay-sign: rgba(0, 0, 0, 0.95);
 $color-tui-border: #ddd;
 $color-tui-border-selected: #4b96e6;
 $white: #ffff;
