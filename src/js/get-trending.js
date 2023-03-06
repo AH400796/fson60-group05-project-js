@@ -5,7 +5,7 @@ import { clearGallery } from './utility-functions';
 import { addSpinner, removeSpinner } from './spinner';
 import { startPagination, setTrendPagination } from './pagination';
 
-let page = 1;
+let page = localStorage.getItem('PAGINATION_PAGE') || 1;
 
 export const renderTrendingFilms = function () {
   clearGallery();

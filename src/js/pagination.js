@@ -12,7 +12,7 @@ export const startPagination = function (totalFilms) {
   if (screenWidth < 400) {
     pagBtnNumder = 3;
   }
-  let page = 1;
+  let page = localStorage.getItem('PAGINATION_PAGE') || 1;
   const container = document.getElementById('pagination');
   const options = {
     totalItems: totalFilms,
@@ -33,6 +33,12 @@ export const startPagination = function (totalFilms) {
   };
 
   const pagination = new Pagination(container, options);
+
+  document.querySelectorAll('.tui-page-btn').forEach(element => {
+    if (element.textContent === localStorage.getItem('PAGINATION_PAGE')) {
+      element.classList.add('tui-is-selected');
+    }
+  });
 };
 
 export const setTrendPagination = function (page) {
@@ -45,6 +51,7 @@ export const setTrendPagination = function (page) {
       }
     }
     renderTrendPaginationQuery(page);
+    localStorage.setItem('PAGINATION_PAGE', page);
   }
 };
 
@@ -58,6 +65,7 @@ export const setSearchPagination = function (value, page) {
       }
     }
     renderSearchPaginationQuery(value, page);
+    localStorage.setItem('PAGINATION_PAGE', page);
   }
 };
 

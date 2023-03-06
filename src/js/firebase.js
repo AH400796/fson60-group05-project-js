@@ -5,8 +5,6 @@ import { getDatabase, ref, child, get } from 'firebase/database';
 import { createModalAuthForm } from './create-markup';
 import { onClickHome } from './film-card-modal';
 
-const provider = new GoogleAuthProvider();
-
 const firebaseConfig = {
   apiKey: 'AIzaSyCK5BybKr13x2hdBlDr6frKEP3bzJZuwXQ',
   authDomain: 'filmoteka-d7ac8.firebaseapp.com',
@@ -20,7 +18,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 export const database = getDatabase(app);
-export const dbRef = ref(database);
+const dbRef = ref(database);
+const provider = new GoogleAuthProvider();
 
 const { signIn, signOutBtn, modalBackdrop, library } = {
   signIn: document.querySelector('.header__auth-signIn'),
@@ -60,6 +59,7 @@ function onClickSignIn() {
     if (event.submitter === signInBtn) {
       signInWithEmailAndPassword(auth, email, password)
         .then(userCredential => {
+          localStorage.removeItem('PAGINATION_PAGE');
           const userId = userCredential.user.uid;
           localStorage.setItem('userId', userId);
           setAuthorized(userId);
@@ -78,6 +78,7 @@ function onClickSignIn() {
     if (event.submitter === signUpBtn) {
       createUserWithEmailAndPassword(auth, email, password)
         .then(userCredential => {
+          localStorage.removeItem('PAGINATION_PAGE');
           const userId = userCredential.user.uid;
           localStorage.setItem('userId', userId);
           setAuthorized(userId);
@@ -95,6 +96,7 @@ function onClickSignIn() {
   function onClickGoogleBtn() {
     signInWithPopup(auth, provider)
       .then(result => {
+        localStorage.removeItem('PAGINATION_PAGE');
         const userId = result._tokenResponse.localId;
         localStorage.setItem('userId', userId);
         setAuthorized(userId);
@@ -177,5 +179,6 @@ function setAnauthorized() {
   localStorage.removeItem('CLICKED_FILMS');
   localStorage.removeItem('BUTTON_WACHED_ASSIGNMENT');
   localStorage.removeItem('BUTTON_QUEUE_ASSIGNMENT');
+  localStorage.removeItem('PAGINATION_PAGE');
   localStorage.removeItem('userId');
 }
