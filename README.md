@@ -1,1 +1,1 @@
-Груповий проект "Filmoteka", реалізований групою #05, який включає реалізацію вивченого та підсумовує пройдений матеріал в курсі Full Stack Developer (HTML / CSS / JavaScript).
+# "Filmoteka" - the group project,  which includes the implementation of what has been learned and summarizes the material covered in the  HTML / CSS / JavaScript course.
